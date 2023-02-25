@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="/css/layouts.css">
+    <%-style%>
 </head>
 <body>
-    <h1>welcome to  Users</h1>
-    <a href="/users/Profile" >users/profile</a>
+    
+    <%- include('posts') %>
+    
+    <%- body %>
+    <%- include('users') %>
+    <%-script%>
 </body>
 </html>
