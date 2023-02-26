@@ -9,7 +9,8 @@ router.get('/' , home_controller.home);
 router.get('/about' , home_controller.about);
  router.use('/posts' , require('./posts') );
 router.use('/users' , require('./users') );
-router.get('/signup' , home_controller.signup )
+
+router.post( '' )
 
 console.log('router from routes is loaded');
 module.exports = router ;
