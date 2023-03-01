@@ -1,49 +1,109 @@
 const user = require('../models/user');
-module.exports.profile = (req , res )=>{
-   return res.end('<h1>welcome to  Users Profile </h1>')
+
+
+module.exports.profile = (req, res) => {
+   // if (req.cookies.user_id) {
+   //    user.findOne({ _id: req.cookies.user_id }, (err, data) => {
+   //       if (err) {
+   //          console.log("error in finding the user")
+   //          return
+   //       }
+   //       else if (data) {
+   //          return res.render('user_profile', { user: data })
+   //       }
+   //       else {
+
+   //          return res.redirect('/users/signin');
+   //       }
+
+   //    })
+   // } else {
+   //    return res.redirect('/users/signin');
+   // }
+
+   return res.render('user_profile');
+
+
 }
-module.exports.users = (req , res )=>{
+module.exports.users = (req, res) => {
    return res.render('users')
 }
 
-module.exports.signup = function(req , res ){
-   // console.log(req.cookies);
-   // res.cookie('user_id' , 23)
-   // console.log(req.body);
-   return res.render('user_signup');
+module.exports.signup = function (req, res) {
+   if (req.isAuthenticated()) {
+      return res.redirect('/users/profile');
+   }
+   else {
+      return res.render('user_signup');
+   }
 }
 
-module.exports.create = function(req , res){
+module.exports.signout = (req, res) => {
+   // console.log(req.cookies.user_id);
+   res.cookie('user_id', '');
+   return res.redirect('/users/signin')
+}
+
+module.exports.create = function (req, res) {
    // console.log(req.body);
-   if(req.body.password != req.body.confirmpassword){
+   if (req.body.password != req.body.confirmpassword) {
       return res.redirect('back');
    }
-   user.findOne({email : req.body.email} , (err , data)=>{
-      if(err){
+   user.findOne({ email: req.body.email }, (err, data) => {
+      if (err) {
          console.log('error while finding email');
          return;
-      }      
-      if(!data){
-            user.create({
-               email : req.body.email ,
-               password : req.body.password,
-               name : req.body.name
-            } , (err, data)=>{
-               if(err){
-                  console.log('error while creating profile')
-                  return ;
-               }
-               return res.render('user_signin');
-            })
-         }
-      else{
-            return res.redirect('/users');
-         }
-      
-   } )
-   // return res.render('user_signin');
+      }
+      if (!data) {
+         user.create({
+            email: req.body.email,
+            password: req.body.password,
+            name: req.body.name
+         }, (err, data) => {
+            if (err) {
+               console.log('error while creating profile')
+               return;
+            }
+            return res.render('user_signin');
+         })
+      }
+      else {
+         return res.redirect('/users');
+      }
+
+   })
+
 }
 
-module.exports.signin = (req , res)=>{
-   return res.render('user_signin');
+module.exports.signin = (req, res) => {
+   if (req.isAuthenticated()) {
+      return res.redirect('/users/profile');
+   }
+   else {
+      return res.render('user_signin');
+   }
+}
+
+
+
+module.exports.create_session = (req, res) => {
+   // console.log(req.body);
+   // user.findOne({ email: req.body.email }, (err, data) => {
+   //    if (err) {
+   //       console.log("error while searching for email")
+   //       return;
+   //    }
+   //    else {
+   //       // console.log(data);
+   //       if (data.email === req.body.email && data.password === req.body.password) {
+   //          res.cookie('user_id ', data._id);
+
+   //          return res.redirect('/users/profile');
+   //       }
+   //       else {
+   //          return res.redirect('back');
+   //       }
+   //    }
+   // })
+   return res.redirect('/users/profile')
 }
