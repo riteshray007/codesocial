@@ -40,8 +40,14 @@ module.exports.signup = function (req, res) {
 
 module.exports.signout = (req, res) => {
    // console.log(req.cookies.user_id);
-   res.cookie('user_id', '');
-   return res.redirect('/users/signin')
+   // res.cookie('user_id', '');
+   req.logout( function(err){
+      if(err){
+         console.log(err);
+      }
+   } );
+
+   return res.redirect('/users')
 }
 
 module.exports.create = function (req, res) {
