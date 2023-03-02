@@ -9,18 +9,29 @@ const session = require('express-session');
 const passport = require('passport')
 const passportlocal = require('./config/passport-local-strategy');
 const mongoStore = require('connect-mongo')
-
+const sassmiddleware = require('node-sass-middleware');
 
 const app = express();
+
+app.use(sassmiddleware({
+    src: '/assets/scss',
+    dest : '/assets/css',
+    debug : true,
+    outputStyle : 'extended',
+    prefix : '/css'
+}))
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(cookieparser());
 
 app.use(expresslayouts);
 app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true );
+
+
 app.use(express.static('./assets'))
 app.set('view engine' , 'ejs');
 app.set('views' , './views');
-app.use(bodyParser.urlencoded({extended : false}));
-app.use(cookieparser());
+
 app.use(session({
     name : 'codesocial',
     secret : 'youcantakeanything',

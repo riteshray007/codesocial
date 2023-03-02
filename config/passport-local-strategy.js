@@ -1,6 +1,5 @@
 const passport = require('passport')
 
-// const LocalStrategy = require('local').Strategy;
 var LocalStrategy = require('passport-local').Strategy;
 
 const user = require('../models/user')
@@ -9,16 +8,16 @@ const user = require('../models/user')
 
 passport.use(new LocalStrategy({
     usernameField: 'email'
+    //above line is not required u have username in your db which is email in our case 
+    // also we have allowed user to have common name 
 },
     function (email, password, done) {
         user.findOne({ email: email }, (err, user) => {
-
             if (err) {
                 console.log('error in finding user -- passport')
                 return done(err);
             }
-
-            if (!user || user.password != password) {
+            if (!user || user.password != password){
                 console.log("invalid credentials ");
                 return done(null, false);
             }
