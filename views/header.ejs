@@ -1,0 +1,36 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+<body >
+
+    <div class="pageheader"  >
+
+        <h3 class="websiteName" > codesocial </h3>
+        
+    
+        <% if(locals.user) { %>
+            
+        <h4> <%=user.name%> </h4>
+        <h4> <a href="/users/profile" > Profile </a> </h4>
+        <h4> <a href="/users/signout" > Sign-Out </a> </h4>
+
+    <% } else{ %>
+
+        <h4> <a href="/users/signin" > Sign-In </a> </h4>
+        <h4> <a href="/users/signup" > Sign-Up </a> </h4>
+
+        <% } %>
+    </div>
+        
+        
+</body>
+</html>

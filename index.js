@@ -14,8 +14,8 @@ const sassmiddleware = require('node-sass-middleware');
 const app = express();
 
 app.use(sassmiddleware({
-    src: '/assets/scss',
-    dest : '/assets/css',
+    src: path.join( __dirname , 'assets/scss' ) ,
+    dest : path.join( __dirname , '/assets/css'),
     debug : true,
     outputStyle : 'extended',
     prefix : '/css'
@@ -28,7 +28,7 @@ app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true );
 
 
-app.use(express.static('./assets'))
+app.use(express.static(path.join( __dirname , 'assets' )))
 app.set('view engine' , 'ejs');
 app.set('views' , './views');
 
