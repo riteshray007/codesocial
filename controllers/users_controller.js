@@ -1,6 +1,7 @@
 const user = require('../models/user');
 
 
+
 module.exports.profile = (req, res) => {
    // if (req.cookies.user_id) {
    //    user.findOne({ _id: req.cookies.user_id }, (err, data) => {
@@ -113,3 +114,5 @@ module.exports.create_session = (req, res) => {
    // })
    return res.redirect('/users/profile')
 }
+
+

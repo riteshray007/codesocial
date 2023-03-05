@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
     <h1> welcome to posts </h1>
-    <a href="/posts/stats" >posts/stats</a>
+
+      <%  for(let i of posts){  %>
+
+            <p> <%= i.user.name %> </p>
+            <p> <%= i.content %> </p>
+
+       <% } %>
+
+       <!-- <% let v = new Date() %>
+        <p><%=  typeof v %></p> -->
+        <!-- <p><%= v.getMonth()+1 %></p> -->
+
 </body>
 </html>
