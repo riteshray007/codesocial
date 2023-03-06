@@ -1,0 +1,38 @@
+.vcenter {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.postbox {
+  background-color: white;
+  width: 40vw;
+  border-radius: 10px;
+  padding: 20px 20px;
+  margin: 10px 1px; }
+  .postbox .userinfo {
+    display: flex; }
+    .postbox .userinfo .username {
+      text-transform: capitalize; }
+  .postbox .avatar {
+    margin-right: 10px; }
+  .postbox .contentbox {
+    min-width: 70%;
+    min-height: 30px;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    display: flex;
+    background-color: #cad2c5;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: sans-serif; }
+  .postbox .likescomments {
+    margin: 0px 5px;
+    display: flex;
+    align-items: center; }
+    .postbox .likescomments .likes, .postbox .likescomments .comments {
+      margin: 0px 5px; }
+
+.avatar {
+  width: 50px; }

@@ -4,21 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/posts.css">
 </head>
 <body>
 
-    <h1> welcome to posts </h1>
-
+   
+     <% function getst(d) { %>
+     <%    if (d > 3 && d < 21) { return 'th'   %>
+       <% }else if(d%10 == 1) {return 'st' %>
+       <% }else if(d%10 == 2 ) {return 'nd' %>
+       <% }else if(d%10 == 3) {return 'rd' %>
+       <% }else {return 'th' %>
+     <%  }  }   %>
+ 
+     
+     <h1 class="vcenter " style="text-align:center" > welcome to posts </h1>
+     
       <%  for(let i of posts){  %>
 
-            <p> <%= i.user.name %> </p>
-            <p> <%= i.content %> </p>
+        <% let v =  i.createdAt %> 
+        <% let date =  v.getDate()  %>
+        <% let st = getst(date)  %>
+        <% date = date + st  %>
 
+
+
+                 
+        <div   class="postbox vcenter" >
+
+            <div class=" userinfo " >
+                <span>
+                    <img src="/images/gamer.png" class="avatar" >
+                </span>
+                <span>
+                    <h4 class="username"  > <%= i.user.name %> </h4>  
+                    <span class="posttime" > <%= date  + " " + v.toLocaleTimeString([] , { month: 'long', hour: '2-digit' , minute: '2-digit' })  %> </span>
+                </span>
+            </div>
+            
+            <!-- <p> <%=  %> </p> -->
+            <p class="contentbox" > <%=  i.content %> </p>
+
+            <div class="likescomments" >
+                <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span>
+                <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
+            </div>
+            
+        </div>
        <% } %>
 
-       <!-- <% let v = new Date() %>
-        <p><%=  typeof v %></p> -->
-        <!-- <p><%= v.getMonth()+1 %></p> -->
-
+       
 </body>
 </html>

@@ -1,0 +1,60 @@
+
+
+.vcenter{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.postbox{
+    background-color: white;
+    width: 40vw;
+    border-radius: 10px;
+    padding: 20px 20px;
+    margin: 10px 1px;
+    // border: 1px solid red;    
+
+    .userinfo{
+        display: flex;
+
+        .username{
+            text-transform: capitalize;
+        }
+    }
+
+    .avatar{
+        margin-right: 10px;
+    }
+
+    .contentbox{
+        min-width: 70%;
+        min-height: 30px;
+        padding: 10px 10px;
+        margin: 10px 10px ;
+        display: flex;
+        background-color: #cad2c5 ;
+        align-items: center;
+        border-radius: 10px;
+        font-size: 17px ;
+        font-weight: 600;
+        font-family: sans-serif ;
+
+    }
+
+    .likescomments{
+        margin: 0px 5px;
+        display: flex;
+        align-items: center;
+
+        .likes , .comments{
+             
+            margin: 0px 5px ;
+
+        }
+    }
+
+}
+.avatar{
+    width: 50px;
+}

@@ -18,10 +18,9 @@
     
         <% if(locals.user) { %>
             
-        <h4> <%=user.name%> </h4>
-        <h4> <a href="/users/profile" > Profile </a> </h4>
-        <h4> <a href="/users/signout" > Sign-Out </a> </h4>
+        <h4> <a href="/users/profile" ><%=user.name%> </a> </h4>
         <h4> <a href="/posts" > Feeds </a> </h4>
+        <h4> <a href="/users/signout" > Sign-Out </a> </h4>
 
     <% } else{ %>
 
@@ -32,6 +31,6 @@
     </div>
         
      
-    
+    <script type="text/javascript" src="/js/layouts.js" ></script>
 </body>
 </html>

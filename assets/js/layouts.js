@@ -1,5 +1,7 @@
-document.querySelector('.websiteName').addEventListener( 'click' ,  browse);
+let mainheader = document.querySelector('.websiteName')
 
-        function browse(){
-            window.location.href = '/' ;
-        }
+mainheader.addEventListener('click', browse);
+function browse() {
+    window.location.href = '/';
+}
+

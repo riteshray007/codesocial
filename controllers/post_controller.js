@@ -9,21 +9,16 @@ module.exports.post = (req , res )=>{
         }
         return res.render( 'posts' , {
             posts : post
-        } )
+        })
     })
-
-    var v = new Date().toJSON().slice(0,10);
-    console.log(v);
 
 }
 
 module.exports.stats= (req , res)=>{
     return res.end('<h1> welcome to posts stats </h1>')
-
 }
 
 module.exports.create_post = (req , res)=>{
-
     post.create({
        content : req.body.content, 
        user : req.user._id
@@ -33,6 +28,6 @@ module.exports.create_post = (req , res)=>{
           return ;
        }
     })
- 
+
     return res.redirect('/posts');
  }
