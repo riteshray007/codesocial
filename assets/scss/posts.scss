@@ -20,6 +20,9 @@
 
         .username{
             text-transform: capitalize;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-family: 'Rampart One', cursive;
         }
     }
 
@@ -42,14 +45,58 @@
 
     }
 
+    .commentbox  form {
+        // border: 1px solid red;
+        display: flex;
+        align-items: center;
+
+        .commentbutton{
+            // max-height: 30px;
+        padding: 8px 10px;
+        margin: 10px 10px ;
+        border-radius: 10px;
+        border-width: 0px;
+        font-family: sans-serif;
+        color: inherit;
+        font-weight: 600;
+        background-color: #cad2c5;
+        }
+
+    }
+
+    .commentbox textarea{
+        resize: none;
+        min-width: 70%;
+        max-height: 20px;
+        padding: 8px 10px;
+        margin: 10px 10px ;
+        display: flex;
+        background-color: #cad2c5 ;
+        align-items: center;
+        border-radius: 10px;
+        // font-size: 17px ;
+        font-weight: 500;
+        font-family: sans-serif ;
+        // overflow: scroll;
+        // scroll-behavior: smooth;
+        // scroll-margin: 1px;
+    }
+
+    .commentbox textarea::-webkit-scrollbar {
+        display: none;
+      }
+
     .likescomments{
         margin: 0px 5px;
         display: flex;
         align-items: center;
+        font-size: 17px;
+
 
         .likes , .comments{
              
             margin: 0px 5px ;
+            cursor: pointer;
 
         }
     }

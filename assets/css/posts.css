@@ -12,7 +12,10 @@
   .postbox .userinfo {
     display: flex; }
     .postbox .userinfo .username {
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      font-size: 20px;
+      letter-spacing: 1px;
+      font-family: 'Rampart One', cursive; }
   .postbox .avatar {
     margin-right: 10px; }
   .postbox .contentbox {
@@ -27,12 +30,40 @@
     font-size: 17px;
     font-weight: 600;
     font-family: sans-serif; }
+  .postbox .commentbox form {
+    display: flex;
+    align-items: center; }
+    .postbox .commentbox form .commentbutton {
+      padding: 8px 10px;
+      margin: 10px 10px;
+      border-radius: 10px;
+      border-width: 0px;
+      font-family: sans-serif;
+      color: inherit;
+      font-weight: 600;
+      background-color: #cad2c5; }
+  .postbox .commentbox textarea {
+    resize: none;
+    min-width: 70%;
+    max-height: 20px;
+    padding: 8px 10px;
+    margin: 10px 10px;
+    display: flex;
+    background-color: #cad2c5;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 500;
+    font-family: sans-serif; }
+  .postbox .commentbox textarea::-webkit-scrollbar {
+    display: none; }
   .postbox .likescomments {
     margin: 0px 5px;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    font-size: 17px; }
     .postbox .likescomments .likes, .postbox .likescomments .comments {
-      margin: 0px 5px; }
+      margin: 0px 5px;
+      cursor: pointer; }
 
 .avatar {
   width: 50px; }

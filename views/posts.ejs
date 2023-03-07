@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/posts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -49,10 +52,22 @@
                 <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span>
                 <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
             </div>
-            
+            <div class="commentbox" >
+                <form action="/posts/create_comment/?id=<%=i._id%>" method="post" >
+
+                    <textarea required name="content"  spellcheck="false" placeholder="Type here ... " adjust ></textarea>
+                    <button class="commentbutton" > Add Comment </button>
+                </form>
+                
+            </div>
+            <!-- <%= i.comments %> -->
+             <% for(c of  i.comments ){ %>
+                <%= c.user.name %>
+                <p><%= c.content %> </p>
+            <% }  %>            
         </div>
        <% } %>
 
-       
+       <script src="/js/posts.js" ></script>
 </body>
 </html>

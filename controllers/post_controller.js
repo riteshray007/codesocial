@@ -1,8 +1,18 @@
 const post = require('../models/posts')
 const user = require('../models/user');
+const comments = require('../models/comments')
+
 module.exports.post = (req , res )=>{
 
-    post.find({}).populate('user').exec(function(err , post){
+    post.find({})
+    .populate('user')
+    .populate({
+        path : 'comments',
+        populate : {
+            path : 'user'
+        }
+    })
+    .exec(function(err , post){
         if(err){
             console.log('err while populating ')
             return ;
@@ -11,6 +21,8 @@ module.exports.post = (req , res )=>{
             posts : post
         })
     })
+
+
 
 }
 
@@ -30,4 +42,42 @@ module.exports.create_post = (req , res)=>{
     })
 
     return res.redirect('/posts');
+ }
+
+ module.exports.create_comment = (req , res)=>{
+    // comments.create({
+    //     content : req.body.content,
+    //     user : req.user._id,
+    //     post : req.query.id
+    // } , (err , data)=>{
+    //     if(err){
+    //         console.log(err);
+    //         return ;
+    //     }
+    //     console.log(data);
+    //     return res.redirect('back');
+    // })   
+    post.findById( req.query.id , (err , post )=>{
+        if(err){
+            console.log(err)
+            return ;
+        }
+        if(post){
+            comments.create({
+                content : req.body.content,
+                user : req.user._id,
+                post : req.query.id 
+            } , (err , data)=>{
+                if(err){
+                    console.log(err);
+                    return 
+                }
+                post.comments.push(data);
+                post.save();
+                return res.redirect('back');
+            })
+        }
+    })
+    
+
  }
