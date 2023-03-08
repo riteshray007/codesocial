@@ -25,7 +25,7 @@
      
       <%  for(let i of posts){  %>
 
-        <% let v =  i.createdAt %> 
+        <% let v =  i.updatedAt %> 
         <% let date =  v.getDate()  %>
         <% let st = getst(date)  %>
         <% date = date + st  %>
@@ -61,11 +61,26 @@
                 
             </div>
             <!-- <%= i.comments %> -->
-             <% for(c of  i.comments ){ %>
-                <%= c.user.name %>
-                <p><%= c.content %> </p>
+            
+            <div class="commentlist" >
+                <% for(c of  i.comments ){ %>
+                <div class="comment" >
+                    <span>
+                        <img src="/images/gamer.png" class="comm_avatar" >
+                    </span>
+                    <% let x = c.updatedAt %>
+                    <span class="name_com" >
+                        <p class="username" > <%= c.user.name %> </p>
+                        <p class="commenttime" ><%= x.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) %></p>
+                        <p><%= c.content %> </p>
+                    </span>
+                    
+                </div>
+                
             <% }  %>            
+             </div>
         </div>
+
        <% } %>
 
        <script src="/js/posts.js" ></script>

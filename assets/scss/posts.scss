@@ -28,6 +28,7 @@
 
     .avatar{
         margin-right: 10px;
+        width: 50px;
     }
 
     .contentbox{
@@ -101,7 +102,34 @@
         }
     }
 
-}
-.avatar{
-    width: 50px;
+    .commentlist{
+        // margin: 5px 10px ;
+        width: 80%;
+        .comment{
+            margin: 5px 10px  ;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+
+            .username{
+                text-transform: capitalize;
+            font-size: 17px;
+            font-weight: 500;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 1px;
+            }
+
+            .commenttime{
+                
+            }
+
+            .name_com{
+                margin: 0px 10px;
+            }
+            .comm_avatar{
+                width: 40px;
+            }
+        }
+    }
+
 }
