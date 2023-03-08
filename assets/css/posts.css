@@ -66,11 +66,15 @@
       margin: 0px 5px;
       cursor: pointer; }
   .postbox .commentlist {
-    width: 80%; }
+    width: 95%;
+    max-height: 200px;
+    overflow: scroll; }
     .postbox .commentlist .comment {
-      margin: 5px 10px;
+      margin: 10px 10px;
       padding: 5px 10px;
       display: flex;
+      border-radius: 10px;
+      background-color: #cad2c5;
       align-items: center; }
       .postbox .commentlist .comment .username {
         text-transform: capitalize;
@@ -78,7 +82,17 @@
         font-weight: 500;
         font-family: 'Times New Roman', Times, serif;
         letter-spacing: 1px; }
+      .postbox .commentlist .comment .commenttime {
+        font-size: 12px;
+        font-weight: 600; }
       .postbox .commentlist .comment .name_com {
         margin: 0px 10px; }
+        .postbox .commentlist .comment .name_com span {
+          display: flex;
+          align-items: center; }
+          .postbox .commentlist .comment .name_com span .username {
+            margin-right: 5px; }
       .postbox .commentlist .comment .comm_avatar {
         width: 40px; }
+  .postbox .commentlist::-webkit-scrollbar {
+    display: none; }

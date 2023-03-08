@@ -70,8 +70,11 @@
                     </span>
                     <% let x = c.updatedAt %>
                     <span class="name_com" >
-                        <p class="username" > <%= c.user.name %> </p>
-                        <p class="commenttime" ><%= x.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) %></p>
+                        <span>
+
+                            <p class="username" > <%= c.user.name %> </p>
+                            <p class="commenttime" ><%= x.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) %></p>
+                        </span>
                         <p><%= c.content %> </p>
                     </span>
                     

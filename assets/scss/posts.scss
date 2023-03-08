@@ -104,11 +104,16 @@
 
     .commentlist{
         // margin: 5px 10px ;
-        width: 80%;
+        width: 95%;
+        max-height: 200px;
+        overflow: scroll;
         .comment{
-            margin: 5px 10px  ;
+            margin: 10px 10px  ;
             padding: 5px 10px;
             display: flex;
+            border-radius: 10px;
+            background-color: #cad2c5;
+            // flex-direction: column;
             align-items: center;
 
             .username{
@@ -120,16 +125,32 @@
             }
 
             .commenttime{
-                
+                // display: inline-;
+                font-size: 12px;
+                font-weight: 600;
             }
 
             .name_com{
                 margin: 0px 10px;
+                // display: flex;
+
+                span{
+                    display: flex;
+                    align-items: center;
+
+                    .username{
+                        margin-right: 5px;
+                    }
+                }
             }
             .comm_avatar{
                 width: 40px;
             }
         }
+    }
+
+    .commentlist::-webkit-scrollbar{
+        display: none;
     }
 
 }
