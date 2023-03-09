@@ -5,3 +5,4 @@ function browse() {
     window.location.href = '/';
 }
 
+console.log(document);
