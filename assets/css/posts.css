@@ -1,3 +1,7 @@
+* {
+  margin: 0px;
+  padding: 0px; }
+
 .vcenter {
   position: relative;
   left: 50%;
@@ -16,6 +20,45 @@
       font-size: 20px;
       letter-spacing: 1px;
       font-family: 'Rampart One', cursive; }
+    .postbox .userinfo .dropdown {
+      margin-right: 15px;
+      margin-top: 2px;
+      margin-left: -70px;
+      height: 20px;
+      width: 10px;
+      position: absolute;
+      right: -10px;
+      top: 5px;
+      padding-left: 5px;
+      padding-top: 5px; }
+      .postbox .userinfo .dropdown .dropdownContents {
+        pointer-events: none;
+        position: absolute;
+        left: -150px;
+        box-shadow: 0px 1px 10px white;
+        border: 2px solid #cad2c5;
+        width: 150px;
+        z-index: 200;
+        font-size: 18px;
+        text-align: center;
+        background-color: white;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 150ms ease-in-out , transform 220ms ease-in-out;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        flex-direction: column; }
+        .postbox .userinfo .dropdown .dropdownContents .deletecomm {
+          border-bottom: 1px solid #cad2c5;
+          width: 90%; }
+      .postbox .userinfo .dropdown .fa-ellipsis-vertical {
+        pointer-events: none; }
+      .postbox .userinfo .dropdown .active {
+        opacity: 100;
+        pointer-events: all;
+        transform: translateY(0px);
+        transition: opacity 150ms ease-in-out , transform 220ms ease-in-out; }
   .postbox .avatar {
     margin-right: 10px;
     width: 50px; }
@@ -68,14 +111,15 @@
   .postbox .commentlist {
     width: 95%;
     max-height: 200px;
-    overflow: scroll; }
+    overflow-y: scroll;
+    overflow-x: visible; }
     .postbox .commentlist .comment {
       margin: 10px 10px;
       padding: 5px 10px;
       display: flex;
+      position: relative;
       border-radius: 10px;
-      background-color: #cad2c5;
-      align-items: flex-start; }
+      background-color: #cad2c5; }
       .postbox .commentlist .comment .username {
         text-transform: capitalize;
         font-size: 17px;
@@ -94,7 +138,44 @@
             margin-right: 5px; }
       .postbox .commentlist .comment .comm_avatar {
         width: 40px; }
-      .postbox .commentlist .comment .imgspan {
-        position: relative; }
+      .postbox .commentlist .comment .dropdown {
+        margin-right: 15px;
+        margin-top: 2px;
+        margin-left: -70px;
+        height: 20px;
+        width: 10px;
+        position: absolute;
+        right: -10px;
+        top: 5px;
+        padding-left: 5px;
+        padding-top: 5px; }
+        .postbox .commentlist .comment .dropdown .dropdownContents {
+          pointer-events: none;
+          position: absolute;
+          left: -150px;
+          box-shadow: 0px 1px 10px white;
+          border: 2px solid #cad2c5;
+          width: 150px;
+          z-index: 200;
+          font-size: 18px;
+          text-align: center;
+          background-color: white;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 150ms ease-in-out , transform 220ms ease-in-out;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          cursor: pointer; }
+          .postbox .commentlist .comment .dropdown .dropdownContents .deletecomm {
+            border-bottom: 1px solid #cad2c5;
+            width: 90%; }
+        .postbox .commentlist .comment .dropdown .fa-ellipsis-vertical {
+          pointer-events: none; }
+        .postbox .commentlist .comment .dropdown .active {
+          opacity: 100;
+          pointer-events: all;
+          transform: translateY(0px);
+          transition: opacity 150ms ease-in-out , transform 220ms ease-in-out; }
   .postbox .commentlist::-webkit-scrollbar {
     display: none; }

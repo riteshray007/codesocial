@@ -43,6 +43,13 @@
                     <h4 class="username"  > <%= i.user.name %> </h4>  
                     <span class="posttime" > <%= date  + " " + v.toLocaleTimeString([] , { month: 'long', hour: '2-digit' , minute: '2-digit' })  %> </span>
                 </span>
+                <span class="dropdown" >
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <div class="dropdownContents " id='<%= c._id %>' >
+                        <p class="deletecomm" > Delete post </p>
+                        <p class="ceditcomm" > Edit post </p>
+                    </div>
+                </span>
             </div>
             
             <!-- <p> <%=  %> </p> -->
@@ -71,13 +78,18 @@
                     <% let x = c.updatedAt %>
                     <span class="name_com" >
                         <span>
-
                             <p class="username" > <%= c.user.name %> </p>
                             <p class="commenttime" ><%= x.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) %></p>
                         </span>
                         <p><%= c.content %> </p>
                     </span>
-                    
+                    <span class="dropdown"  >
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="dropdownContents " id='<%= c._id %>' >
+                            <p class="deletecomm" > Delete comment </p>
+                            <p class="ceditcomm" > Edit comment </p>
+                        </div>
+                    </span>
                 </div>
                 
             <% }  %>            

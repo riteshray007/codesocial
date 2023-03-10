@@ -1,4 +1,7 @@
-
+*{
+    margin: 0px;
+    padding: 0px;
+}
 
 .vcenter{
     position: relative;
@@ -24,6 +27,58 @@
             letter-spacing: 1px;
             font-family: 'Rampart One', cursive;
         }
+
+        .dropdown{
+                margin-right: 15px ;
+                margin-top: 2px;
+                margin-left: -70px;
+                height: 20px;
+                width: 10px;
+                position: absolute;
+                right: -10px;
+                top: 5px;
+                padding-left: 5px;
+                padding-top: 5px;
+                // display: flex;
+                // align-items: center;
+                // border : 1px solid red;
+
+                .dropdownContents{
+                    pointer-events: none;
+                    position: absolute;
+                    left: -150px ;
+                    box-shadow: 0px 1px 10px white;
+                    border: 2px solid #cad2c5;
+                    width: 150px;
+                    z-index: 200;
+                    font-size: 18px;
+                    text-align: center;
+                    background-color: white ;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
+                    display: flex;
+                    cursor: pointer;
+                    // justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    .deletecomm{
+                        border-bottom: 1px solid #cad2c5  ;
+                        width: 90%;
+                    }
+                }
+                .fa-ellipsis-vertical{
+                    pointer-events: none;
+                }                
+                .active{
+                    opacity: 100;
+                    pointer-events: all;
+                    transform: translateY(0px);
+                    transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
+                }
+
+            }
+
     }
 
     .avatar{
@@ -106,14 +161,16 @@
         // margin: 5px 10px ;
         width: 95%;
         max-height: 200px;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: visible;
         .comment{
             margin: 10px 10px  ;
             padding: 5px 10px;
             display: flex;
+            position: relative;
             border-radius: 10px;
             background-color: #cad2c5;
-            align-items: flex-start;
+            // align-items: flex-start;
             
 
             .username{
@@ -149,6 +206,57 @@
                 // left: 0px;
                 // top: 0px;
             }
+            .dropdown{
+                margin-right: 15px ;
+                margin-top: 2px;
+                margin-left: -70px;
+                height: 20px;
+                width: 10px;
+                position: absolute;
+                right: -10px;
+                top: 5px;
+                padding-left: 5px;
+                padding-top: 5px;
+                // display: flex;
+                // align-items: center;
+                // border : 1px solid red;
+
+                .dropdownContents{
+                    pointer-events: none;
+                    position: absolute;
+                    left: -150px ;
+                    box-shadow: 0px 1px 10px white;
+                    border: 2px solid #cad2c5;
+                    width: 150px;
+                    z-index: 200;
+                    font-size: 18px;
+                    text-align: center;
+                    background-color: white ;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    .deletecomm{
+                        border-bottom: 1px solid #cad2c5  ;
+                        width: 90%;
+                    }
+                }
+                .fa-ellipsis-vertical{
+                    pointer-events: none;
+                }
+                
+                .active{
+                    opacity: 100;
+                    pointer-events: all;
+                    transform: translateY(0px);
+                    transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
+                }
+
+            }
+            
         }
     }
 
