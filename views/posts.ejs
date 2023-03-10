@@ -43,17 +43,20 @@
                     <h4 class="username"  > <%= i.user.name %> </h4>  
                     <span class="posttime" > <%= date  + " " + v.toLocaleTimeString([] , { month: 'long', hour: '2-digit' , minute: '2-digit' })  %> </span>
                 </span>
-                <span class="dropdown" >
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                    <div class="dropdownContents " id='<%= c._id %>' >
-                        <p class="deletecomm" > Delete post </p>
-                        <p class="ceditcomm" > Edit post </p>
-                    </div>
-                </span>
+                <% if( i.user.id  == user.id ){ %>
+                    <span class="dropdown" >
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="dropdownContents " id='<%= i._id %>' >
+                            <p class="deletepost" > Delete post  </p>
+                            <p class="editpost" > Edit post  </p>
+                        </div>
+                    </span>
+                <% } %>
+               
             </div>
             
             <!-- <p> <%=  %> </p> -->
-            <p class="contentbox" > <%=  i.content %> </p>
+            <p class="contentbox" > <%= i.content %> </p>
 
             <div class="likescomments" >
                 <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span>

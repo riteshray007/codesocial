@@ -26,6 +26,27 @@ module.exports.post = (req , res )=>{
 
 }
 
+module.exports.deletePost = (req , res)=>{
+    post.findById( req.query.id , (err , data)=>{
+        if(err){
+            console.log('error ' + err);
+            return ;
+        }
+        // console.log(data);
+        for( let x of data.comments ){
+            comments.findByIdAndDelete(x , (err  )=>{
+                if(err){
+                    console.log( "err in comments fething " + err);
+                    return 
+                }
+            } )
+        }
+        data.remove();
+        return res.redirect('back')
+        
+    } )
+}
+
 module.exports.stats= (req , res)=>{
     return res.end('<h1> welcome to posts stats </h1>')
 }
