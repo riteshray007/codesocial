@@ -99,6 +99,25 @@ module.exports.create_post = (req , res)=>{
             })
         }
     })
-    
+ }
 
+ module.exports.deleteComment = (req , res)=>{
+    let id = req.query.id;
+    comments.findById( id , (err , data )=>{
+        if(err){
+            console.log(err + " error in delete comment")
+        }
+        let ID = data.user;
+        data.remove();
+
+        post.findByIdAndUpdate( ID ,  {$pull : {comments : id }}  , (err , pdata)=>{
+            if(err){
+                console.log(err + "error in findandupdate");
+                return ;
+            }
+
+        })
+
+        return res.redirect('back')
+    } )
  }

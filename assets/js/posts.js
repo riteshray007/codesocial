@@ -7,6 +7,9 @@ document.addEventListener('click' , (e)=>{
         window.location.href = `/posts/delete-post?id=${e.target.parentNode.id}` ; 
         return;       
     } 
+    else if(e.target.classList.contains("deletecomm")){
+        window.location.href= `/posts/deletecomment?id=${e.target.parentNode.id}`
+    }
     else if(e.target.classList.contains("dropdown")){
         
         let a = e.target;

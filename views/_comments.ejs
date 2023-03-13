@@ -1,0 +1,29 @@
+<div class="commentlist" >
+    <% for(c of  i.comments ){ %>
+    <div class="comment" >
+        <span class="imgspan" >
+            <img src="/images/gamer.png" class="comm_avatar" >
+        </span>
+        <% let x = c.updatedAt %>
+        <span class="name_com" >
+            <span>
+                <p class="username" > <%= c.user.name %> </p>
+                <p class="commenttime" ><%= x.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) %></p>
+            </span>
+            <p><%= c.content %> </p>
+        </span>
+        <% if(c.user.id == user.id || i.user.id  == user.id ){ %>
+        <span class="dropdown"  >
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <div class="dropdownContents " id='<%= c._id %>' >
+                <p class="deletecomm" > Delete comment </p>
+                <% if(user.id == c.user.id){ %>
+                <p class="editcomm" > Edit comment </p>
+                <%}%>
+            </div>
+        </span>
+        <% } %>
+    </div>
+    
+    <% }  %>            
+</div>

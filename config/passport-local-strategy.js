@@ -8,7 +8,7 @@ const user = require('../models/user')
 
 passport.use(new LocalStrategy({
     usernameField: 'email'
-    //above line is not required u have username in your db which is email in our case 
+    //above line is not required if u have unique usernames in your db which is email in our case 
     // also we have allowed user to have common name 
 },
     function (email, password, done) {
