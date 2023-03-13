@@ -5,14 +5,19 @@
 .vcenter {
   position: relative;
   left: 50%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  border: 1px solid red; }
+
+.postdiv {
+  position: relative; }
 
 .postbox {
   background-color: white;
   width: 600px;
   border-radius: 10px;
   padding: 20px 20px;
-  margin: 10px 1px; }
+  margin: 10px 1px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.645); }
   .postbox .userinfo {
     display: flex; }
     .postbox .userinfo .username {
@@ -179,3 +184,18 @@
           transition: opacity 150ms ease-in-out , transform 220ms ease-in-out; }
   .postbox .commentlist::-webkit-scrollbar {
     display: none; }
+
+.friends {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  min-width: 100px;
+  background-color: white;
+  height: 100%;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+  .friends .person {
+    padding: 5px 0px; }

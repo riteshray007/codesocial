@@ -1,6 +1,18 @@
 const user = require('../models/user');
+const posts = require('../models/posts');
 
 
+module.exports.profiles = (req , res)=>{
+   user.findById( req.query.id , (err , data)=>{
+      if(err){
+         console.log(err);
+      }
+      posts.find({user : req.query.id} , (err , pdata)=>{
+
+         return res.render('users_friendsprofile' , {userdata : data , posts : pdata});
+      } )
+   } )
+}
 
 module.exports.profile = (req, res) => {
    // if (req.cookies.user_id) {

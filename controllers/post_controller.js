@@ -4,26 +4,29 @@ const comments = require('../models/comments')
 
 module.exports.post = (req , res )=>{
 
-    post.find({})
-    .populate('user')
-    .populate({
-        path : 'comments',
-        populate : {
-            path : 'user'
-        }
-    })
-    .exec(function(err , post){
+    user.find({} , (err , userdata)=>{
         if(err){
-            console.log('err while populating ')
-            return ;
+            console.log("error in post" + err);
         }
-        return res.render( 'posts' , {
-            posts : post
+        post.find({})
+        .populate('user')
+        .populate({
+            path : 'comments',
+            populate : {
+                path : 'user'
+            }
+        })
+        .exec(function(err , post){
+            if(err){
+                console.log('err while populating ')
+                return ;
+            }
+            return res.render( 'posts' , {
+                posts : post,
+                users : userdata
+            })
         })
     })
-
-
-
 }
 
 module.exports.deletePost = (req , res)=>{

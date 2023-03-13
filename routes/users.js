@@ -11,7 +11,7 @@ router.get('/signup' , users_controller.signup )
 router.post('/create' , users_controller.create)
 router.get('/signin' , users_controller.signin )
 router.get('/signout', users_controller.signout )
-
+router.get('/profiles'  , users_controller.profiles )
 // router.post('/create_session' , users_controller.create_session );
 router.post('/create_session',  passport.authenticate(
     'local',

@@ -9,6 +9,11 @@ document.addEventListener('click' , (e)=>{
     } 
     else if(e.target.classList.contains("deletecomm")){
         window.location.href= `/posts/deletecomment?id=${e.target.parentNode.id}`
+        return ;
+    }
+    else if(e.target.classList.contains('person')){
+        window.location.href = `/users/profiles?id=${e.target.id}`
+        return ;
     }
     else if(e.target.classList.contains("dropdown")){
         

@@ -13,5 +13,6 @@ router.post('/create_post', passport.checkAuthentication , post_controller.creat
 router.post( '/create_comment' , post_controller.create_comment );
 
 router.get('/delete-post' , post_controller.deletePost);
+
 router.get('/deletecomment' , post_controller.deleteComment );
 module.exports = router ;

@@ -11,73 +11,31 @@
 </head>
 <body>
 
-   
-     <% function getst(d) { %>
-     <%    if (d > 3 && d < 21) { return 'th'   %>
-       <% }else if(d%10 == 1) {return 'st' %>
-       <% }else if(d%10 == 2 ) {return 'nd' %>
-       <% }else if(d%10 == 3) {return 'rd' %>
-       <% }else {return 'th' %>
-     <%  }  }   %>
+
  
-     
-     <h1 class="vcenter " style="text-align:center" > welcome to posts </h1>
-     
-      <%  for(let i of posts){  %>
+     <div class="postdiv">
 
-        <% let v =  i.updatedAt %> 
-        <% let date =  v.getDate()  %>
-        <% let st = getst(date)  %>
-        <% date = date + st  %>
+         <h1 class="vcenter " style="text-align:center" > welcome to posts </h1>
+        <div class="vcenter" >
 
-
-
-                 
-        <div   class="postbox vcenter" >
-
-            <div class=" userinfo " >
-                <span>
-                    <img src="/images/gamer.png" class="avatar" >
-                </span>
-                <span>
-                    <h4 class="username"  > <%= i.user.name %> </h4>  
-                    <span class="posttime" > <%= date  + " " + v.toLocaleTimeString([] , { month: 'long', hour: '2-digit' , minute: '2-digit' })  %> </span>
-                </span>
-                <% if( i.user.id  == user.id ){ %>
-                    <span class="dropdown" >
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                        <div class="dropdownContents " id='<%= i._id %>' >
-                            <p class="deletepost" > Delete post  </p>
-                            <p class="editpost" > Edit post  </p>
-                        </div>
-                    </span>
-                <% } %>
-               
-            </div>
-            
-            <!-- <p> <%=  %> </p> -->
-            <p class="contentbox" > <%= i.content %> </p>
-
-            <div class="likescomments" >
-                <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span>
-                <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
-            </div>
-            <div class="commentbox" >
-                <form action="/posts/create_comment/?id=<%=i._id%>" method="post" >
-
-                    <textarea required name="content"  spellcheck="false" placeholder="Type here ... " adjust ></textarea>
-                    <button class="commentbutton" > Add Comment </button>
-                </form>
-                
-            </div>
-            <!-- <%= i.comments %> -->
-            
-            <%-include('_comments' , {i : i})-%>
+            <form  method="POST" action="/posts/create_post"  >
+                <input name="content" id="contentinput" placeholder="type here ..." type="text">
+                <button type="submit" > post </button>
+            </form>
         </div>
+         <%-include('posts_post')-%>
 
-       <% } %>
 
-
+      <div class="friends" >
+       <% for(let f of users) { %>
+        <% if(f._id != user.id){ %>
+            <div class="person" id="<%= f._id %>" >  <%=  f.name  %> </div>
+        <% } %>
+      <% } %>
+      </div>
+      
+            
+    </div>
 
        <script src="/js/posts.js" ></script>
 </body>
