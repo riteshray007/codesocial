@@ -1,19 +1,6 @@
 const user = require('../models/user');
 const posts = require('../models/posts');
 
-
-module.exports.profiles = (req , res)=>{
-   user.findById( req.query.id , (err , data)=>{
-      if(err){
-         console.log(err);
-      }
-      posts.find({user : req.query.id} , (err , pdata)=>{
-
-         return res.render('users_friendsprofile' , {userdata : data , posts : pdata});
-      } )
-   } )
-}
-
 module.exports.profile = (req, res) => {
    // if (req.cookies.user_id) {
    //    user.findOne({ _id: req.cookies.user_id }, (err, data) => {
@@ -34,9 +21,27 @@ module.exports.profile = (req, res) => {
    //    return res.redirect('/users/signin');
    // }
 
-   return res.render('user_profile');
-
-
+   user.findById( req.query.id , (err , data)=>{
+      if(err){
+         console.log(err);
+      }
+      posts.find({user : req.query.id})
+      .populate('user')
+      .populate({
+         path : 'comments',
+         populate : {
+            path : 'user'
+         }
+      }).exec((err , post)=>{
+         if(err){
+            console.log(err);
+         }
+         return res.render('user_profile' ,{
+            posts : post,
+            userdata : data
+         })
+      })
+   })
 }
 module.exports.users = (req, res) => {
    return res.render('users')
@@ -44,7 +49,7 @@ module.exports.users = (req, res) => {
 
 module.exports.signup = function (req, res) {
    if (req.isAuthenticated()) {
-      return res.redirect('/users/profile');
+      return res.redirect('/posts/');
    }
    else {
       return res.render('user_signup');
@@ -58,8 +63,7 @@ module.exports.signout = (req, res) => {
       if(err){
          console.log(err);
       }
-   } );
-
+   });
    return res.redirect('/users')
 }
 
@@ -83,11 +87,11 @@ module.exports.create = function (req, res) {
                console.log('error while creating profile')
                return;
             }
-            return res.render('user_signin');
+            return res.redirect('/posts/');
          })
       }
       else {
-         return res.redirect('/users');
+         return res.redirect('/users/signup');
       }
 
    })
@@ -96,7 +100,7 @@ module.exports.create = function (req, res) {
 
 module.exports.signin = (req, res) => {
    if (req.isAuthenticated()) {
-      return res.redirect('/users/profile');
+      return res.redirect('/posts/');
    }
    else {
       return res.render('user_signin');
@@ -124,7 +128,7 @@ module.exports.create_session = (req, res) => {
    //       }
    //    }
    // })
-   return res.redirect('/users/profile')
+   return res.redirect('/posts/')
 }
 
 // https://codepen.io/ig_design/pen/MWKVrNR

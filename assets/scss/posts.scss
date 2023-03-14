@@ -6,7 +6,7 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 
 .postdiv{
@@ -283,7 +283,7 @@
     justify-content: flex-start;
     align-items: center;
     .person{
-        
+        cursor: pointer;
         padding: 5px 0px ;
     }
 

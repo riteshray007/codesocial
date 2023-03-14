@@ -12,7 +12,7 @@ document.addEventListener('click' , (e)=>{
         return ;
     }
     else if(e.target.classList.contains('person')){
-        window.location.href = `/users/profiles?id=${e.target.id}`
+        window.location.href = `/users/profile?id=${e.target.id}`
         return ;
     }
     else if(e.target.classList.contains("dropdown")){

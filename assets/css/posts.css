@@ -5,8 +5,7 @@
 .vcenter {
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid red; }
+  transform: translateX(-50%); }
 
 .postdiv {
   position: relative; }
@@ -198,4 +197,5 @@
   justify-content: flex-start;
   align-items: center; }
   .friends .person {
+    cursor: pointer;
     padding: 5px 0px; }
