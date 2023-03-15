@@ -10,6 +10,7 @@ router.get('/profile' , passport.checkAuthentication ,users_controller.profile )
 router.get('/signup' , users_controller.signup )
 router.post('/create' , users_controller.create)
 router.get('/signin' , users_controller.signin )
+router.post('/update_profile' , users_controller.update_profile);
 router.get('/signout', users_controller.signout )
 // router.post('/create_session' , users_controller.create_session );
 router.post('/create_session',  passport.authenticate(

@@ -1,6 +1,25 @@
 const user = require('../models/user');
 const posts = require('../models/posts');
 
+module.exports.update_profile = (req , res )=>{
+   console.log(req.body.password)
+   console.log(req.body.new_password)
+   console.log(req.body.cnew_password)
+   console.log(req.user.password)
+   if(req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password==req.body.cnew_password  ){
+      user.findByIdAndUpdate( req.user.id , { password : req.body.new_password , name : req.body.name }  , (err , data)=>{
+         if(err){
+            console.log(err);
+         }
+
+         return res.redirect('back');
+      })
+   }
+   else{
+      return res.status(401).send('error while updating profile please fill the credentials properly');
+   }
+}
+
 module.exports.profile = (req, res) => {
    // if (req.cookies.user_id) {
    //    user.findOne({ _id: req.cookies.user_id }, (err, data) => {

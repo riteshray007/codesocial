@@ -14,7 +14,7 @@ const sassmiddleware = require('node-sass-middleware');
 const app = express();
 
 app.use(sassmiddleware({
-    src: path.join( __dirname , 'assets/scss' ) ,
+    src: path.join( __dirname , '/assets/scss' ) ,
     dest : path.join( __dirname , '/assets/css'),
     debug : true,
     outputStyle : 'extended',

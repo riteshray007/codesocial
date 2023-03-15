@@ -1,17 +1,35 @@
 <head>
     <link rel="stylesheet" href="/css/posts.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
-    <h1  > welcome to users profile </h1>
-    <h1><%=userdata.name%></h1>
-       <h1> <%=userdata.email%></h1>
 
+    <h1> welcome to users profile </h1>
+    <h1><%=userdata.name%></h1>
+    <h1> <%=userdata.email%></h1>
+    <h1> <%=user._id%></h1>
+    <button type="button"  class="editprofilebutton" >
+        EDIT PROFILE 
+    </button>
+    
     
     <div class="postdiv" >
 
         <%- include('posts_post') , {posts : posts} -%>
     
     </div>
+
+    <div class="editprofilediv" >
+        <form action="/users/update_profile?id=<%= user._id %>" method="post" >
+            <input type="text" name="name" required value="<%=user.name%>" >
+            <input type="password" name="password" required placeholder="current password." >
+            <input type="password" name="new_password" required placeholder="new password" >
+            <input type="password" name="cnew_password" required placeholder="confirm password" >
+            <button type="submit" > Update Profile </button>
+        </form>
+    </div>
+
+  
    
 
     <script src="/js/posts.js" ></script>
