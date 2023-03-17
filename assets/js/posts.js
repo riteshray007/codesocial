@@ -33,10 +33,8 @@ document.addEventListener('click', (e) => {
     else if(!e.target.closest('.editprofilediv')){
         document.querySelector('.editprofilediv').classList.remove('active');
     }
-    else {
+    
         document.querySelectorAll('.dropdownContents').forEach((x) => {
             x.classList.remove('active');
         })
-        return;
-    }
 })

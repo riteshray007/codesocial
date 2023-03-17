@@ -1,66 +1,45 @@
 const user = require('../models/user');
 const posts = require('../models/posts');
 
-module.exports.update_profile = (req , res )=>{
-   console.log(req.body.password)
-   console.log(req.body.new_password)
-   console.log(req.body.cnew_password)
-   console.log(req.user.password)
-   if(req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password==req.body.cnew_password  ){
-      user.findByIdAndUpdate( req.user.id , { password : req.body.new_password , name : req.body.name }  , (err , data)=>{
-         if(err){
-            console.log(err);
-         }
+module.exports.update_profile = async (req , res )=>{
+   try{
 
+      if(req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password == req.body.cnew_password ){
+         await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
          return res.redirect('back');
-      })
+      }
+      else{
+         return res.status(401).send('please the credentials again');
+      }
+   }catch(err){
+      console.log(err);
+      return ;
    }
-   else{
-      return res.status(401).send('error while updating profile please fill the credentials properly');
-   }
+
 }
 
-module.exports.profile = (req, res) => {
-   // if (req.cookies.user_id) {
-   //    user.findOne({ _id: req.cookies.user_id }, (err, data) => {
-   //       if (err) {
-   //          console.log("error in finding the user")
-   //          return
-   //       }
-   //       else if (data) {
-   //          return res.render('user_profile', { user: data })
-   //       }
-   //       else {
+module.exports.profile = async (req, res) => {
 
-   //          return res.redirect('/users/signin');
-   //       }
+   try{
+      let data = await user.findById(req.query.id);
 
-   //    })
-   // } else {
-   //    return res.redirect('/users/signin');
-   // }
-
-   user.findById( req.query.id , (err , data)=>{
-      if(err){
-         console.log(err);
-      }
-      posts.find({user : req.query.id})
+      let postdata = await posts.find({user : req.query.id})
       .populate('user')
       .populate({
          path : 'comments',
          populate : {
             path : 'user'
          }
-      }).exec((err , post)=>{
-         if(err){
-            console.log(err);
-         }
-         return res.render('user_profile' ,{
-            posts : post,
-            userdata : data
-         })
       })
-   })
+
+      return res.render( 'user_profile' , {
+         posts : postdata , 
+         userdata : data
+      } )
+   }catch(err){
+      console.log(err);
+      return ;
+   }
 }
 module.exports.users = (req, res) => {
    return res.render('users')
@@ -82,8 +61,9 @@ module.exports.signout = (req, res) => {
       if(err){
          console.log(err);
       }
+      req.flash('success' , 'you have logged out!');
+      return res.redirect('/users')
    });
-   return res.redirect('/users')
 }
 
 module.exports.create = function (req, res) {
@@ -147,6 +127,9 @@ module.exports.create_session = (req, res) => {
    //       }
    //    }
    // })
+   req.flash('success' , 'logged in succesfully')
+
+
    return res.redirect('/posts/')
 }
 

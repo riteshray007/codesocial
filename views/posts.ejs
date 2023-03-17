@@ -25,6 +25,7 @@
 
 
       <div class="friends" >
+        <h3> Contacts </h3>
        <% for(let f of users) { %>
         <% if(f._id != user.id){ %>
             <div class="person" id="<%= f._id %>" >  <%=  f.name  %> </div>

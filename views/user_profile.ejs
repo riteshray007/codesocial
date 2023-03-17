@@ -8,9 +8,12 @@
     <h1><%=userdata.name%></h1>
     <h1> <%=userdata.email%></h1>
     <h1> <%=user._id%></h1>
-    <button type="button"  class="editprofilebutton" >
-        EDIT PROFILE 
-    </button>
+
+    <% if(user.id == userdata.id){ %>
+        <button type="button"  class="editprofilebutton" >
+            EDIT PROFILE 
+        </button>
+    <% } %>
     
     
     <div class="postdiv" >

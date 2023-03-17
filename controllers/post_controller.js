@@ -2,13 +2,11 @@ const post = require('../models/posts')
 const user = require('../models/user');
 const comments = require('../models/comments')
 
-module.exports.post = (req , res )=>{
+module.exports.post = async (req , res )=>{  
 
-    user.find({} , (err , userdata)=>{
-        if(err){
-            console.log("error in post" + err);
-        }
-        post.find({})
+    try{
+        let userdata = await user.find({})        
+        let postd = await post.find({})
         .populate('user')
         .populate({
             path : 'comments',
@@ -16,111 +14,96 @@ module.exports.post = (req , res )=>{
                 path : 'user'
             }
         })
-        .exec(function(err , post){
-            if(err){
-                console.log('err while populating ')
-                return ;
-            }
-            return res.render( 'posts' , {
-                posts : post,
-                users : userdata
-            })
-        })
-    })
+        
+        return res.render('posts' , {
+            posts : postd,
+            users : userdata
+        } )
+        
+    }catch(err){
+        console.log(err);
+        return ;
+    }
+
+
+
+
 }
 
-module.exports.deletePost = (req , res)=>{
-    post.findById( req.query.id , (err , data)=>{
-        if(err){
-            console.log('error ' + err);
-            return ;
-        }
-        // console.log(data);
-        for( let x of data.comments ){
-            comments.findByIdAndDelete(x , (err  )=>{
-                if(err){
-                    console.log( "err in comments fething " + err);
-                    return 
-                }
-            } )
+module.exports.deletePost = async (req , res)=>{
+
+    try{
+
+        let data = await post.findById( req.query.id )
+        
+        for(let x of data.comments){
+            await comments.findByIdAndUpdate(x)
         }
         data.remove();
-        return res.redirect('back')
         
-    } )
+        return res.redirect('back')
+    }catch(err){
+        console.log(err)
+        return 
+    }
+
 }
 
 module.exports.stats= (req , res)=>{
     return res.end('<h1> welcome to posts stats </h1>')
 }
 
-module.exports.create_post = (req , res)=>{
-    post.create({
-       content : req.body.content, 
-       user : req.user._id
-    } , (err)=>{
-       if(err){
-          console.log("err while creating  ")
-          return ;
-       }
-    })
-
-    return res.redirect('/posts');
- }
-
- module.exports.create_comment = (req , res)=>{
-    // comments.create({
-    //     content : req.body.content,
-    //     user : req.user._id,
-    //     post : req.query.id
-    // } , (err , data)=>{
-    //     if(err){
-    //         console.log(err);
-    //         return ;
-    //     }
-    //     console.log(data);
-    //     return res.redirect('back');
-    // })   
-    post.findById( req.query.id , (err , post )=>{
-        if(err){
-            console.log(err)
-            return ;
-        }
-        if(post){
-            comments.create({
-                content : req.body.content,
-                user : req.user._id,
-                post : req.query.id 
-            } , (err , data)=>{
-                if(err){
-                    console.log(err);
-                    return 
-                }
-                post.comments.push(data);
-                post.save();
-                return res.redirect('back');
-            })
-        }
-    })
- }
-
- module.exports.deleteComment = (req , res)=>{
-    let id = req.query.id;
-    comments.findById( id , (err , data )=>{
-        if(err){
-            console.log(err + " error in delete comment")
-        }
-        let ID = data.user;
-        data.remove();
-
-        post.findByIdAndUpdate( ID ,  {$pull : {comments : id }}  , (err , pdata)=>{
-            if(err){
-                console.log(err + "error in findandupdate");
-                return ;
-            }
-
+module.exports.create_post = async (req , res)=>{
+    try{
+        await post.create({
+            content : req.body.content,
+            user : req.user._id
         })
 
         return res.redirect('back')
-    } )
+    }catch(err){
+        console.log(err)
+        return ;
+    }
+}
+
+ module.exports.create_comment = async(req , res)=>{
+
+    try{
+        let posts = await post.findById( req.query.id )
+        if(posts){
+        let data = await comments.create({
+            content : req.body.content,
+            user : req.user._id,
+            post : req.query.id
+        })
+        posts.comments.push(data)
+        posts.save();
+        return res.redirect('back');
+        }
+    }catch(err){
+        console.log(err);
+        return ;
+    }
+
+
+
+
+ }
+
+ module.exports.deleteComment = async (req , res)=>{
+    let id = req.query.id;
+    try{
+        let data = await comments.findById(id)
+        
+        let postid = data.post ;
+        data.remove();
+
+        await post.findByIdAndUpdate(postid , { $pull : {comments : id }} )
+
+        return res.redirect('back');
+    }catch(err){
+        console.log(err);
+        return ;
+    }
  }

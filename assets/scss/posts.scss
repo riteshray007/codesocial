@@ -272,11 +272,11 @@
 
 .friends{
     position: absolute;
-    top: 0px ;
-    right: 0px;
+    top: 20px ;
+    right: 20px;
+    border-radius: 10px;
     min-width: 100px;
     background-color: white;
-    height: 100%;
     padding: 10px 5px ;
     display: flex;
     flex-direction: column;
