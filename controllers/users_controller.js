@@ -6,6 +6,7 @@ module.exports.update_profile = async (req , res )=>{
 
       if(req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password == req.body.cnew_password ){
          await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
+         req.flash( 'success' , 'profile updated succesfully! ' )
          return res.redirect('back');
       }
       else{
@@ -86,10 +87,12 @@ module.exports.create = function (req, res) {
                console.log('error while creating profile')
                return;
             }
-            return res.redirect('/posts/');
+            req.flash('success' , 'new user signedup' )
+            return res.redirect('/users/signin');
          })
       }
       else {
+         req.flash('warning' , 'email id u entered already exist!' )
          return res.redirect('/users/signup');
       }
 

@@ -40,7 +40,7 @@ module.exports.deletePost = async (req , res)=>{
             await comments.findByIdAndUpdate(x)
         }
         data.remove();
-        
+        req.flash('error' , ' post removed !' )
         return res.redirect('back')
     }catch(err){
         console.log(err)
@@ -59,7 +59,7 @@ module.exports.create_post = async (req , res)=>{
             content : req.body.content,
             user : req.user._id
         })
-
+        req.flash('error' , 'post published! ')
         return res.redirect('back')
     }catch(err){
         console.log(err)
