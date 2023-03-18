@@ -55,10 +55,18 @@ module.exports.stats= (req , res)=>{
 
 module.exports.create_post = async (req , res)=>{
     try{
-        await post.create({
+        let postd = await post.create({
             content : req.body.content,
             user : req.user._id
         })
+        if(req.xhr){
+            return res.status(200).json({
+                data : {
+                    post : postd
+                },
+                message : 'post created'
+            })
+        }
         req.flash('error' , 'post published! ')
         return res.redirect('back')
     }catch(err){

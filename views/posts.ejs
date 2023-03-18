@@ -16,12 +16,14 @@
          <h1 class="vcenter " style="text-align:center" > welcome to posts </h1>
         <div class="vcenter" >
 
-            <form  method="POST" action="/posts/create_post"  >
+            <form id="create-post" method="POST" action="/posts/create_post"  >
                 <input name="content" id="contentinput" placeholder="type here ..." type="text">
                 <button type="submit" > post </button>
             </form>
         </div>
-         <%-include('posts_post')-%>
+        <div class="allposts">
+            <%-include('posts_post')-%>
+        </div>
 
 
       <div class="friends" >
@@ -37,5 +39,6 @@
     </div>
 
        <script src="/js/posts.js" ></script>
+       <script src="/js/home_post.js" ></script>
 </body>
 </html>

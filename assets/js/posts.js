@@ -2,7 +2,7 @@ const dcontent = document.querySelectorAll('.dropdownContents')
 
 
 document.addEventListener('click', (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     if (e.target.classList.contains("deletepost")) {
         window.location.href = `/posts/delete-post?id=${e.target.parentNode.id}`;
         return;
@@ -27,14 +27,9 @@ document.addEventListener('click', (e) => {
         a.querySelector('.dropdownContents').classList.toggle('active')
         return;
     }
-    else if ( e.target.classList.contains('editprofilebutton')  ) {
-        document.querySelector('.editprofilediv').classList.toggle('active');
-    }
-    else if(!e.target.closest('.editprofilediv')){
-        document.querySelector('.editprofilediv').classList.remove('active');
-    }
-    
+    else{
         document.querySelectorAll('.dropdownContents').forEach((x) => {
             x.classList.remove('active');
         })
+    }
 })
