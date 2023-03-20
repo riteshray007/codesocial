@@ -3,6 +3,22 @@
     let createPost = function(){
         let newPostForm = $('#create-post');
 
+        
+        
+        $('.deletepost').click((e)=>{
+            // let pid = e.target.attr('id');
+            // let x = 
+            let par = $(e.target).parent();
+            // console.log(par);
+
+            // console.log($('.deletepost' , par))
+            deletePost($('.deletepost',par));
+            // deletePost(e.target);
+        })
+        
+ 
+// trigger an artificial click event
+
         newPostForm.submit(function(e){
             e.preventDefault();
 
@@ -11,17 +27,17 @@
                 url: '/posts/create_post',
                 data: newPostForm.serialize(),
                 success: function(data){
-                   console.log(data.data.post)
                     let newPost = newPostDom(data.data.post);
                     $('.allposts').prepend(newPost);
                     
+                    console.log(newPost)
+                    console.log($('.deletepost',newPost))
                 }, error: function(error){
                     console.log(error.responseText);
                 }
             });
             $('#contentinput').val('');
         });
-
     }
 
     // method to create a post in DOM
@@ -79,24 +95,22 @@
     }
     
     let deletePost = function(deleteLink){
-        $(deleteLink).click(function(e){
-            e.preventDefault();
-            $.ajax({
-                type: 'get',
-                url: $(deleteLink).attr('data-href'),
-                success: function(data){
-                    $(`#post-${data.data.post_id}`).remove();
-                },error: function(error){
-                    console.log(error.responseText);
-                }
-            });
-        });
+        
+            // $(deleteLink).click((e)=>{
+
+                // e.preventDefault();
+                $.ajax({
+                    type: 'get',
+                    url: $(deleteLink).attr('data-href'),
+                    success: function(data){
+                        $(`#post-${data.data.post_id}`).remove();
+                    },error: function(error){
+                        console.log(error.responseText);
+                    }
+                });
+            // })
+        
     }
 
     createPost();
 }
-
-
-$('body').click(function(e){
-    console.log(e.target);
-})
