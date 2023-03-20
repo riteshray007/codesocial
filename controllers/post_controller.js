@@ -7,6 +7,7 @@ module.exports.post = async (req , res )=>{
     try{
         let userdata = await user.find({})        
         let postd = await post.find({})
+        .sort('-createdAt')
         .populate('user')
         .populate({
             path : 'comments',
@@ -24,10 +25,6 @@ module.exports.post = async (req , res )=>{
         console.log(err);
         return ;
     }
-
-
-
-
 }
 
 module.exports.deletePost = async (req , res)=>{
@@ -37,9 +34,17 @@ module.exports.deletePost = async (req , res)=>{
         let data = await post.findById( req.query.id )
         
         for(let x of data.comments){
-            await comments.findByIdAndUpdate(x)
+            await comments.findByIdAndDelete(x)
         }
         data.remove();
+        if(req.xhr){
+            return res.status(200).json({
+                data : {
+                    post_id : req.query.id,
+                },
+                message : 'post deleted'
+            })
+        }
         req.flash('error' , ' post removed !' )
         return res.redirect('back')
     }catch(err){
@@ -60,6 +65,7 @@ module.exports.create_post = async (req , res)=>{
             user : req.user._id
         })
         if(req.xhr){
+            postd = await postd.populate('user');
             return res.status(200).json({
                 data : {
                     post : postd
@@ -68,7 +74,7 @@ module.exports.create_post = async (req , res)=>{
             })
         }
         req.flash('error' , 'post published! ')
-        return res.redirect('back')
+        return res.redirect('/posts')
     }catch(err){
         console.log(err)
         return ;

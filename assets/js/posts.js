@@ -4,7 +4,7 @@ const dcontent = document.querySelectorAll('.dropdownContents')
 document.addEventListener('click', (e) => {
     // console.log(e.target);
     if (e.target.classList.contains("deletepost")) {
-        window.location.href = `/posts/delete-post?id=${e.target.parentNode.id}`;
+        // window.location.href = `/posts/delete-post?id=${e.target.parentNode.id}`;
         return;
     }
     else if (e.target.classList.contains("deletecomm")) {

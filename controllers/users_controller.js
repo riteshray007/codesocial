@@ -62,7 +62,7 @@ module.exports.signout = (req, res) => {
       if(err){
          console.log(err);
       }
-      req.flash('success' , 'you have logged out!');
+      req.flash('error' , 'you have logged out!');
       return res.redirect('/users')
    });
 }

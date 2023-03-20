@@ -8,13 +8,12 @@
         <%  }  }   %>
 
 <%  for(let i of posts){  %>
-
     <% let v =  i.updatedAt %> 
     <% let date =  v.getDate()  %>
     <% let st = getst(date)  %>
     <% date = date + st  %>
              
-    <div   class="postbox vcenter" >
+    <div  id="post-<%=i._id%>" class="postbox vcenter" >
 
         <div class=" userinfo " >
             <span>
@@ -27,8 +26,8 @@
             <% if( i.user.id  == user.id ){ %>
                 <span class="dropdown" >
                     <i class="fa-solid fa-ellipsis-vertical"></i>
-                    <div class="dropdownContents " id='<%= i._id %>' >
-                        <p class="deletepost" > Delete post  </p>
+                    <div class="dropdownContents" id='<%= i._id %>' >
+                        <p class="deletepost" data-href="/posts/delete-post?id=<%= i._id %>" > Delete post  </p>
                         <p class="editpost" > Edit post  </p>
                     </div>
                 </span>
@@ -87,3 +86,4 @@
 
 
 
+  <!-- //numbername -->
