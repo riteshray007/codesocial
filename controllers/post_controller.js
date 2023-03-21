@@ -86,13 +86,22 @@ module.exports.create_post = async (req , res)=>{
     try{
         let posts = await post.findById( req.query.id )
         if(posts){
-        let data = await comments.create({
+        let datac = await comments.create({
             content : req.body.content,
             user : req.user._id,
             post : req.query.id
         })
-        posts.comments.push(data)
+        posts.comments.push(datac)
         posts.save();
+        if(req.xhr){
+            datac = await datac.populate('user');
+            return res.status(200).json({
+                data : {
+                    comment : datac
+                },
+                message : 'comment data',
+            })
+        }
         return res.redirect('back');
         }
     }catch(err){

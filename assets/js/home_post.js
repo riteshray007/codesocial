@@ -7,10 +7,8 @@
         
         $('.deletepost').click((e)=>{
             // let pid = e.target.attr('id');
-            // let x = 
             let par = $(e.target).parent();
             // console.log(par);
-
             // console.log($('.deletepost' , par))
             deletePost($('.deletepost',par));
             // deletePost(e.target);
@@ -27,11 +25,14 @@
                 url: '/posts/create_post',
                 data: newPostForm.serialize(),
                 success: function(data){
+                    console.log(data.data.post);
                     let newPost = newPostDom(data.data.post);
                     $('.allposts').prepend(newPost);
-                    
-                    console.log(newPost)
-                    console.log($('.deletepost',newPost))
+                    // console.log(newPost)
+                    $('.deletepost' , newPost).click(()=>{  
+                        deletePost('.deletepost' , newPost);
+                    })
+                    // console.log($('.deletepost',newPost))
                 }, error: function(error){
                     console.log(error.responseText);
                 }
@@ -70,7 +71,7 @@
                     <span class="dropdown" >
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                             <div class="dropdownContents " id='${ post._id }' >
-                                <p class="deletepost" data-href ="/posts/delete-post?id=${post._id}" > Delete post  </p>
+                                <p class="deletepost" data-href ="${post._id}" > Delete post  </p>
                                 <p class="editpost" > Edit post  </p>
                             </div>
                     </span>                
@@ -86,11 +87,43 @@
                 <div class="commentbox" >
                     <form action="/posts/create_comment/?id=${post._id}" method="post" >
                         <textarea required name="content"  spellcheck="false" placeholder="Type here ... " adjust ></textarea>
-                        <button class="commentbutton" > Add Comment </button>
+                        <button type='submit' class="commentbutton" > Add Comment </button>
                     </form>                    
                 </div>
 
             </div>
+        `)
+    }
+
+    function commentformat(data){
+        
+            let time = new Date(data.updatedAt);
+
+        return $(`
+                <div class="comment" >
+                <span class="imgspan" >
+                    <img src="/images/gamer.png" class="comm_avatar" >
+                </span>
+                
+                <span class="name_com" >
+                    <span>
+                    <p class="username" > ${ data.user.name } </p>
+                        <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
+                    </span>
+                    <p>${ data.content } </p>
+                </span>
+                <span class="dropdown"  >
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <div class="dropdownContents " id='${ data._id }' >
+                        <p class="deletecomm" > Delete comment </p>
+                        
+                        <p class="editcomm" > Edit comment </p>
+                        
+                    </div>
+                </span>
+                
+            </div>
+
         `)
     }
     
@@ -101,7 +134,7 @@
                 // e.preventDefault();
                 $.ajax({
                     type: 'get',
-                    url: $(deleteLink).attr('data-href'),
+                    url: `/posts/delete-post?id=${$(deleteLink).attr('data-href')}`,
                     success: function(data){
                         $(`#post-${data.data.post_id}`).remove();
                     },error: function(error){
@@ -111,6 +144,27 @@
             // })
         
     }
+
+    $('.commentbutton').click((e)=>{
+        e.preventDefault();
+        let par = $(e.target).parent();
+        console.log(par)
+        console.log($(par).attr('action'))
+        $.ajax({
+            type : 'post',
+            url : `${$(par).attr('action')}`,
+            data : $(par).serialize(),
+            success : (data)=>{
+                // console.log(data.data.comment)
+                let curcomment = commentformat(data.data.comment)
+                // console.log(curcomment.html());
+                // console.log($(`#post-${data.data.comment.post} .commentlist`).html())
+                $(`#post-${data.data.comment.post} .commentlist`).prepend(curcomment);
+            }, error : (err)=>{
+                console.log(err.responseText);
+            }
+        })
+    })
 
     createPost();
 }

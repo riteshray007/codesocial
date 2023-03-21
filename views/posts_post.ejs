@@ -27,7 +27,7 @@
                 <span class="dropdown" >
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     <div class="dropdownContents" id='<%= i._id %>' >
-                        <p class="deletepost" data-href="/posts/delete-post?id=<%= i._id %>" > Delete post  </p>
+                        <p class="deletepost" data-href="<%= i._id %>" > Delete post  </p>
                         <p class="editpost" > Edit post  </p>
                     </div>
                 </span>
@@ -43,10 +43,10 @@
             <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
         </div>
         <div class="commentbox" >
-            <form action="/posts/create_comment/?id=<%=i._id%>" method="post" >
+            <form class="commentform" action="/posts/create_comment/?id=<%=i._id%>" method="post" >
 
                 <textarea required name="content"  spellcheck="false" placeholder="Type here ... " adjust ></textarea>
-                <button class="commentbutton" > Add Comment </button>
+                <button type="submit" class="commentbutton" > Add Comment </button>
             </form>
             
         </div>
