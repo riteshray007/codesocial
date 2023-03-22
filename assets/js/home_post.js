@@ -86,7 +86,7 @@
 
                 <div class="commentbox" >
                     <form action="/posts/create_comment/?id=${post._id}" method="post" >
-                        <textarea required name="content"  spellcheck="false" placeholder="Type here ... " adjust ></textarea>
+                        <textarea required  class="commentarea"  name="content"  spellcheck="false" placeholder="Type here ... " adjust ></textarea>
                         <button type='submit' class="commentbutton" > Add Comment </button>
                     </form>                    
                 </div>
@@ -100,29 +100,31 @@
             let time = new Date(data.updatedAt);
 
         return $(`
-                <div class="comment" >
-                <span class="imgspan" >
-                    <img src="/images/gamer.png" class="comm_avatar" >
-                </span>
-                
-                <span class="name_com" >
-                    <span>
-                    <p class="username" > ${ data.user.name } </p>
-                        <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
+                <div class="comment" id="comment-${data._id}" >
+
+                    <span class="imgspan" >
+                        <img src="/images/gamer.png" class="comm_avatar" >
                     </span>
-                    <p>${ data.content } </p>
-                </span>
-                <span class="dropdown"  >
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                    <div class="dropdownContents " id='${ data._id }' >
-                        <p class="deletecomm" > Delete comment </p>
-                        
-                        <p class="editcomm" > Edit comment </p>
-                        
-                    </div>
-                </span>
-                
-            </div>
+                    
+                    <span class="name_com" >
+                        <span>
+                        <p class="username" > ${ data.user.name } </p>
+                            <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
+                        </span>
+                        <p>${ data.content } </p>
+                    </span>
+
+                    <span class="dropdown"  >
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="dropdownContents " id='${ data._id }' >
+                            <p class="deletecomm" > Delete comment </p>
+                            
+                            <p class="editcomm" > Edit comment </p>
+                            
+                        </div>
+                    </span>
+
+                </div>
 
         `)
     }
@@ -148,8 +150,8 @@
     $('.commentbutton').click((e)=>{
         e.preventDefault();
         let par = $(e.target).parent();
-        console.log(par)
-        console.log($(par).attr('action'))
+        // console.log(par)
+        // console.log($(par).attr('action'))
         $.ajax({
             type : 'post',
             url : `${$(par).attr('action')}`,
@@ -158,13 +160,34 @@
                 // console.log(data.data.comment)
                 let curcomment = commentformat(data.data.comment)
                 // console.log(curcomment.html());
+                $('.deletecomm' , curcomment).click((e)=>{
+                    deletecomment(`${data.data.comment._id}`);
+                })
                 // console.log($(`#post-${data.data.comment.post} .commentlist`).html())
                 $(`#post-${data.data.comment.post} .commentlist`).prepend(curcomment);
+                $( par ).children('.commentarea').val("");
             }, error : (err)=>{
                 console.log(err.responseText);
             }
         })
     })
+
+    $('.dropdownContents').click((e)=>{
+        deletecomment($(e.target).parent().attr('id'));
+    })
+
+    function  deletecomment(id){
+        // console.log(id);
+        $.ajax({
+            type :'get',
+            url : `/posts/deletecomment?id=${id}`,
+            success : (data)=>{
+                $(`#comment-${data.data.comm}`).remove();
+            },error:(err)=>{
+                console.log(err.responseText);
+            }
+        })
+    }
 
     createPost();
 }

@@ -8,7 +8,7 @@ document.addEventListener('click', (e) => {
         return;
     }
     else if (e.target.classList.contains("deletecomm")) {
-        window.location.href = `/posts/deletecomment?id=${e.target.parentNode.id}`
+        // window.location.href = `/posts/deletecomment?id=${e.target.parentNode.id}`
         return;
     }
     else if (e.target.classList.contains('person')) {

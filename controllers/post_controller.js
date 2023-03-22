@@ -11,6 +11,9 @@ module.exports.post = async (req , res )=>{
         .populate('user')
         .populate({
             path : 'comments',
+            options : {
+                sort : { 'createdAt' : '-1' }
+            },  
             populate : {
                 path : 'user'
             }
@@ -33,19 +36,17 @@ module.exports.deletePost = async (req , res)=>{
 
         let data = await post.findById( req.query.id )
         
-        for(let x of data.comments){
-            await comments.findByIdAndDelete(x)
-        }
-        data.remove();
+       await comments.deleteMany({post : req.query.id})
+       data.remove();
+       req.flash('error' , ' post removed !' )
         if(req.xhr){
             return res.status(200).json({
                 data : {
                     post_id : req.query.id,
                 },
-                message : 'post deleted'
+                message : 'post deleted',
             })
         }
-        req.flash('error' , ' post removed !' )
         return res.redirect('back')
     }catch(err){
         console.log(err)
@@ -64,6 +65,7 @@ module.exports.create_post = async (req , res)=>{
             content : req.body.content,
             user : req.user._id
         })
+        req.flash('error' , 'post published! ')
         if(req.xhr){
             postd = await postd.populate('user');
             return res.status(200).json({
@@ -73,7 +75,6 @@ module.exports.create_post = async (req , res)=>{
                 message : 'post created'
             })
         }
-        req.flash('error' , 'post published! ')
         return res.redirect('/posts')
     }catch(err){
         console.log(err)
@@ -123,7 +124,14 @@ module.exports.create_post = async (req , res)=>{
         data.remove();
 
         await post.findByIdAndUpdate(postid , { $pull : {comments : id }} )
-
+        if(req.xhr){
+            return res.status(200).json({
+                data : {
+                    comm : id 
+                },
+                message : 'comment deleted',
+            })
+        }
         return res.redirect('back');
     }catch(err){
         console.log(err);
