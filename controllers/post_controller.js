@@ -2,6 +2,7 @@ const post = require('../models/posts')
 const user = require('../models/user');
 const comments = require('../models/comments')
 
+
 module.exports.post = async (req , res )=>{  
 
     try{
@@ -38,7 +39,6 @@ module.exports.deletePost = async (req , res)=>{
         
        await comments.deleteMany({post : req.query.id})
        data.remove();
-       req.flash('error' , ' post removed !' )
         if(req.xhr){
             return res.status(200).json({
                 data : {
@@ -52,7 +52,6 @@ module.exports.deletePost = async (req , res)=>{
         console.log(err)
         return 
     }
-
 }
 
 module.exports.stats= (req , res)=>{
@@ -65,7 +64,7 @@ module.exports.create_post = async (req , res)=>{
             content : req.body.content,
             user : req.user._id
         })
-        req.flash('error' , 'post published! ')
+        // req.flash('error' , 'post published! ')
         if(req.xhr){
             postd = await postd.populate('user');
             return res.status(200).json({
