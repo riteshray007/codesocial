@@ -1,20 +1,46 @@
 const user = require('../models/user');
 const posts = require('../models/posts');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.update_profile = async (req , res )=>{
+   if(req.query.id == req.user.id  && req.body.new_password == req.body.cnew_password ){
    try{
-
-      if(req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password == req.body.cnew_password ){
-         await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
-         req.flash( 'success' , 'profile updated succesfully! ' )
-         return res.redirect('back');
+         // await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
+         let profile = await user.findById(req.query.id);
+         user.uploadedAvatar(req , res , function(err){
+            if(err){
+               console.log(err);
+            }
+            console.log(req.file);
+            profile.password = req.body.new_password;
+            profile.name = req.body.name;
+            if(req.file){
+               if(profile.avatar){
+                  if(fs.existsSync(path.join( __dirname , ".." , profile.avatar ))){
+                     fs.unlink( path.join( __dirname , '..' , profile.avatar )  , (err)=>{
+                        if(err){
+                           console.log(err);
+                        }else{
+                           console.log('replace succesfully');
+                        }
+                     });
+                  }
+               }
+               profile.avatar = user.avatarpath + '/' + req.file.filename ; 
+            }
+            req.flash( 'success' , 'profile updated succesfully! ' )
+            profile.save();   
+            return res.redirect('back');
+         })
+      }catch(err){
+         // console.log(err);
+         req.flash('error' , err);
+         return ;
       }
-      else{
-         return res.status(401).send('please the credentials again');
-      }
-   }catch(err){
-      console.log(err);
-      return ;
+   }
+   else{
+      return res.status(401).send('please check the credentials again');
    }
 
 }

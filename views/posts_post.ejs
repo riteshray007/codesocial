@@ -17,7 +17,11 @@
 
         <div class=" userinfo " >
             <span>
-                <img src="/images/gamer.png" class="avatar" >
+                <% if(i.user.avatar){ %>
+                    <img src="<%=i.user.avatar%>" class="avatar" >
+                <% }else{ %>
+                    <img src="/images/gamer.png" class="avatar" >
+                <% } %>
             </span>
             <span>
                 <h4 class="username"  > <%= i.user.name %> </h4>  

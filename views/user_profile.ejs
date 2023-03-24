@@ -23,11 +23,12 @@
     </div>
 
     <div class="editprofilediv" >
-        <form action="/users/update_profile?id=<%= user._id %>" method="post" >
+        <form class="updateform" action="/users/update_profile?id=<%= user._id %>" method="post" enctype="multipart/form-data" >
             <input type="text" name="name" required value="<%=user.name%>" >
             <input type="password" name="password" required placeholder="current password." >
             <input type="password" name="new_password" required placeholder="new password" >
             <input type="password" name="cnew_password" required placeholder="confirm password" >
+            <input type="file" name="avatar" placeholder="profile picture" >
             <button type="submit" > Update Profile </button>
         </form>
     </div>

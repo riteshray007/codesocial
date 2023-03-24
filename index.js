@@ -29,8 +29,10 @@ app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true );
 
 
-app.use(express.static(path.join( __dirname , 'assets' )))
 app.set('view engine' , 'ejs');
+
+app.use('/uploads' , express.static(__dirname + '/uploads') )
+app.use(express.static(path.join( __dirname , 'assets' )))
 app.set('views' , './views');
 
 app.use(session({

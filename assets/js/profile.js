@@ -1,5 +1,5 @@
 document.addEventListener('click' , (e)=>{
-    if(e.target.classList.contains('editprofilebutton')){
+    if(e.target.classList.contains('editprofilebutton') ){
         document.querySelector('.editprofilediv').classList.toggle('active');
         return ;
     }
@@ -9,6 +9,9 @@ document.addEventListener('click' , (e)=>{
     }
     else{
         document.querySelector('.editprofilediv').classList.remove('active');
-
     }
 })
+
+document.querySelector('.updateform').on('submit' ,  ()=>{
+    document.querySelector('.editprofilediv').classList.toggle('active');  
+}) 
