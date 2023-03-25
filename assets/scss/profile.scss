@@ -14,6 +14,14 @@
         flex-direction: column ;
     
     }
+    .previewdiv{
+        display: none;
+        width: 100px;
+        height: 150px;
+        .previewimg{
+            width: 100%;
+        }
+    }
 }
 
 .active{
@@ -22,3 +30,4 @@
     transform: translate( -50% , -50% );
     transition:  opacity 150ms ease-in-out , 200ms ease-in-out ;
 }
+

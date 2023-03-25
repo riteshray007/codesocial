@@ -1,3 +1,4 @@
+let imginput = document.querySelector('.profilepic');
 document.addEventListener('click' , (e)=>{
     if(e.target.classList.contains('editprofilebutton') ){
         document.querySelector('.editprofilediv').classList.toggle('active');
@@ -12,6 +13,23 @@ document.addEventListener('click' , (e)=>{
     }
 })
 
-document.querySelector('.updateform').on('submit' ,  ()=>{
-    document.querySelector('.editprofilediv').classList.toggle('active');  
-}) 
+
+imginput.addEventListener('change' , fetchimg )
+
+function fetchimg(){
+    let file = imginput.files[0];
+    if(file){
+        const filereader = new filereader();
+        filereader.readAsDataUrl(file); 
+        filereader.addEventListener( 'load' , ()=>{
+            document.querySelector('.previewdiv').style.display = 'block';
+            document.querySelector('.previewdiv').innerHTML = ` <img class="previewimg" src='${this.result}' > `
+        } )
+    }
+}
+
+
+
+
+
+

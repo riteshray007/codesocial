@@ -11,6 +11,12 @@
   .editprofilediv form {
     display: flex;
     flex-direction: column; }
+  .editprofilediv .previewdiv {
+    display: none;
+    width: 100px;
+    height: 150px; }
+    .editprofilediv .previewdiv .previewimg {
+      width: 100%; }
 
 .active {
   opacity: 100;

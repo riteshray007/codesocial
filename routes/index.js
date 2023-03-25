@@ -10,5 +10,6 @@ router.get('/about' , home_controller.about);
  router.use('/posts' , require('./posts') );
 router.use('/users' , require('./users') );
 
-console.log('router from routes is loaded');
+router.use('/api' , require('./api') );
+
 module.exports = router ;
