@@ -7,13 +7,13 @@ module.exports.create_session = async (req, res) => {
         let user = await User.findOne({email : req.body.email } );
         if(!user || user.password != req.body.password ){
             return res.status(422).json({
-                message : "invalid username of password"
+                message : "invalid username or password"
             });
         }
         return res.status(200).json({
             message : 'sign in succesful, here is your token please keep it safe!  ',
             data : {
-                token : jwt.sign(user.toJSON() , 'codial' , {expiresIn : '10000'} )
+                token : jwt.sign(user.toJSON() , 'codesocial' , {expiresIn : '1000000'})
             }
         })
     }catch(err){
