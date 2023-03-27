@@ -3,6 +3,7 @@
     height: 50vh;
     border: 1px solid ;
     position: absolute;
+    background-color: #cad2c5;
     top: 50%;
     left: 50%;
     transform: translate(-30% , -50%);
@@ -16,10 +17,10 @@
     }
     .previewdiv{
         display: none;
-        width: 100px;
-        height: 150px;
-        .previewimg{
-            width: 100%;
+        // width: 100px;
+        height: 100px;
+        .previewpic{
+            height: 100%;
         }
     }
 }
