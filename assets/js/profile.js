@@ -38,6 +38,7 @@ function readURL(input) {
         reader.onload = function (e) {
             prediv.html('<img src="#"  class="previewpic" >')
             prediv.css('display' , 'inline-block');
+            console.log(e.target.result);
             $('.previewpic').attr('src', e.target.result);
         }
 
@@ -47,6 +48,7 @@ function readURL(input) {
 
 $(".profilepic").change(function(){
     readURL(this);
+    console.log(this);
 });
 
 

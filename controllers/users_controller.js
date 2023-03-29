@@ -161,5 +161,3 @@ module.exports.create_session = (req, res) => {
 
    return res.redirect('/posts/')
 }
-
-// https://codepen.io/ig_design/pen/MWKVrNR
