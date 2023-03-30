@@ -1,6 +1,7 @@
 const post = require('../models/posts')
 const user = require('../models/user');
 const comments = require('../models/comments')
+const nodemailer = require('../mailer/comments_mailer');
 
 
 module.exports.post = async (req , res )=>{  
@@ -94,7 +95,9 @@ module.exports.create_post = async (req , res)=>{
         posts.comments.push(datac)
         posts.save();
         if(req.xhr){
-            datac = await datac.populate('user');
+            datac = await datac.populate('user' , ' _id email name  ');
+            console.log(datac);
+            nodemailer.newComment(datac);
             return res.status(200).json({
                 data : {
                     comment : datac
