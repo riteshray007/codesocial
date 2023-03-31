@@ -101,31 +101,31 @@
             let time = new Date(data.updatedAt);
 
         return $(`
-                <div class="comment" id="comment-${data._id}" >
+                    <div class="comment" id="comment-${data._id}" >
 
-                    <span class="imgspan" >
-                        <img src="/images/gamer.png" class="comm_avatar" >
-                    </span>
-                    
-                    <span class="name_com" >
-                        <span>
-                        <p class="username" > ${ data.user.name } </p>
-                            <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
+                        <span class="imgspan" >
+                            <img src="/images/gamer.png" class="comm_avatar" >
                         </span>
-                        <p>${ data.content } </p>
-                    </span>
+                        
+                        <span class="name_com" >
+                            <span>
+                            <p class="username" > ${ data.user.name } </p>
+                                <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
+                            </span>
+                            <p>${ data.content } </p>
+                        </span>
 
-                    <span class="dropdown"  >
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                        <div class="dropdownContents " id='${ data._id }' >
-                            <p class="deletecomm" > Delete comment </p>
-                            
-                            <p class="editcomm" > Edit comment </p>
-                            
-                        </div>
-                    </span>
+                        <span class="dropdown"  >
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div class="dropdownContents " id='${ data._id }' >
+                                <p class="deletecomm" > Delete comment </p>
+                                
+                                <p class="editcomm" > Edit comment </p>
+                                
+                            </div>
+                        </span>
 
-                </div>
+                    </div>
 
         `)
     }

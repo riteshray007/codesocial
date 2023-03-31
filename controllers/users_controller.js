@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports.update_profile = async (req , res )=>{
-   if(req.query.id == req.user.id  && req.body.new_password == req.body.cnew_password ){
+   if(req.query.id == req.user.id  &&  req.body.password == req.user.password  && req.body.new_password == req.body.cnew_password ){
    try{
          // await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
          let profile = await user.findById(req.query.id);
