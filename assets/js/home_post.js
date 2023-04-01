@@ -167,7 +167,7 @@
                 })
                 // console.log($(`#post-${data.data.comment.post} .commentlist`).html())
                 $(`#post-${data.data.comment.post} .commentlist`).prepend(curcomment);
-                $( par ).children('.commentarea').val("");
+                // $( par ).children('.commentarea').val("");
                 notysucess('Comment Posted!')
             }, error : (err)=>{
                 console.log(err.responseText);
@@ -203,6 +203,8 @@
             type : 'success',
             timeout : 1500 , 
             layout : "topRight",
+            progressBar : true ,
+            closeWith : ['click'],
             animation: {
                 open: function (promise) {
                     var n = this;

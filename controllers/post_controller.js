@@ -1,8 +1,9 @@
 const post = require('../models/posts')
 const user = require('../models/user');
 const comments = require('../models/comments')
-const nodemailer = require('../mailer/comments_mailer');
-
+// const nodemailer = require('../mailer/comments_mailer');
+const CommentEmailWorker = require('../workers/comment_email_worker');
+const queue = require('../config/kue');
 
 module.exports.post = async (req , res )=>{  
 
@@ -97,7 +98,14 @@ module.exports.create_post = async (req , res)=>{
         if(req.xhr){
             datac = await datac.populate('user' , ' _id email name  ');
             console.log(datac);
-            nodemailer.newComment(datac);
+            // nodemailer.newComment(datac);
+            let job =  queue.create( 'emails' , datac  ).save( (err)=>{
+                if(err){
+                    console.log('err in creating a queue');
+                    return ;
+                }
+                console.log(job.id);
+            } )
             return res.status(200).json({
                 data : {
                     comment : datac
