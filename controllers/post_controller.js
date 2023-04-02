@@ -93,6 +93,7 @@ module.exports.create_post = async (req , res)=>{
             user : req.user._id,
             post : req.query.id
         })
+
         posts.comments.push(datac)
         posts.save();
         if(req.xhr){

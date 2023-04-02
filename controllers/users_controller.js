@@ -2,6 +2,40 @@ const user = require('../models/user');
 const posts = require('../models/posts');
 const fs = require('fs');
 const path = require('path');
+const queue = require('../config/kue');
+const crypto = require('crypto')
+
+module.exports.forget_password = async (req , res )=>{
+
+   if(req.user.email == req.body.confirmemail){
+      let datauser = await user.findById( req.user._id )
+      datauser.accescode = crypto.randomBytes(3).toString('hex')
+      console.log(datauser.accescode);
+      let job = queue.create( 'resetpassword' , datauser ).save( (err)=>{
+         if(err){
+            console.log( ' err in creating reset password job  ' , err );
+            return ;
+         }
+         console.log(job.id);
+      } ) 
+      
+      res.render( 'resetPassword' )
+   }
+   else{
+      req.flash( 'error' , `Entered credentials are not valid ` )
+      res.redirect('back');
+   }
+}
+
+module.exports.confirmReset = async(req , res )=>{
+
+      res.render('confirmreset')
+
+}
+
+module.exports.setnewpassword = async(req , res)=>{
+   res.render('back')
+}
 
 module.exports.update_profile = async (req , res )=>{
    if(req.query.id == req.user.id  &&  req.body.password == req.user.password  && req.body.new_password == req.body.cnew_password ){

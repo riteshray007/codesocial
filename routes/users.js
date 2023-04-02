@@ -17,6 +17,9 @@ router.post('/create_session',  passport.authenticate(
     'local',
     { failureRedirect : '/users/signin' }
 ) , users_controller.create_session );
+router.post( '/forget-password' , users_controller.forget_password  )
+router.get( '/confirm-reset' , users_controller.confirmReset )
+router.get( 'setnewpassword' , users_controller.setnewpassword )
 router.get('/auth/google' , passport.authenticate( 
     'google' , { scope : ['profile' , 'email'] }) );
 router.get('/auth/google/callback' , passport.authenticate(

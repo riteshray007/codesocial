@@ -1,33 +1,21 @@
 let imginput = document.querySelector('.profilepic');
 document.addEventListener('click' , (e)=>{
-    if(e.target.classList.contains('editprofilebutton') ){
+    if(e.target.classList.contains('editprofilebutton' )  ){
+        // console.log(e.target);
         document.querySelector('.editprofilediv').classList.toggle('active');
         return ;
     }
-    else if(e.target.closest('.editprofilediv')){
+    else if(e.target.closest('.editprofilediv'  ) ){
+        // console.log(e.target);
         return ;
-        // document.querySelector('.editprofilediv').classList.remove('active');
     }
-    else{
+    else{   
         document.querySelector('.editprofilediv').classList.remove('active');
     }
 })
 
 
-// imginput.addEventListener('change' , fetchimg )
 
-// function fetchimg(){
-//     let file = imginput.files[0];
-//     if(file){
-//         // const filereader = new filereader();
-//         // filereader.readAsDataUrl(file); 
-//         // filereader.addEventListener( 'load' , ()=>{
-//         //     document.querySelector('.previewdiv').style.display = 'block';
-//         //     document.querySelector('.previewdiv').innerHTML = ` <img class="previewimg" src='${this.result}' > `
-//         // } )
-//         console.log('something ');
-//     }
-// }
 
 let prediv = $('.previewdiv')
 function readURL(input) {

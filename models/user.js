@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar : {
         type : String
-    }
+    },
 } , {timestamps : true } );
 
 let storage = multer.diskStorage({

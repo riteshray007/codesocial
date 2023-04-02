@@ -1,0 +1,12 @@
+.forgetpassworddiv {
+  width: 50vw;
+  height: 50vh;
+  border: 1px solid;
+  left: 50%;
+  margin-top: 20px;
+  position: relative;
+  transform: translateX(-50%);
+  background-color: #cad2c5; }
+  .forgetpassworddiv form {
+    display: flex;
+    flex-direction: column; }
