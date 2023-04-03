@@ -3,23 +3,61 @@ const posts = require('../models/posts');
 const fs = require('fs');
 const path = require('path');
 const queue = require('../config/kue');
+const resetpassEmailWorker = require( '../workers/password_reset_worker' );
 const crypto = require('crypto')
+const password = require('../models/forgetpass');
+
 
 module.exports.forget_password = async (req , res )=>{
 
    if(req.user.email == req.body.confirmemail){
-      let datauser = await user.findById( req.user._id )
-      datauser.accescode = crypto.randomBytes(3).toString('hex')
-      console.log(datauser.accescode);
-      let job = queue.create( 'resetpassword' , datauser ).save( (err)=>{
-         if(err){
-            console.log( ' err in creating reset password job  ' , err );
-            return ;
+      try{
+
+         let datauser = await user.findById( req.user._id )
+         var passdata = await password.findOne({ user : datauser._id })
+
+         let code = crypto.randomBytes(3).toString('hex')
+         let codedata = {
+            _id : datauser._id,
+            email : datauser.email,
+            name : datauser.name,
+            code: code,
          }
-         console.log(job.id);
-      } ) 
-      
-      res.render( 'resetPassword' )
+         
+         if(!passdata){
+            passdata = await password.create({
+               user : datauser._id,
+               accessToken : code,
+               validity:true
+            })
+         }
+         // console.log(passdata);
+         else{
+            passdata.accessToken = code
+            passdata.save();          
+         }
+   
+         setTimeout(() => {
+            passdata.validity = false
+            passdata.save();
+         }, 120000 );
+         
+         
+         let job = queue.create( 'resetpassword' , codedata ).save( (err)=>{
+            if(err){
+               console.log( ' err in creating reset password job  ' , err );
+               return ;
+            }
+            console.log(job.id);
+         } ) 
+         
+         res.render( 'resetPassword' )
+
+      }catch(err){
+         console.log(err);
+         return ;
+
+      }
    }
    else{
       req.flash( 'error' , `Entered credentials are not valid ` )
@@ -28,13 +66,22 @@ module.exports.forget_password = async (req , res )=>{
 }
 
 module.exports.confirmReset = async(req , res )=>{
-
+      
       res.render('confirmreset')
 
 }
 
 module.exports.setnewpassword = async(req , res)=>{
-   res.render('back')
+   id = req.user._id;
+      let passcode = await password.find({ user : req.user._id })
+      if(passcode && req.body.otp == passcode.accessToken ){
+         req.flash( "success" , 'correct creadentials '  )
+         res.redirect( 'back' );
+      }else{
+         req.flash( 'error' , "User not found " )
+         res.redirect('back');
+      }
+   
 }
 
 module.exports.update_profile = async (req , res )=>{

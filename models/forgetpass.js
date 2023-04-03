@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const crypto = require('crypto');
+
 
 const forgetpassSchema = new mongoose.Schema({
     user : {
@@ -9,7 +9,6 @@ const forgetpassSchema = new mongoose.Schema({
     accessToken : {
         type : String,
         required : true,
-        default : crypto.randomBytes(6).toString('hex'),
     },
     validity : {
         type : Boolean,
