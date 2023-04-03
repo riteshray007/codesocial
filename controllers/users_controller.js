@@ -10,37 +10,38 @@ const password = require('../models/forgetpass');
 
 module.exports.forget_password = async (req , res )=>{
 
-   if(req.user.email == req.body.confirmemail){
-      try{
+   
+      try{       
 
-         let datauser = await user.findById( req.user._id )
-         var passdata = await password.findOne({ user : datauser._id })
-
-         let code = crypto.randomBytes(3).toString('hex')
-         let codedata = {
-            _id : datauser._id,
-            email : datauser.email,
-            name : datauser.name,
-            code: code,
-         }
-         
-         if(!passdata){
+            let datauser = await user.findById( req.user._id )
+            
+            let code = crypto.randomBytes(3).toString('hex')
+            let codedata = {
+               _id : datauser._id,
+               email : datauser.email,
+               name : datauser.name,
+               code: code,
+            }
+            
+            var passdata = await password.findOne({ user : datauser._id })
+            if(!passdata){
             passdata = await password.create({
                user : datauser._id,
                accessToken : code,
                validity:true
             })
          }
-         // console.log(passdata);
-         else{
-            passdata.accessToken = code
-            passdata.save();          
-         }
+            else{
+               passdata.accessToken = code;
+               passdata.validity = true;
+               passdata.save();          
+            }
    
          setTimeout(() => {
+            console.log('timeout completed')
             passdata.validity = false
             passdata.save();
-         }, 120000 );
+         }, 500000 );
          
          
          let job = queue.create( 'resetpassword' , codedata ).save( (err)=>{
@@ -50,19 +51,18 @@ module.exports.forget_password = async (req , res )=>{
             }
             console.log(job.id);
          } ) 
-         
-         res.render( 'resetPassword' )
-
+      
+     
+      res.render( 'resetPassword' )
+      
       }catch(err){
          console.log(err);
          return ;
 
       }
-   }
-   else{
-      req.flash( 'error' , `Entered credentials are not valid ` )
-      res.redirect('back');
-   }
+   
+   
+   
 }
 
 module.exports.confirmReset = async(req , res )=>{
@@ -73,14 +73,17 @@ module.exports.confirmReset = async(req , res )=>{
 
 module.exports.setnewpassword = async(req , res)=>{
    id = req.user._id;
-      let passcode = await password.find({ user : req.user._id })
-      if(passcode && req.body.otp == passcode.accessToken ){
-         req.flash( "success" , 'correct creadentials '  )
-         res.redirect( 'back' );
-      }else{
-         req.flash( 'error' , "User not found " )
-         res.redirect('back');
+   let userdata = await user.findById( id );
+      let passcode = await password.findOne({ user : id })
+      if( passcode &&  req.body.otp == passcode.accessToken  && req.body.newpassword == req.body.cnewpassword && passcode.validity == true  ){
+         userdata.password = req.body.newpassword;
+         userdata.save();
+         req.flash( "success" , ' Password updated successfully '  )
       }
+      else{
+         req.flash( 'error' , "User not found " )
+      }
+      res.redirect(`/users/profile?id=${req.user._id}`);
    
 }
 
