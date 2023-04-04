@@ -3,127 +3,142 @@ const posts = require('../models/posts');
 const fs = require('fs');
 const path = require('path');
 const queue = require('../config/kue');
-const resetpassEmailWorker = require( '../workers/password_reset_worker' );
+const resetpassEmailWorker = require('../workers/password_reset_worker');
 const crypto = require('crypto')
 const password = require('../models/forgetpass');
 
 
-module.exports.forget_password = async (req , res )=>{
+module.exports.forget_password = async (req, res) => {
 
+   id = req.query.id;
+   let passcode = await password.findOne({ user: id })
+   // if(req.body.otp == passcode.accessToken && passcode.validity == true ){
+   //    res.render( 'resetpassword' , { id : id }  )
+   // }
+   // else{
+   //    req.flash('error' , 'invalid otp' )
+   //    res.redirect('back');
+   // }
+   if(req.xhr){
+      return res.status(200).json({
+         data :{
+            password : passcode
+         },
+         message : 'checking '
+      })
+   }
+   return res.render('resetpassword' , {id : id} );
+}
+
+module.exports.varifysecuritycode = async (req , res )=>{
    
-      try{       
-
-            let datauser = await user.findById( req.user._id )
-            
-            let code = crypto.randomBytes(3).toString('hex')
-            let codedata = {
-               _id : datauser._id,
-               email : datauser.email,
-               name : datauser.name,
-               code: code,
-            }
-            
-            var passdata = await password.findOne({ user : datauser._id })
-            if(!passdata){
+   let datauser = await user.findOne({ email : req.body.confirmemail })
+   if(datauser){
+      try {         
+         let code = crypto.randomBytes(3).toString('hex')
+         let codedata = {
+            _id: datauser._id,
+            email: datauser.email,
+            name: datauser.name,
+            code: code,
+         }
+         
+         var passdata = await password.findOne({ user: datauser._id })
+         if (!passdata) {
             passdata = await password.create({
-               user : datauser._id,
-               accessToken : code,
-               validity:true
+               user: datauser._id,
+               accessToken: code,
+               validity: true
             })
          }
-            else{
-               passdata.accessToken = code;
-               passdata.validity = true;
-               passdata.save();          
-            }
-   
+         else {
+            passdata.accessToken = code;
+            passdata.validity = true;
+            passdata.save();
+         }
+         
          setTimeout(() => {
             console.log('timeout completed')
             passdata.validity = false
             passdata.save();
-         }, 500000 );
+         }, 120000 );
          
          
-         let job = queue.create( 'resetpassword' , codedata ).save( (err)=>{
-            if(err){
-               console.log( ' err in creating reset password job  ' , err );
-               return ;
+         let job = queue.create('resetpassword', codedata).save((err) => {
+            if (err) {
+               console.log(' err in creating reset password job  ', err);
+               return;
             }
             console.log(job.id);
-         } ) 
-      
-     
-      res.render( 'resetPassword' )
-      
-      }catch(err){
+         })
+         res.render('confirmsecuritycode' , {user : datauser}  )
+      } catch (err) {
          console.log(err);
-         return ;
-
+         return;         
       }
-   
-   
-   
+   }else{
+      req.flash('error' , 'user not found' )
+      res.redirect('back');
+   }
 }
 
-module.exports.confirmReset = async(req , res )=>{
-      
-      res.render('confirmreset')
+module.exports.confirmReset = async (req, res) => {
+
+   res.render('confirmreset')
 
 }
 
-module.exports.setnewpassword = async(req , res)=>{
-   id = req.user._id;
-   let userdata = await user.findById( id );
-      let passcode = await password.findOne({ user : id })
-      if( passcode &&  req.body.otp == passcode.accessToken  && req.body.newpassword == req.body.cnewpassword && passcode.validity == true  ){
-         userdata.password = req.body.newpassword;
-         userdata.save();
-         req.flash( "success" , ' Password updated successfully '  )
-      }
-      else{
-         req.flash( 'error' , "User not found " )
-      }
-      res.redirect(`/users/profile?id=${req.user._id}`);
-   
+module.exports.setnewpassword = async (req, res) => {
+   id = req.query.id;
+   let userdata = await user.findById(id);
+   if (req.body.newpassword == req.body.cnewpassword ) {
+      userdata.password = req.body.newpassword;
+      userdata.save();
+      req.flash("success", ' Password updated successfully ')
+   }
+   else {
+      req.flash('error', "User not found ")
+   }
+   res.redirect(`/users/profile?id=${req.user._id}`);
 }
 
-module.exports.update_profile = async (req , res )=>{
-   if(req.query.id == req.user.id  &&  req.body.password == req.user.password  && req.body.new_password == req.body.cnew_password ){
-   try{
+module.exports.update_profile = async (req, res) => {
+   if (req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password == req.body.cnew_password) {
+      try {
          // await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
          let profile = await user.findById(req.query.id);
-         user.uploadedAvatar(req , res , function(err){
-            if(err){
+         user.uploadedAvatar(req, res, function (err) {
+            if (err) {
                console.log(err);
             }
             console.log(req.file);
             profile.password = req.body.new_password;
             profile.name = req.body.name;
-            if(req.file){
-               if(profile.avatar){
-                  if(fs.existsSync(path.join( __dirname , ".." , profile.avatar ))){
-                     fs.unlink( path.join( __dirname , '..' , profile.avatar )  , (err)=>{
-                        if(err){
+            if (req.file) {
+               if (profile.avatar) {
+                  if (fs.existsSync(path.join(__dirname, "..", profile.avatar))) {
+                     fs.unlink(path.join(__dirname, '..', profile.avatar), (err) => {
+                        if (err) {
                            console.log(err);
-                        }else{
+                        } else {
                            console.log('replace succesfully');
                         }
                      });
                   }
                }
-               profile.avatar = user.avatarpath + '/' + req.file.filename ; 
+               profile.avatar = user.avatarpath + '/' + req.file.filename;
             }
-            req.flash( 'success' , 'profile updated succesfully! ' )
-            profile.save();   
+            req.flash('success', 'profile updated succesfully! ')
+            profile.save();
             return res.redirect('back');
          })
-      }catch(err){
+      } catch (err) {
          // console.log(err);
-         req.flash('error' , err);
-         return ;
+         req.flash('error', err);
+         return;
       }
    }
-   else{
+   else {
       return res.status(401).send('please check the credentials again');
    }
 
@@ -131,25 +146,25 @@ module.exports.update_profile = async (req , res )=>{
 
 module.exports.profile = async (req, res) => {
 
-   try{
+   try {
       let data = await user.findById(req.query.id);
 
-      let postdata = await posts.find({user : req.query.id})
-      .populate('user')
-      .populate({
-         path : 'comments',
-         populate : {
-            path : 'user'
-         }
-      })
+      let postdata = await posts.find({ user: req.query.id })
+         .populate('user')
+         .populate({
+            path: 'comments',
+            populate: {
+               path: 'user'
+            }
+         })
 
-      return res.render( 'user_profile' , {
-         posts : postdata , 
-         userdata : data
-      } )
-   }catch(err){
+      return res.render('user_profile', {
+         posts: postdata,
+         userdata: data
+      })
+   } catch (err) {
       console.log(err);
-      return ;
+      return;
    }
 }
 module.exports.users = (req, res) => {
@@ -168,11 +183,11 @@ module.exports.signup = function (req, res) {
 module.exports.signout = (req, res) => {
    // console.log(req.cookies.user_id);
    // res.cookie('user_id', '');
-   req.logout( function(err){
-      if(err){
+   req.logout(function (err) {
+      if (err) {
          console.log(err);
       }
-      req.flash('error' , 'you have logged out!');
+      req.flash('error', 'you have logged out!');
       return res.redirect('/users')
    });
 }
@@ -197,12 +212,12 @@ module.exports.create = function (req, res) {
                console.log('error while creating profile')
                return;
             }
-            req.flash('success' , 'new user signedup' )
+            req.flash('success', 'new user signedup')
             return res.redirect('/users/signin');
          })
       }
       else {
-         req.flash('warning' , 'email id u entered already exist!' )
+         req.flash('warning', 'email id u entered already exist!')
          return res.redirect('/users/signup');
       }
 
@@ -240,7 +255,7 @@ module.exports.create_session = (req, res) => {
    //       }
    //    }
    // })
-   req.flash('success' , 'logged in succesfully')
+   req.flash('success', 'logged in succesfully')
 
 
    return res.redirect('/posts/')

@@ -8,8 +8,6 @@
         $('.deletepost').click((e)=>{
             // let pid = e.target.attr('id');
             let par = $(e.target).parent();
-            // console.log(par);
-            // console.log($('.deletepost' , par))
             deletePost($('.deletepost',par));
             // deletePost(e.target);
         })

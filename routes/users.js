@@ -20,6 +20,7 @@ router.post('/create_session',  passport.authenticate(
 router.post( '/forget-password' , users_controller.forget_password  )
 router.get( '/confirm-reset' , users_controller.confirmReset )
 router.post( '/setnewpassword' , users_controller.setnewpassword )
+router.post( '/varifysecuritycode' , users_controller.varifysecuritycode)
 router.get('/auth/google' , passport.authenticate( 
     'google' , { scope : ['profile' , 'email'] }) );
 router.get('/auth/google/callback' , passport.authenticate(
