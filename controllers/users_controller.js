@@ -43,34 +43,45 @@ module.exports.varifysecuritycode = async (req , res )=>{
             code: code,
          }
          
+        
+
          var passdata = await password.findOne({ user: datauser._id })
+
+         
+
          if (!passdata) {
             passdata = await password.create({
                user: datauser._id,
                accessToken: code,
                validity: true
             })
+            jobcaller();
          }
-         else {
+         else if(passdata.validity==false){
             passdata.accessToken = code;
             passdata.validity = true;
             passdata.save();
+
+               jobcaller();
+
+               setTimeout(() => {
+                  console.log('timeout completed')
+                  passdata.validity = false
+                  passdata.save();
+               }, 120000 );
          }
          
-         setTimeout(() => {
-            console.log('timeout completed')
-            passdata.validity = false
-            passdata.save();
-         }, 120000 );
-         
-         
-         let job = queue.create('resetpassword', codedata).save((err) => {
-            if (err) {
-               console.log(' err in creating reset password job  ', err);
-               return;
-            }
-            console.log(job.id);
-         })
+         function jobcaller(){
+            let job = queue.create('resetpassword', codedata).save((err) => {
+               if (err) {
+                  console.log(' err in creating reset password job  ', err);
+                  return;
+               }
+               console.log(job.id);
+            })
+         }
+        
+            
          res.render('confirmsecuritycode' , {user : datauser}  )
       } catch (err) {
          console.log(err);
@@ -95,6 +106,9 @@ module.exports.setnewpassword = async (req, res) => {
       userdata.password = req.body.newpassword;
       userdata.save();
       req.flash("success", ' Password updated successfully ')
+      var passdata = await password.findOne({ user: id })
+      passdata.validity = false ;
+      passdata.save();
    }
    else {
       req.flash('error', "User not found ")
