@@ -9,6 +9,7 @@ router.get('/' , home_controller.home);
 router.get('/about' , home_controller.about);
  router.use('/posts' , require('./posts') );
 router.use('/users' , require('./users') );
+router.use('/likes' , require('./likes'));
 
 router.use('/api' , require('./api') );
 
