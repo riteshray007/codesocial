@@ -105,20 +105,18 @@
     }
 
     .commentbox  form {
-        // border: 1px solid red;
         display: flex;
         align-items: center;
 
         .commentbutton{
-            // max-height: 30px;
-        padding: 8px 10px;
-        margin: 10px 10px ;
-        border-radius: 10px;
-        border-width: 0px;
-        font-family: sans-serif;
-        color: inherit;
-        font-weight: 600;
-        background-color: #cad2c5;
+            padding: 8px 10px;
+            margin: 10px 10px ;
+            border-radius: 10px;
+            border-width: 0px;
+            font-family: sans-serif;
+            color: inherit;
+            font-weight: 600;
+            background-color: #cad2c5;
         }
 
     }
@@ -151,11 +149,20 @@
         align-items: center;
         font-size: 17px;
 
-
+        .liketoggle{
+            text-decoration: none;
+            color: inherit;
+        }
         .likes , .comments{
              
             margin: 0px 5px ;
             cursor: pointer;
+            pointer-events: none;
+
+            .fa-heart{
+                pointer-events: none;
+                color: red;
+            }
 
         }
     }

@@ -1,6 +1,7 @@
 const post = require('../models/posts')
 const user = require('../models/user');
 const comments = require('../models/comments')
+const likes = require('../models/likes');
 // const nodemailer = require('../mailer/comments_mailer');
 const CommentEmailWorker = require('../workers/comment_email_worker');
 const queue = require('../config/kue');
@@ -40,6 +41,7 @@ module.exports.deletePost = async (req , res)=>{
         let data = await post.findById( req.query.id )
         
        await comments.deleteMany({post : req.query.id})
+       await likes.deleteMany({ likeable : req.query.id });
        data.remove();
         if(req.xhr){
             return res.status(200).json({

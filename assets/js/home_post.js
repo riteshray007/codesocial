@@ -1,3 +1,4 @@
+
 {   
     // method to submit the form data for new post using AJAX
     let createPost = function(){
@@ -10,6 +11,11 @@
             let par = $(e.target).parent();
             deletePost($('.deletepost',par));
             // deletePost(e.target);
+        })
+        $('.liketoggle').click((e)=>{
+            e.preventDefault();
+            // console.log($(e.target).parent());
+            togglelikefnc( $(e.target).parent() )
         })
         
  
@@ -29,6 +35,9 @@
                     // console.log(newPost)
                     $('.deletepost' , newPost).click(()=>{  
                         deletePost('.deletepost' , newPost);
+                    })
+                    $('.liketoggle' , newPost).click(()=>{
+                        togglelikefnc( '.liketoggle' , newPost );
                     })
                     // console.log($('.deletepost',newPost))
                     notysucess('Post Published!')
@@ -79,7 +88,7 @@
                 <p class="contentbox" > ${ post.content }</p>
 
                 <div class="likescomments" >
-                    <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span>
+                    <a href="/likes/toggle?id=${post._id}&type=Post" >  <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span> </a>
                     <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
                 </div>
 
@@ -126,6 +135,31 @@
                     </div>
 
         `)
+    }
+
+    function togglelikefnc(anchortag){
+        let link = anchortag.attr('href');
+        $.ajax({
+            type : 'get',
+            url : link,
+            success: function(data){
+                console.log(data.data.deleted);
+                if(!data.data.deleted){
+                    $( '.fa-heart' , anchortag ).addClass('fa-solid');
+                    $( '.fa-heart' , anchortag ).removeClass('fa-regular');
+                    
+                }
+                else{
+
+                    $( '.fa-heart' , anchortag ).addClass('fa-regular');
+                    $( '.fa-heart' , anchortag ).removeClass('fa-solid');
+
+                }                
+            },error : function(error){
+                console.log(error.responseText);
+            }
+
+        })
     }
     
     let deletePost = function(deleteLink){

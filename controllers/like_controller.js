@@ -23,28 +23,33 @@ module.exports.togglelike = async (req , res )=>{
             onModel : req.query.type 
         } )
         if(existLike){
-            likeable.likes.pull(existLike._id)
+            console.log( "exit like - " , existLike);
+            likeable.likes.pull(existLike)
             existLike.remove();
             likeable.save();
             deleted = true;
         }
         else{
-            let newLike = Like.create({
+            let newLike = await Like.create({
                 user : req.user._id,
                 onModel : req.query.type,
                 likeable : req.query.id    
             })
-            likeable.likes.push(newLike._id);
-            likeable.save();            
+            likeable.likes.push(newLike);
+            likeable.save();
+            console.log(' newlike - ' , newLike );            
         }
+        if(req.xhr){
 
-        res.status(200).json({
-            message : ' request succesfully  ',
-            data : {
-                deleted : deleted
-            }
-        })
-
+            return res.status(200).json({
+                data : {
+                    deleted : deleted,                    
+                },
+                message : ' request succesfully  '
+            })
+        }
+        return res.redirect('back');
+            
 
 
 

@@ -43,7 +43,7 @@
         <p class="contentbox" > <%= i.content %> </p>
 
         <div class="likescomments" >
-            <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span>
+           <a class="liketoggle"  href="/likes/toggle?id=<%=i._id%>&type=Post" > <span class="likes" > <i class="fa-regular fa-heart"></i>   </span> </a>
             <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
         </div>
         <div class="commentbox" >
