@@ -152,21 +152,21 @@
         .liketoggle{
             text-decoration: none;
             color: inherit;
-        }
-        .likes , .comments{
-             
-            margin: 0px 5px ;
-            cursor: pointer;
-            pointer-events: none;
+            
 
+            .likes , .comments{
+                    
+                margin-right: 5px ;
+                cursor: pointer;
+                pointer-events: none;
+            }
             .fa-heart{
                 pointer-events: none;
-                color: red;
+                color: inherit;
             }
-
         }
     }
-
+    
     .commentlist{
         // margin: 5px 10px ;
         width: 95%;
@@ -200,7 +200,24 @@
             .name_com{
                 margin: 0px 10px;
                 // display: flex;
-
+                .liketoggle{
+                    text-decoration: none;
+                    color: inherit;
+                    display: flex;
+                    align-items: center;
+                    width: 30px;
+                    
+                    .likes , .comments{
+                            
+                        margin: 0px 5px ;
+                        cursor: pointer;
+                        pointer-events: none;
+                    }
+                    .fa-heart{
+                        pointer-events: none;
+                        color: inherit;
+                    }
+                }
                 span{
                     display: flex;
                     align-items: center;

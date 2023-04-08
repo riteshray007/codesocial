@@ -12,7 +12,8 @@
     <% let date =  v.getDate()  %>
     <% let st = getst(date)  %>
     <% date = date + st  %>
-             
+    <% let existing = false %>
+    <% let existingc = false %>
     <div  id="post-<%=i._id%>" class="postbox vcenter" >
 
         <div class=" userinfo " >
@@ -43,7 +44,18 @@
         <p class="contentbox" > <%= i.content %> </p>
 
         <div class="likescomments" >
-           <a class="liketoggle"  href="/likes/toggle?id=<%=i._id%>&type=Post" > <span class="likes" > <i class="fa-regular fa-heart"></i>   </span> </a>
+           <a class="liketoggle"  href="/likes/toggle?id=<%=i._id%>&type=Post" >     
+            <%for( let like of i.likes ){ %>
+                <%if(user.id == like.user){%>
+                    <% existing = true %>
+                <% }%>
+           <% }%>
+           <% if( existing == true ){ %>
+            <i class="fa-solid fa-heart"></i>
+           <% }else{ %>           
+            <i class="fa-regular fa-heart"></i>
+           <% } %>
+           <span class="likes" > <%= i.likes.length %>  </span> </a>
             <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
         </div>
         <div class="commentbox" >
@@ -71,7 +83,19 @@
                         <p class="username" > <%= c.user.name %> </p>
                         <p class="commenttime" ><%= x.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) %></p>
                     </span>
-                    <p><%= c.content %> </p>
+                    <p><%= c.content %> </p> 
+                    <a class="liketoggle"  href="/likes/toggle?id=<%=c._id%>&type=Comment" >     
+                        <%for( let l of c.likes ){ %>
+                            <%if(user.id == l.user){%>
+                                <% existingc = true %>
+                            <% }%>
+                       <% }%>
+                       <% if( existingc == true ){ %>
+                        <i class="fa-solid fa-heart"></i>
+                       <% }else{ %>           
+                        <i class="fa-regular fa-heart"></i>
+                       <% } %>
+                       <span class="likes" > <%= c.likes.length %>  </span> </a>
                 </span>
                 <% if(c.user.id == user.id || i.user.id  == user.id ){ %>
                 <span class="dropdown"  >

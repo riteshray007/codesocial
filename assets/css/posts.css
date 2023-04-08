@@ -112,13 +112,13 @@
     .postbox .likescomments .liketoggle {
       text-decoration: none;
       color: inherit; }
-    .postbox .likescomments .likes, .postbox .likescomments .comments {
-      margin: 0px 5px;
-      cursor: pointer;
-      pointer-events: none; }
-      .postbox .likescomments .likes .fa-heart, .postbox .likescomments .comments .fa-heart {
+      .postbox .likescomments .liketoggle .likes, .postbox .likescomments .liketoggle .comments {
+        margin-right: 5px;
+        cursor: pointer;
+        pointer-events: none; }
+      .postbox .likescomments .liketoggle .fa-heart {
         pointer-events: none;
-        color: red; }
+        color: inherit; }
   .postbox .commentlist {
     width: 95%;
     max-height: 200px;
@@ -142,6 +142,19 @@
         font-weight: 600; }
       .postbox .commentlist .comment .name_com {
         margin: 0px 10px; }
+        .postbox .commentlist .comment .name_com .liketoggle {
+          text-decoration: none;
+          color: inherit;
+          display: flex;
+          align-items: center;
+          width: 30px; }
+          .postbox .commentlist .comment .name_com .liketoggle .likes, .postbox .commentlist .comment .name_com .liketoggle .comments {
+            margin: 0px 5px;
+            cursor: pointer;
+            pointer-events: none; }
+          .postbox .commentlist .comment .name_com .liketoggle .fa-heart {
+            pointer-events: none;
+            color: inherit; }
         .postbox .commentlist .comment .name_com span {
           display: flex;
           align-items: center; }

@@ -42,12 +42,8 @@ module.exports.varifysecuritycode = async (req , res )=>{
             name: datauser.name,
             code: code,
          }
-         
-        
 
          var passdata = await password.findOne({ user: datauser._id })
-
-         
 
          if (!passdata) {
             passdata = await password.create({
@@ -170,11 +166,13 @@ module.exports.profile = async (req, res) => {
             populate: {
                path: 'user'
             }
+         }).populate({
+            path : 'likes',
          })
 
       return res.render('user_profile', {
          posts: postdata,
-         userdata: data
+        userdata: data
       })
    } catch (err) {
       console.log(err);

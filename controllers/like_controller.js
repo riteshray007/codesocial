@@ -23,7 +23,6 @@ module.exports.togglelike = async (req , res )=>{
             onModel : req.query.type 
         } )
         if(existLike){
-            console.log( "exit like - " , existLike);
             likeable.likes.pull(existLike)
             existLike.remove();
             likeable.save();
@@ -36,8 +35,7 @@ module.exports.togglelike = async (req , res )=>{
                 likeable : req.query.id    
             })
             likeable.likes.push(newLike);
-            likeable.save();
-            console.log(' newlike - ' , newLike );            
+            likeable.save();           
         }
         if(req.xhr){
 
@@ -49,11 +47,6 @@ module.exports.togglelike = async (req , res )=>{
             })
         }
         return res.redirect('back');
-            
-
-
-
-
     }catch(err){
         console.log(err , " from toggle likes- ");
         return res.status(500).json({

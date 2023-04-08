@@ -12,17 +12,25 @@ module.exports.post = async (req , res )=>{
         let userdata = await user.find({})        
         let postd = await post.find({})
         .sort('-createdAt')
-        .populate('user')
+        .populate('user likes')
         .populate({
             path : 'comments',
             options : {
                 sort : { 'createdAt' : '-1' }
             },  
             populate : {
-                path : 'user'
-            }
+                path : 'likes user',
+            },
+            
+            
         })
-        
+
+        // postd.comments.populate('user');
+
+        // return res.status(200).json({
+        //     post : postd,
+        // })
+        // console.log( postd )
         return res.render('posts' , {
             posts : postd,
             users : userdata

@@ -14,8 +14,8 @@
         })
         $('.liketoggle').click((e)=>{
             e.preventDefault();
-            // console.log($(e.target).parent());
-            togglelikefnc( $(e.target).parent() )
+            // let link = anchortag;
+            togglelikefnc( $(e.target) )
         })
         
  
@@ -29,15 +29,18 @@
                 url: '/posts/create_post',
                 data: newPostForm.serialize(),
                 success: function(data){
-                    console.log(data.data.post);
+                    // console.log(data.data.post);
                     let newPost = newPostDom(data.data.post);
                     $('.allposts').prepend(newPost);
                     // console.log(newPost)
                     $('.deletepost' , newPost).click(()=>{  
                         deletePost('.deletepost' , newPost);
                     })
-                    $('.liketoggle' , newPost).click(()=>{
-                        togglelikefnc( '.liketoggle' , newPost );
+                    $('.liketoggle' , newPost).click((e)=>{
+                        e.preventDefault();
+                        console.log($(e.target).attr('href'));
+                        // let link = anchortag;
+                        togglelikefnc( $(e.target) )
                     })
                     // console.log($('.deletepost',newPost))
                     notysucess('Post Published!')
@@ -88,7 +91,7 @@
                 <p class="contentbox" > ${ post.content }</p>
 
                 <div class="likescomments" >
-                    <a href="/likes/toggle?id=${post._id}&type=Post" >  <span class="likes" > <i class="fa-regular fa-heart"></i>  like </span> </a>
+                    <a  class="liketoggle" href="/likes/toggle?id=${post._id}&type=Post" >  <span class="likes" > <i class="fa-regular fa-heart"></i> </span> </a>
                     <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
                 </div>
 
@@ -120,6 +123,12 @@
                                 <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
                             </span>
                             <p>${ data.content } </p>
+                            <a class="liketoggle"  href="/likes/toggle?id=${data._id}&type=Comment" >
+                    
+                                <i class="fa-regular fa-heart"></i>
+                                <span class="likes" > 0  </span> 
+                            </a>
+
                         </span>
 
                         <span class="dropdown"  >
@@ -139,21 +148,25 @@
 
     function togglelikefnc(anchortag){
         let link = anchortag.attr('href');
+        // console.log(link);
         $.ajax({
-            type : 'get',
+            type : 'POST',
             url : link,
             success: function(data){
-                console.log(data.data.deleted);
+                // console.log(data.data.deleted);
                 if(!data.data.deleted){
                     $( '.fa-heart' , anchortag ).addClass('fa-solid');
                     $( '.fa-heart' , anchortag ).removeClass('fa-regular');
+                    let val = $( '.likes' , anchortag ).html();
+                    $( '.likes' , anchortag ).html( +val+1 )
                     
                 }
                 else{
-
+                    
                     $( '.fa-heart' , anchortag ).addClass('fa-regular');
                     $( '.fa-heart' , anchortag ).removeClass('fa-solid');
-
+                    let val = $( '.likes' , anchortag ).html();
+                    $( '.likes' , anchortag ).html( +val-1 )
                 }                
             },error : function(error){
                 console.log(error.responseText);
@@ -196,6 +209,12 @@
                 // console.log(curcomment.html());
                 $('.deletecomm' , curcomment).click((e)=>{
                     deletecomment(`${data.data.comment._id}`);
+                })
+                $('.liketoggle' , curcomment).click((e)=>{
+                    e.preventDefault();
+                    console.log($(e.target).attr('href'));
+                    // let link = anchortag;
+                    togglelikefnc( $(e.target) )
                 })
                 // console.log($(`#post-${data.data.comment.post} .commentlist`).html())
                 $(`#post-${data.data.comment.post} .commentlist`).prepend(curcomment);
