@@ -47,9 +47,14 @@ module.exports.deletePost = async (req , res)=>{
     try{
 
         let data = await post.findById( req.query.id )
+        .populate({
+            path : 'comments',
+        })
+        console.log(data.comments);
         
        await comments.deleteMany({post : req.query.id})
-       await likes.deleteMany({ likeable : req.query.id });
+       await likes.deleteMany({ likeable : req.query.id , onModel : 'Post' });
+       await likes.deleteMany({ likeable: {$in : data.comments}  })
        data.remove();
         if(req.xhr){
             return res.status(200).json({
