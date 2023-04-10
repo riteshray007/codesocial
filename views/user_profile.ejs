@@ -14,8 +14,31 @@
             EDIT PROFILE 
         </button>
         <a href="/users/confirm-reset" > forgot password? </a>
-        
-    <% } %>
+        <% } %>
+        <% if(user.id != userdata.id  ){ %>
+            <%let exist = false;%>
+            <%let second = false%>
+            <%for(let f of userdata.friendships){%>
+                <%if(f.from_user == user.id && f.to_user == userdata.id ){%>
+                    <%exist = true;break;%>
+                
+                <%}else if(f.from_user == userdata.id && f.to_user == user.id ){%>
+                    <% second = true %>
+                    <%exist = true;break;%>
+                <%}%>
+            <%}%>
+            <%if(exist == false){%>
+
+                <a href="/users/friendrequest?from=<%=user._id%>&to=<%=userdata._id%>" > <button type="button" > add friend </button>  </a>
+            <%}else{%>
+                <%if(second ==true ){%>
+                    <a href="/users/removefriend?from=<%=userdata._id%>&to=<%=user._id%>" > <button type="button" > remove friend  </button>  </a>
+                <%}else{%>
+                    <a href="/users/removefriend?from=<%=user._id%>&to=<%=userdata._id%>" > <button type="button" > remove friend  </button>  </a>
+                <%}%>
+                
+            <%}%>
+        <% } %>
     
     
     <div class="postdiv" >

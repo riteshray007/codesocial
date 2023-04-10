@@ -91,7 +91,7 @@
                 <p class="contentbox" > ${ post.content }</p>
 
                 <div class="likescomments" >
-                    <a  class="liketoggle" href="/likes/toggle?id=${post._id}&type=Post" >  <span class="likes" > <i class="fa-regular fa-heart"></i> </span> </a>
+                    <a  class="liketoggle" href="/likes/toggle?id=${post._id}&type=Post" >  <i class="fa-regular fa-heart"></i> <span class="likes" >  </span> </a>
                     <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
                 </div>
 

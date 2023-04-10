@@ -17,6 +17,8 @@ router.post('/create_session',  passport.authenticate(
     'local',
     { failureRedirect : '/users/signin' }
 ) , users_controller.create_session );
+router.get( '/friendrequest' , users_controller.sendfriendrequest  );
+router.get('/removefriend' , users_controller.removeFriends);
 router.post( '/forget-password' , users_controller.forget_password  )
 router.get( '/confirm-reset' , users_controller.confirmReset )
 router.post( '/setnewpassword' , users_controller.setnewpassword )

@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const posts = require('../models/posts');
+const Friendship = require('../models/friendship');
 const fs = require('fs');
 const path = require('path');
 const queue = require('../config/kue');
@@ -7,6 +8,59 @@ const resetpassEmailWorker = require('../workers/password_reset_worker');
 const crypto = require('crypto')
 const password = require('../models/forgetpass');
 
+module.exports.removeFriends = async (req , res)=>{
+
+   try{
+      let from = req.query.from;
+      let to = req.query.to;
+   
+      let friendship = await Friendship.findOne({ from_user:from , to_user : to })
+      console.log(friendship , " - friendship ");
+      let fromuser = await user.findById( from );
+      let touser = await user.findById(to);
+   
+      fromuser.friendships.pull(friendship);
+      touser.friendships.pull(friendship);
+      fromuser.save();
+      touser.save();
+      friendship.remove();
+      req.flash('error' , 'removed from friend' )
+      return res.redirect('back')
+   }catch(err){
+      console.log(err);
+   }
+
+}
+module.exports.sendfriendrequest = async (req , res )=>{
+   let from = req.query.from;
+   let to = req.query.to;
+   // let friend =  Friendship.find({ from_user : from  , to_user : to })
+   try{
+
+      let existfriend = await Friendship.findOne({  from_user : from , to_user : to  })
+      // console.log('existfriend - ' , existfriend );
+      if(!existfriend){
+
+         let friendship = await Friendship.create({
+            from_user : from ,
+            to_user : to
+         })
+
+         let touser = await user.findById(to);
+         let fromuser = await user.findById(from);
+         fromuser.friendships.push(friendship);
+         touser.friendships.push(friendship);
+         fromuser.save();
+         touser.save();
+         req.flash('success' , 'Added as Friend' )
+      }
+      
+      return res.redirect('back');
+   }catch(err){
+      console.log(err)
+   }
+
+}
 
 module.exports.forget_password = async (req, res) => {
 
@@ -157,7 +211,10 @@ module.exports.update_profile = async (req, res) => {
 module.exports.profile = async (req, res) => {
 
    try {
-      let data = await user.findById(req.query.id);
+      let data = await user.findById(req.query.id)
+      .populate({
+         path : 'friendships',
+      })
 
       let postdata = await posts.find({ user: req.query.id })
          .populate('user')
@@ -170,6 +227,10 @@ module.exports.profile = async (req, res) => {
             path : 'likes',
          })
 
+      // return res.status(200).json({
+      //    posts : postdata,
+      //    user : data
+      // })
       return res.render('user_profile', {
          posts: postdata,
         userdata: data

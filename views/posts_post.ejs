@@ -47,7 +47,7 @@
            <a class="liketoggle"  href="/likes/toggle?id=<%=i._id%>&type=Post" >     
             <%for( let like of i.likes ){ %>
                 <%if(user.id == like.user){%>
-                    <% existing = true %>
+                    <% existing = true;break; %>
                 <% }%>
            <% }%>
            <% if( existing == true ){ %>
