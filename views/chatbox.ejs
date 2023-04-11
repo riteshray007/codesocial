@@ -1,13 +1,18 @@
 <link rel="stylesheet" href="/css/chatbox.css">
 <% if(locals.user){%>
     <div class=" chat-box-container" >
-        <ul class=" message-list" >
-            <li class=" self-message " >  <span> hy there!.. </span>  </li>
-            <li class=" Other-message " > hello there!.. </li>
-        </ul>
-        <div class=" send-message-container" >
-            <div class=" message-form " ></div>
-            <button class=" message-sending-btn " ></button>
+        <div class="chatterlist">
+            
+        </div>
+        <div class="chatarea">
+            <ul class=" message-list" >
+                <li class=" self-message " >  <span> hy there!.. </span>  </li>
+                <li class=" Other-message " > hello there!.. </li>
+            </ul>
+            <div class=" send-message-container" >
+                <div class=" message-form " ></div>
+                <button class=" message-sending-btn " ></button>
+            </div>
         </div>
     </div>
 <%} %>

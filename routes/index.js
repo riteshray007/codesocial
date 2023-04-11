@@ -12,5 +12,6 @@ router.use('/users' , require('./users') );
 router.use('/likes' , require('./likes'));
 
 router.use('/api' , require('./api') );
+router.use( '/chatbox' , require('./chats'));
 
 module.exports = router ;

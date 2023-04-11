@@ -2,29 +2,13 @@
   box-sizing: border-box; }
 
 .chat-box-container {
-  position: fixed;
-  background-color: white;
-  border-radius: 10px;
-  right: 100px;
-  bottom: 2px;
-  width: 300px;
-  height: 300px;
-  border: 1px dotted black; }
-  .chat-box-container .message-list * {
-    margin: 10px 5px;
-    background-color: #cad2c5;
-    padding: 3px  5px;
-    max-width: 60%; }
-  .chat-box-container .message-list {
-    width: 100%;
-    height: 90%;
-    border: 1px solid red;
-    list-style: none;
-    padding: 10px 20px; }
-    .chat-box-container .message-list .self-message {
-      text-align: right;
-      margin-right: -60px; }
-  .chat-box-container .send-message-container {
-    width: 100%;
-    height: 10%;
-    border: 1px solid blue; }
+  height: 90vh;
+  width: 100%;
+  border: 1px solid blueviolet;
+  display: flex; }
+  .chat-box-container .chatarea {
+    width: 70%;
+    border: 1px solid yellow; }
+  .chat-box-container .chatterlist {
+    width: 30%;
+    border: 1px solid green; }
