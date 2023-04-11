@@ -72,7 +72,7 @@
         
             <div id="post-${post._id}"  class="postbox vcenter" >
                 <div class=" userinfo " >
-                    <span>
+                    <span class=" imgspan " >
                         <img src="/images/gamer.png" class="avatar" >
                     </span>
                     <span>

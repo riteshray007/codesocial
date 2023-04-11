@@ -167,11 +167,12 @@ module.exports.setnewpassword = async (req, res) => {
 }
 
 module.exports.update_profile = async (req, res) => {
-   if (req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password == req.body.cnew_password) {
-      try {
-         // await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
-         let profile = await user.findById(req.query.id);
-         user.uploadedAvatar(req, res, function (err) {
+
+   try {
+      // await user.findByIdAndUpdate( req.query.id , { password : req.body.new_password, name : req.body.name } )
+      let profile = await user.findById(req.query.id);
+      user.uploadedAvatar(req, res, function (err) {
+            if (req.query.id == req.user.id && req.body.password == req.user.password && req.body.new_password == req.body.cnew_password) {
             if (err) {
                console.log(err);
             }
@@ -194,6 +195,10 @@ module.exports.update_profile = async (req, res) => {
             }
             req.flash('success', 'profile updated succesfully! ')
             profile.save();
+            }
+            else {
+               req.flash('error' , ' incorrect credentials ' )
+            }
             return res.redirect('back');
          })
       } catch (err) {
@@ -201,10 +206,6 @@ module.exports.update_profile = async (req, res) => {
          req.flash('error', err);
          return;
       }
-   }
-   else {
-      return res.status(401).send('please check the credentials again');
-   }
 
 }
 

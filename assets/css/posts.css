@@ -63,9 +63,13 @@
         pointer-events: auto !important;
         transform: translateY(0px);
         transition: opacity 150ms ease-in-out , transform 220ms ease-in-out; }
-  .postbox .avatar {
-    margin-right: 10px;
-    width: 50px; }
+  .postbox .imgspan {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .postbox .imgspan .avatar {
+      margin-right: 10px;
+      width: 50px; }
   .postbox .contentbox {
     min-width: 70%;
     min-height: 30px;
@@ -93,7 +97,7 @@
   .postbox .commentbox textarea {
     resize: none;
     min-width: 70%;
-    max-height: 20px;
+    max-height: 35px;
     padding: 8px 10px;
     margin: 10px 10px;
     display: flex;

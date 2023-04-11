@@ -83,10 +83,14 @@
             }
 
     }
-
-    .avatar{
-        margin-right: 10px;
-        width: 50px;
+    .imgspan{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .avatar{
+            margin-right: 10px;
+            width: 50px;
+        }
     }
 
     .contentbox{
@@ -124,7 +128,7 @@
     .commentbox textarea{
         resize: none;
         min-width: 70%;
-        max-height: 20px;
+        max-height: 35px;
         padding: 8px 10px;
         margin: 10px 10px ;
         display: flex;
@@ -132,6 +136,7 @@
         align-items: center;
         border-radius: 10px;
         // font-size: 17px ;
+        
         font-weight: 500;
         font-family: sans-serif ;
         // overflow: scroll;
