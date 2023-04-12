@@ -6,9 +6,71 @@
   width: 100%;
   border: 1px solid blueviolet;
   display: flex; }
-  .chat-box-container .chatarea {
-    width: 70%;
-    border: 1px solid yellow; }
   .chat-box-container .chatterlist {
-    width: 30%;
+    width: 25%;
     border: 1px solid green; }
+  .chat-box-container .chatarea {
+    width: 75%;
+    height: 100%;
+    border: 1px solid yellow;
+    position: relative; }
+    .chat-box-container .chatarea .message-list {
+      list-style: none;
+      position: relative;
+      padding: 10px 10px; }
+      .chat-box-container .chatarea .message-list .self-message, .chat-box-container .chatarea .message-list .Other-message {
+        padding: 15px 15px;
+        margin: 5px 10px;
+        text-transform: capitalize;
+        position: absolute;
+        border-radius: 10px;
+        background-color: white; }
+        .chat-box-container .chatarea .message-list .self-message span, .chat-box-container .chatarea .message-list .Other-message span {
+          font-size: 18px;
+          letter-spacing: 1px; }
+      .chat-box-container .chatarea .message-list .self-message {
+        text-align: right;
+        right: -5%; }
+      .chat-box-container .chatarea .message-list .Other-message {
+        left: 10px; }
+    .chat-box-container .chatarea .send-message-container {
+      height: 50px;
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background-color: #5e548e4d; }
+      .chat-box-container .chatarea .send-message-container .message-form {
+        position: absolute;
+        left: 5%;
+        resize: none;
+        height: 40px;
+        width: 600px;
+        border-radius: 10px;
+        border: none;
+        padding: 1px 10px;
+        color: #5e548e;
+        font-size: 15px;
+        font-weight: 400;
+        overflow-y: scroll; }
+      .chat-box-container .chatarea .send-message-container .message-form::-webkit-scrollbar {
+        display: none; }
+      .chat-box-container .chatarea .send-message-container .message-form:focus {
+        border: none;
+        outline: none;
+        padding: 1px 10px; }
+      .chat-box-container .chatarea .send-message-container .message-form::placeholder {
+        color: #5e548e; }
+      .chat-box-container .chatarea .send-message-container .message-sending-btn {
+        color: #5e548e;
+        border: 0px solid transparent;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        position: absolute;
+        left: 60%;
+        height: 40px;
+        width: 150px; }

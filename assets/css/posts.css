@@ -202,8 +202,6 @@
           pointer-events: none; }
         .postbox .commentlist .comment .dropdown .active {
           opacity: 100;
-          pointer-events: all;
-          transform: translateY(0px);
           transition: opacity 150ms ease-in-out , transform 220ms ease-in-out; }
   .postbox .commentlist::-webkit-scrollbar {
     display: none; }

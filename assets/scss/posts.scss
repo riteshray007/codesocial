@@ -282,8 +282,6 @@
                 
                 .active{
                     opacity: 100;
-                    pointer-events: all;
-                    transform: translateY(0px);
                     transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
                 }
 

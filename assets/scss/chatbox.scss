@@ -6,12 +6,96 @@
     width: 100%;
     border: 1px solid blueviolet;
     display: flex;
-    .chatarea{
-        width : 70%;
-        border: 1px solid yellow;
-    }
     .chatterlist{
-        width: 30%;
+        width: 25%;
         border: 1px solid green;
+    }
+    .chatarea{
+        width : 75%;
+        height: 100%;
+        border: 1px solid yellow;
+        position: relative;
+        .message-list{
+            list-style: none;
+            position: relative;
+            padding: 10px 10px;
+            .self-message , .Other-message{
+                padding : 15px 15px;
+                margin: 5px 10px; 
+                // width : 90%;
+                text-transform: capitalize;
+                position: absolute;
+                border-radius: 10px;
+                background-color: white;
+                span{
+                    font-size: 18px;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .self-message:hover , .Other-message:hover{
+            }
+
+            .self-message{
+                text-align: right;
+                right: -5%;
+            }
+            .Other-message{
+                left: 10px;
+            }
+
+        }
+
+        
+        .send-message-container{
+                height: 50px;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                background-color:#5e548e4d;
+                // border-radius: 10px ;
+                .message-form{
+                    position: absolute;
+                    left: 5%;
+                    resize: none;
+                    height: 40px;
+                    width: 600px;
+                    border-radius:10px ;
+                    border: none;
+                    padding: 1px 10px;
+                    color: #5e548e;
+                    font-size: 15px;
+                    font-weight: 400;
+                    overflow-y: scroll;
+                }
+                .message-form::-webkit-scrollbar {
+                    display: none;
+                }
+                .message-form:focus{
+                    border: none;
+                    outline: none;
+                    padding: 1px 10px;
+                }
+                .message-form::placeholder{
+                    color: #5e548e;
+
+                }
+                .message-sending-btn{
+                    color: #5e548e;
+                    border: 0px solid transparent;
+                    border-radius: 10px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    font-family: sans-serif;
+                    letter-spacing: 1px;
+                    position: absolute;
+                    left: 60%;
+                    height: 40px;
+                    width: 150px;
+                }
+        }
+
     }
 }
