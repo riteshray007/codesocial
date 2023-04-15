@@ -1,3 +1,5 @@
+const env = require('./config/environment');
+
 const express = require('express');
 const path = require('path');
 const expresslayouts = require('express-ejs-layouts');
@@ -25,8 +27,8 @@ console.log('chatserver is listening at port number 4000');
 
 
 app.use(sassmiddleware({
-    src: path.join( __dirname , '/assets/scss' ) ,
-    dest : path.join( __dirname , '/assets/css'),
+    src: path.join( __dirname , env.assets_path ,  'scss' ) ,
+    dest : path.join( __dirname , env.assets_path ,  'css'),
     debug : true,
     outputStyle : 'extended',
     prefix : '/css'
@@ -42,12 +44,12 @@ app.set('layout extractScripts' , true );
 app.set('view engine' , 'ejs');
 
 app.use('/uploads' , express.static(__dirname + '/uploads') )
-app.use(express.static(path.join( __dirname , 'assets' )))
+app.use(express.static(path.join( __dirname , env.assets_path  )))
 app.set('views' , './views');
 
 app.use(session({
     name : 'codesocial',
-    secret : 'youcantakeanything',
+    secret : env.session_cookie_key,
     saveUninitialized : false,
     resave : false,
     cookie : {
