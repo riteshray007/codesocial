@@ -13,8 +13,16 @@ const googleauth = require('./config/passport-google-oauth2-strategy');
 const mongoStore = require('connect-mongo')
 const sassmiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
-const cmiddleware = require('./config/middleware')
+
+
 const app = express();
+const cmiddleware = require('./config/middleware')
+const chatserver = require( 'http' ).Server(app);
+const chatsocket = require('./config/chat_sockets').chatsockets(chatserver);
+chatserver.listen(4000);
+console.log('chatserver is listening at port number 4000');
+
+
 
 app.use(sassmiddleware({
     src: path.join( __dirname , '/assets/scss' ) ,

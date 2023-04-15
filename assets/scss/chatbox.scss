@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 .chat-box-container{
+    margin-top: 10px;
     height: 90vh;
     width: 100%;
     border: 1px solid blueviolet;
@@ -15,42 +16,44 @@
         height: 100%;
         border: 1px solid yellow;
         position: relative;
+
         .message-list{
             list-style: none;
-            position: relative;
-            padding: 10px 10px;
-            .self-message , .Other-message{
-                padding : 15px 15px;
-                margin: 5px 10px; 
-                // width : 90%;
-                text-transform: capitalize;
-                position: absolute;
+            width: 100%;
+            height: 92%;
+            overflow-y: scroll ;
+            .self-message , .Other-message {
+                width: 100%;
+                position: relative;
+                min-height: 40px;
+                display: inline-block;
+                margin: 10px 0px ;
+                // border: 1px solid red;
+                
+            }
+            .self-span , .others-span {
+                height: 100%;
+                padding: 10px 15px  ;
                 border-radius: 10px;
-                background-color: white;
-                span{
-                    font-size: 18px;
-                    letter-spacing: 1px;
-                }
+                background-color: aliceblue;
+                position: absolute;
+                font-size: 17px;
+                letter-spacing: 1px;
+                max-width: 70%;
             }
-
-            .self-message:hover , .Other-message:hover{
+            .self-span{
+                right: 20px;
             }
-
-            .self-message{
-                text-align: right;
-                right: -5%;
-            }
-            .Other-message{
-                left: 10px;
+            .others-span{
+                left: 20px;
             }
 
         }
-
-        
+   
         .send-message-container{
-                height: 50px;
-                position: absolute;
-                bottom: 0px;
+                height: 8%;   
+                // position: absolute;
+                // bottom: 0px;
                 width: 100%;
                 display: flex;
                 align-items: center;
