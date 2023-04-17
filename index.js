@@ -1,4 +1,5 @@
 const env = require('./config/environment');
+const logger = require('morgan');
 
 const express = require('express');
 const path = require('path');
@@ -25,14 +26,16 @@ chatserver.listen(4000);
 console.log('chatserver is listening at port number 4000');
 
 
+if(env.name == 'development' ){
 
-app.use(sassmiddleware({
-    src: path.join( __dirname , env.assets_path ,  'scss' ) ,
-    dest : path.join( __dirname , env.assets_path ,  'css'),
-    debug : true,
-    outputStyle : 'extended',
-    prefix : '/css'
-}))
+    app.use(sassmiddleware({
+        src: path.join( __dirname , env.assets_path ,  '/scss' ) ,
+        dest : path.join( __dirname , env.assets_path ,  '/css'),
+        debug : true,
+        outputStyle : 'extended',
+        prefix : '/css'
+    }))
+}
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(cookieparser());
 
@@ -46,6 +49,7 @@ app.set('view engine' , 'ejs');
 app.use('/uploads' , express.static(__dirname + '/uploads') )
 app.use(express.static(path.join( __dirname , env.assets_path  )))
 app.set('views' , './views');
+app.use( logger(env.morgan.mode , env.morgan.options )   )
 
 app.use(session({
     name : 'codesocial',
@@ -60,6 +64,8 @@ app.use(session({
         autoRemove : 'disabled'
     })
 }))
+// console.log(env.assets_path);
+
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(passport.setAuthenticatedUser)

@@ -1,0 +1,3 @@
+::1 - - [17/Apr/2023:13:54:11 +0000] "GET /posts HTTP/1.1" 200 5899 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [17/Apr/2023:13:54:22 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 200 6488 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [17/Apr/2023:13:54:26 +0000] "GET /chatbox HTTP/1.1" 200 4073 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
