@@ -114,7 +114,7 @@
                     <div class="comment" id="comment-${data._id}" >
 
                         <span class="imgspan" >
-                            <img src="/images/gamer.png" class="comm_avatar" >
+                        <img src="/images/gamer.png" class="comm_avatar" >
                         </span>
                         
                         <span class="name_com" >

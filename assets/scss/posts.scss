@@ -88,6 +88,7 @@
         align-items: center;
         justify-content: center;
         .avatar{
+            height:50px ;
             margin-right: 10px;
             border-radius: 10px;
             width: 50px;
@@ -283,6 +284,8 @@
                 
                 .active{
                     opacity: 100;
+                    transform:  translateY(0px) ;
+                    pointer-events: auto !important ;
                     transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
                 }
 

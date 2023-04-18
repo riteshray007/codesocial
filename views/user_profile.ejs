@@ -1,6 +1,6 @@
 <head>
-    <link rel="stylesheet" href="/css/posts.css">
-    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="<%= assetPath('css/posts.css') %>">
+    <link rel="stylesheet" href="<%= assetPath('css/profile.css') %>">
 </head>
 <body>
 
@@ -59,11 +59,8 @@
         </form>
     </div>
 
-    
-   
-
-    <script src="/js/posts.js" ></script>
-    <script src="/js/profile.js" ></script>
-    <script src="/js/home_post.js" ></script>
+    <script src="<%= assetPath('js/posts.js')%>" ></script>
+    <script src="<%= assetPath('js/profile.js')%>" ></script>
+    <script src="<%= assetPath('js/home_post.js')%>" ></script>
 </body>
 </html>

@@ -143,8 +143,11 @@ module.exports.create_post = async (req , res)=>{
 
  module.exports.deleteComment = async (req , res)=>{
     let id = req.query.id;
+    // console.log('delete id - ' , id );
     try{
         let data = await comments.findById(id)
+
+        await likes.deleteMany({ likeable: {$in : data}  })
         
         let postid = data.post ;
         data.remove();

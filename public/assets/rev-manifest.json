@@ -1,0 +1,16 @@
+{
+  "css/chatbox.css": "css/chatbox-ea21531369.css",
+  "css/footer.css": "css/footer-c7a897f7df.css",
+  "css/header.css": "css/header-74f9cfbe74.css",
+  "css/layouts.css": "css/layouts-9f90118fea.css",
+  "css/posts.css": "css/posts-5b4b6f7800.css",
+  "css/profile.css": "css/profile-e8a92f78b9.css",
+  "css/resetpass.css": "css/resetpass-f87848e3f2.css",
+  "images/gamer.png": "images/gamer-19c9e7eda8.png",
+  "js/chat_engine.js": "js/chat_engine-4f0392e02e.js",
+  "js/home_post.js": "js/home_post-f7c85df1f0.js",
+  "js/layouts.js": "js/layouts-0c97da2e09.js",
+  "js/posts.js": "js/posts-911e6cf756.js",
+  "js/profile.js": "js/profile-6e4e933af8.js",
+  "js/reset_password.js": "js/reset_password-a0ffe55ce4.js"
+}

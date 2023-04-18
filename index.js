@@ -19,11 +19,13 @@ const flash = require('connect-flash');
 
 
 const app = express();
+require('./config/view-helper')(app);
 const cmiddleware = require('./config/middleware')
 const chatserver = require( 'http' ).Server(app);
 const chatsocket = require('./config/chat_sockets').chatsockets(chatserver);
 chatserver.listen(4000);
 console.log('chatserver is listening at port number 4000');
+
 
 
 if(env.name == 'development' ){
@@ -49,7 +51,7 @@ app.set('view engine' , 'ejs');
 app.use('/uploads' , express.static(__dirname + '/uploads') )
 app.use(express.static(path.join( __dirname , env.assets_path  )))
 app.set('views' , './views');
-app.use( logger(env.morgan.mode , env.morgan.options )   )
+app.use( logger(env.morgan.mode , env.morgan.options)   )
 
 app.use(session({
     name : 'codesocial',

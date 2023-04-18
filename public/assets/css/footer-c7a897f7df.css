@@ -1,0 +1,9 @@
+.pagefooter {
+  color: #94d2bd;
+  width: 100%;
+  min-height: 40px;
+  background-color: #52796f;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }

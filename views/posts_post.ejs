@@ -66,7 +66,6 @@
             </form>
             
         </div>
-        <!-- <%= i.comments %> -->
         <div class="commentlist" >
             <% for(c of  i.comments ){ %>
             <div class="comment" id="comment-<%=c._id%>" >
@@ -74,7 +73,7 @@
                     <% if(c.user.avatar){ %>
                         <img src="<%=c.user.avatar%>" class="avatar" >
                     <% }else{ %>
-                        <img src="/images/gamer.png" class="avatar" >
+                        <img src="<%= assetPath('images/gamer.png') %>" class="avatar" >
                     <% } %>
                 </span>
                 <% let x = c.updatedAt %>

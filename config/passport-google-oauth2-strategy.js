@@ -24,7 +24,8 @@ passport.use(new googleStartegy({
                 User.create({
                     name: profile.displayName,
                     email : profile.emails[0].value,
-                    password : crypto.randomBytes(20).toString('hex')
+                    password : crypto.randomBytes(20).toString('hex'),
+                    avatar : profile.photos[0].value,
                 } , function(err , user){
                     if(err){
                         console.log(err , "in google oauth strategy-passport");

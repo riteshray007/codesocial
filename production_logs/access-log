@@ -1,3 +1,594 @@
 ::1 - - [17/Apr/2023:13:54:11 +0000] "GET /posts HTTP/1.1" 200 5899 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [17/Apr/2023:13:54:22 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 200 6488 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [17/Apr/2023:13:54:26 +0000] "GET /chatbox HTTP/1.1" 200 4073 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:42:06 +0000] "GET / HTTP/1.1" 200 5899 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:42:06 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:42:08 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:42:19 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:42:22 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:44:06 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:44:10 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:44:14 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:44:15 +0000] "GET /posts HTTP/1.1" 200 5899 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:56:34 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:57:07 +0000] "GET /users/signout HTTP/1.1" 302 56 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:57:07 +0000] "GET /users HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:57:10 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:57:12 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:57:21 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk5uYEuLrb6OIubIgDoQ5XFdLawBr8Jr3bR1GhagFOgnG9DDHXvJT3CFOElJY1F_mQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:07:57:21 +0000] "GET /posts/ HTTP/1.1" 200 9067 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET /css/layouts.css HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [18/Apr/2023:08:24:46 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:46 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:47 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:58 +0000] "GET /css/layouts.css HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:58 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:58 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:24:58 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /css/layouts.css HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:25:05 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET / HTTP/1.1" 200 5463 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:30:55 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:31:09 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:42 +0000] "GET / HTTP/1.1" 200 5448 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:42 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:42 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:42 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:42 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:42 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:32:44 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /users/profile?id=643d33422009edd67cfb1e15 HTTP/1.1" 200 4368 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /css/profile.css HTTP/1.1" 404 154 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /js/profile.js HTTP/1.1" 404 152 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:13 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:19 +0000] "GET /users/signout HTTP/1.1" 302 56 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:19 +0000] "GET /users HTTP/1.1" 200 6712 "http://localhost:8000/users/profile?id=643d33422009edd67cfb1e15" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:19 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:19 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:23 +0000] "GET /users/signin HTTP/1.1" 200 3523 "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:23 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:24 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:24 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:26 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk6129FqZJOXeCE5A4vh5e5iSvrrAM0iXbEvTSt1K-VMTDkSVK8N4bpTgctVibIOzA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /posts/ HTTP/1.1" 200 9460 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:33:32 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /posts/ HTTP/1.1" 200 5870 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /js/layouts.js HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:34:37 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:03 +0000] "GET /posts/ HTTP/1.1" 500 2110 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:05 +0000] "GET /posts/ HTTP/1.1" 500 2110 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:36 +0000] "GET /posts/ HTTP/1.1" 200 5856 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:36 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:36 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:36 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:36 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:36 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 200 6445 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /css/profile.css HTTP/1.1" 404 154 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /js/profile.js HTTP/1.1" 404 152 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:42 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:44 +0000] "GET /posts HTTP/1.1" 200 5856 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:44 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:44 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:44 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:35:44 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:37:20 +0000] "GET /posts HTTP/1.1" 200 5917 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:37:20 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:37:20 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:37:20 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:37:20 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:37:20 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:34 +0000] "GET / HTTP/1.1" 200 5917 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:34 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:34 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:34 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:34 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:40 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:41 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:41 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:41 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:41 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:38:41 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:39:39 +0000] "GET / HTTP/1.1" 200 5928 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:39:39 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:39:39 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:39:39 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:39:39 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:26 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:26 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:26 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:26 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:26 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:28 +0000] "GET /chatbox HTTP/1.1" 200 4113 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:28 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:28 +0000] "GET /js/chat_engine.js HTTP/1.1" 404 156 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:30 +0000] "GET /chatbox HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:30 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:30 +0000] "GET /js/chat_engine.js HTTP/1.1" 404 156 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:32 +0000] "GET /posts HTTP/1.1" 200 5928 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:32 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:32 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:32 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:40:32 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:41:23 +0000] "GET /chatbox HTTP/1.1" 200 4124 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:41:23 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:41:23 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:41:36 +0000] "GET /chatbox HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:41:36 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:56 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:56 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:56 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:56 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:56 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:58 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:58 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:58 +0000] "GET /css/posts.css HTTP/1.1" 404 152 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:58 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:42:58 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:24 +0000] "GET /posts HTTP/1.1" 200 5939 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:24 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:24 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:24 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:24 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:51 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:51 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:52 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:43:52 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:20 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:20 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:20 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:20 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:20 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:42 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:42 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:42 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:44:42 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:45:41 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:45:41 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:45:41 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:45:41 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:46:23 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:46:23 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:46:23 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:46:23 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:47:46 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:47:46 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:47:46 +0000] "GET /js/posts.js HTTP/1.1" 404 150 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:47:46 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:47:46 +0000] "GET /js/home_post.js HTTP/1.1" 404 154 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:48:28 +0000] "GET /posts HTTP/1.1" 200 5961 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:48:28 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:48:28 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:49:13 +0000] "GET /posts HTTP/1.1" 200 5978 "http://localhost:8000/chatbox" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:08:49:13 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET /posts [36m302[0m 98.012 ms - 70[0m
+[0mGET /users/signin [32m200[0m 54.426 ms - 3516[0m
+[0mGET /users/css/layout.css [33m404[0m 26.452 ms - 159[0m
+[0mGET /users/js/layouts.js [33m404[0m 16.901 ms - 158[0m
+[0mGET /users/css/header.css [33m404[0m 41.145 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 42.007 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 8.855 ms - 159[0m
+[0mGET /users/auth/google [36m302[0m 10.328 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk6I8qCcTI-Gm1VgH8VN7OY9P4s-dAdKXquk5B6uwhWBxKyrp1sH23XEjHjYXTibZA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 875.691 ms - 58[0m
+[0mGET /posts/ [32m200[0m 365.607 ms - 47898[0m
+[0mGET /posts/css/layout.css [33m404[0m 35.345 ms - 159[0m
+[0mGET /posts/css/posts.css [33m404[0m 32.721 ms - 158[0m
+[0mGET /posts/css/header.css [33m404[0m 35.306 ms - 159[0m
+[0mGET /posts/js/layouts.js [33m404[0m 36.074 ms - 158[0m
+[0mGET /posts/css/footer.css [33m404[0m 68.565 ms - 159[0m
+[0mGET /posts/js/posts.js [33m404[0m 73.340 ms - 156[0m
+[0mGET /posts/js/home_post.js [33m404[0m 76.661 ms - 160[0m
+[0mGET /posts/ [32m200[0m 106.134 ms - 44308[0m
+[0mGET /posts/css/layout.css [33m404[0m 37.258 ms - 159[0m
+[0mGET /posts/css/posts.css [33m404[0m 31.561 ms - 158[0m
+[0mGET /posts/js/layouts.js [33m404[0m 41.259 ms - 158[0m
+[0mGET /posts/css/header.css [33m404[0m 43.779 ms - 159[0m
+[0mGET /posts/css/footer.css [33m404[0m 82.248 ms - 159[0m
+[0mGET /posts/js/posts.js [33m404[0m 82.998 ms - 156[0m
+[0mGET /posts/js/home_post.js [33m404[0m 66.155 ms - 160[0m
+[0mGET /posts/ [32m200[0m 146.628 ms - 44309[0m
+[0mGET /posts/css/layout.css [33m404[0m 43.864 ms - 159[0m
+[0mGET /posts/css/header.css [33m404[0m 44.418 ms - 159[0m
+[0mGET /posts/js/layouts.js [33m404[0m 42.378 ms - 158[0m
+[0mGET /posts/css/footer.css [33m404[0m 70.696 ms - 159[0m
+[0mGET /posts/js/posts.js [33m404[0m 64.432 ms - 156[0m
+[0mGET /posts/js/home_post.js [33m404[0m 74.541 ms - 160[0m
+[0mGET /posts/css/header.css [33m404[0m 76.830 ms - 159[0m
+[0mGET /posts/css/footer.css [33m404[0m 8.261 ms - 159[0m
+[0mGET /posts/ [32m200[0m 150.178 ms - 44315[0m
+[0mGET /css/layout.css [33m404[0m 47.972 ms - 153[0m
+[0mGET /posts/ [36m304[0m 122.809 ms - -[0m
+[0mGET /css/layout.css [33m404[0m 22.835 ms - 153[0m
+[0mPOST /posts/create_comment/?id=6433b04b3003d90a53ea50f1 [32m200[0m 104.052 ms - 330[0m
+[0mGET /posts/ [32m200[0m 126.732 ms - 46438[0m
+[0mGET /css/layout.css [33m404[0m 24.521 ms - 153[0m
+[0mGET /css/layout.css [33m404[0m 16.155 ms - 153[0m
+[0mGET /posts/ [36m304[0m 138.074 ms - -[0m
+[0mGET /css/layout.css [33m404[0m 10.464 ms - 153[0m
+[0mGET /posts/ [36m304[0m 103.567 ms - -[0m
+[0mGET /css/layout.css [33m404[0m 22.230 ms - 153[0m
+[0mGET /posts/ [32m200[0m 133.709 ms - 46439[0m
+[0mGET /posts/ [36m304[0m 269.275 ms - -[0m
+::1 - - [18/Apr/2023:09:54:10 +0000] "GET /posts/ HTTP/1.1" 302 70 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:09:54:10 +0000] "GET /users/signin HTTP/1.1" 200 3461 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:09:54:13 +0000] "GET /users/signin HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:09:54:37 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:09:54:42 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk4OAkJG3VnpL4GoLR1bKKHidQqUxS0GrKghXwSN6EjBVmbn5hODhL37DMrF9pKRFQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:09:54:42 +0000] "GET /posts/ HTTP/1.1" 200 9406 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:09:54:43 +0000] "GET /posts/ HTTP/1.1" 200 5816 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/ HTTP/1.1" 200 5988 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/css/layouts-9f90118fea.css HTTP/1.1" 404 171 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/css/posts-03601006ef.css HTTP/1.1" 404 169 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/css/header-74f9cfbe74.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/js/layouts-0c97da2e09.js HTTP/1.1" 404 169 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/css/footer-c7a897f7df.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/js/posts-911e6cf756.js HTTP/1.1" 404 167 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:07 +0000] "GET /posts/js/home_post-7183ea94b4.js HTTP/1.1" 404 171 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/css/layouts-9f90118fea.css HTTP/1.1" 404 171 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/css/posts-03601006ef.css HTTP/1.1" 404 169 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/css/header-74f9cfbe74.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/js/layouts-0c97da2e09.js HTTP/1.1" 404 169 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/css/footer-c7a897f7df.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/js/posts-911e6cf756.js HTTP/1.1" 404 167 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/js/home_post-7183ea94b4.js HTTP/1.1" 404 171 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/css/header-74f9cfbe74.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:10 +0000] "GET /posts/css/footer-c7a897f7df.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:33 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:33 +0000] "GET /posts/css/header-74f9cfbe74.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:33 +0000] "GET /posts/css/layouts-9f90118fea.css HTTP/1.1" 404 171 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:33 +0000] "GET /posts/css/posts-03601006ef.css HTTP/1.1" 404 169 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:33 +0000] "GET /posts/js/layouts-0c97da2e09.js HTTP/1.1" 404 169 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:34 +0000] "GET /posts/css/footer-c7a897f7df.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:34 +0000] "GET /posts/js/posts-911e6cf756.js HTTP/1.1" 404 167 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:34 +0000] "GET /posts/js/home_post-7183ea94b4.js HTTP/1.1" 404 171 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:34 +0000] "GET /posts/css/header-74f9cfbe74.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:34 +0000] "GET /posts/css/footer-c7a897f7df.css HTTP/1.1" 404 170 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:05:51 +0000] "GET /posts/ HTTP/1.1" 200 5995 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET /posts/ [36m302[0m 45.403 ms - 70[0m
+[0mGET /users/signin [32m200[0m 23.819 ms - 3517[0m
+[0mGET /users/css/layouts.css [33m404[0m 32.436 ms - 160[0m
+[0mGET /users/css/header.css [33m404[0m 23.024 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 33.155 ms - 159[0m
+[0mGET /users/js/layouts.js [33m404[0m 39.279 ms - 158[0m
+[0mGET /users/css/footer.css [33m404[0m 7.722 ms - 159[0m
+[0mGET /users/auth/google [36m302[0m 9.496 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk7w19xSaSkAwifXQ8kN_qwU7ZdSl2uKQWlhpHBTXxk5bryFBIQSB6_EXMj63nT6hg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 832.924 ms - 58[0m
+[0mGET /posts/ [32m200[0m 110.459 ms - 50022[0m
+[0mGET /posts/css/layouts.css [33m404[0m 34.253 ms - 160[0m
+[0mGET /posts/css/posts.css [33m404[0m 38.658 ms - 158[0m
+[0mGET /posts/css/header.css [33m404[0m 40.561 ms - 159[0m
+[0mGET /posts/js/layouts.js [33m404[0m 58.474 ms - 158[0m
+[0mGET /posts/js/posts.js [33m404[0m 73.994 ms - 156[0m
+[0mGET /posts/css/footer.css [33m404[0m 75.131 ms - 159[0m
+[0mGET /posts/js/home_post.js [33m404[0m 58.111 ms - 160[0m
+[0mGET /posts/ [32m200[0m 221.511 ms - 46432[0m
+[0mGET /posts/css/layouts.css [33m404[0m 43.698 ms - 160[0m
+[0mGET /posts/css/posts.css [33m404[0m 38.650 ms - 158[0m
+[0mGET /posts/css/header.css [33m404[0m 111.406 ms - 159[0m
+[0mGET /posts/js/layouts.js [33m404[0m 111.197 ms - 158[0m
+[0mGET /posts/css/footer.css [33m404[0m 72.066 ms - 159[0m
+[0mGET /posts/js/home_post.js [33m404[0m 72.160 ms - 160[0m
+[0mGET /posts/js/posts.js [33m404[0m 151.517 ms - 156[0m
+[0mGET /images/gamer.png [33m404[0m 45.236 ms - 155[0m
+[0mGET /posts/css/footer.css [33m404[0m 21.261 ms - 159[0m
+[0mGET /posts/ [36m304[0m 125.742 ms - -[0m
+[0mGET /posts/css/layouts.css [33m404[0m 43.723 ms - 160[0m
+[0mGET /images/gamer.png [33m404[0m 64.996 ms - 155[0m
+[0mGET /posts/ [32m200[0m 185.921 ms - 46439[0m
+[0mGET /css/layouts.css [33m404[0m 69.650 ms - 154[0m
+[0mGET /css/header.css [33m404[0m 69.509 ms - 153[0m
+[0mGET /js/posts.js [33m404[0m 53.917 ms - 150[0m
+[0mGET /css/footer.css [33m404[0m 59.873 ms - 153[0m
+[0mGET /css/posts.css [33m404[0m 129.320 ms - 152[0m
+[0mGET /js/layouts.js [33m404[0m 148.329 ms - 152[0m
+[0mGET /js/home_post.js [33m404[0m 68.667 ms - 154[0m
+[0mGET /images/gamer.png [33m404[0m 54.696 ms - 155[0m
+[0mGET /css/footer.css [33m404[0m 14.396 ms - 153[0m
+[0mGET /posts/ [36m304[0m 117.100 ms - -[0m
+::ffff:127.0.0.1 - - [18/Apr/2023:10:10:40 +0000] "GET /posts/ HTTP/1.1" 302 70 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [18/Apr/2023:10:10:40 +0000] "GET /users/signin HTTP/1.1" 200 3565 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [18/Apr/2023:10:10:42 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [18/Apr/2023:10:10:46 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk7___lIF2Ee1gs-j0-GKdMLoAiA7b8BwLzeUtisYspB-a4Hf3GS9hg3L7Gc-kqbtw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [18/Apr/2023:10:10:46 +0000] "GET /posts/ HTTP/1.1" 200 9585 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:10:56 +0000] "GET /posts/ HTTP/1.1" 200 5995 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET /posts/ [36m302[0m 21.839 ms - 70[0m
+[0mGET /users/signin [32m200[0m 19.568 ms - 3521[0m
+[0mGET /users/auth/google [36m302[0m 14.807 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk6clQwfq921cxIPu14msKnABFOsEgXmYwi7DxZE241HeG2czajO64fDHuTh2X-pgw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 788.518 ms - 58[0m
+[0mGET /posts/ [32m200[0m 215.962 ms - 50029[0m
+[0mGET /posts/ [32m200[0m 143.025 ms - 46439[0m
+[0mGET /users/signout [36m302[0m 22.399 ms - 56[0m
+[0mGET /users [32m200[0m 19.226 ms - 6743[0m
+::1 - - [18/Apr/2023:10:13:29 +0000] "GET /users HTTP/1.1" 200 3102 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:13:31 +0000] "GET /users/signin HTTP/1.1" 200 3565 "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:13:33 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:13:37 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk4ZQMHDAE3zTNoPvx_Kwty4p0NP3qfIJaSljlj55wXaRfczZxiLTd4bCzjmdBlvvw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:13:37 +0000] "GET /posts/ HTTP/1.1" 200 9585 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:14:44 +0000] "GET /posts/delete-post?id=643d329ef30c15d47fb840c3 HTTP/1.1" 200 72 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:15:14 +0000] "POST /posts/create_post HTTP/1.1" 200 526 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:15:14 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:15:16 +0000] "GET /posts/ HTTP/1.1" 200 5985 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:15:16 +0000] "GET /posts/deletecomment?id=643d329ef30c15d47fb840c3 HTTP/1.1" - - "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:18:21 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:31 +0000] "GET /posts/ HTTP/1.1" 200 5873 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:34 +0000] "GET /users/signout HTTP/1.1" 302 56 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:34 +0000] "GET /users HTTP/1.1" 200 6787 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:36 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:38 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:47 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk5Q7OsvGrfmyYrZRlicZOHfPwLD3jZ5h4g35OZHTpxrHrFWtxWUmIYWCfnoOPb2UA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent HTTP/1.1" - - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:49 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:53 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk4HZWeqQZc-hwjNjaEVOp19f1SkFS4QhuKSJokdf88IScSo3xx5Ry2btLUzrRheWw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:19:53 +0000] "GET /posts/ HTTP/1.1" 200 9149 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:20:11 +0000] "POST /posts/create_post HTTP/1.1" 200 466 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:20:11 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:20:12 +0000] "GET /posts/ HTTP/1.1" 200 7563 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:20:12 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:20:14 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:20:14 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:21:59 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:21:59 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:03 +0000] "GET /users/signout HTTP/1.1" 302 56 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:04 +0000] "GET /users HTTP/1.1" 304 - "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:16 +0000] "GET /users HTTP/1.1" 200 3102 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:18 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:19 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:30 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk6A4Ycwc9ZiLE2fj62IHfh_Bjnz-00cJ0hhRZxQu-4RQJ3l7N_gqv4OJKj6I_R73w&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent HTTP/1.1" - - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:35 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk78EpdBzokKFeP2mMAUeuhBiqpwfp8Z0d_X9QsFdZmLxQjZNujT-dK3sydkpw6oYQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:35 +0000] "GET /posts/ HTTP/1.1" 500 2886 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:22:58 +0000] "GET /posts/ HTTP/1.1" 200 5559 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:23:04 +0000] "POST /posts/create_post HTTP/1.1" 200 566 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:23:04 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:23:06 +0000] "GET /posts/ HTTP/1.1" 200 7634 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:26:07 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:23 +0000] "GET /posts/delete-post?id=643e6f8890cf08583d5f3649 HTTP/1.1" 200 72 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:33 +0000] "POST /posts/create_post HTTP/1.1" 200 574 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:33 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:40 +0000] "POST /posts/create_comment/?id=643e71fd90cf08583d5f365e HTTP/1.1" 302 100 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:40 +0000] "GET /posts/ HTTP/1.1" 200 9807 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:40 +0000] "GET /posts/deletecomment?id=643e6f8890cf08583d5f3649 HTTP/1.1" - - "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:55 +0000] "GET /posts/delete-post?id=643e71fd90cf08583d5f365e HTTP/1.1" 200 72 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:57 +0000] "GET /posts/ HTTP/1.1" 200 5559 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:33:57 +0000] "GET /posts/deletecomment?id=643e71fd90cf08583d5f365e HTTP/1.1" - - "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:35:30 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 338 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:35:30 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:35:33 +0000] "GET /posts/ HTTP/1.1" 200 7738 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:35:39 +0000] "POST /likes/toggle?id=643e727290cf08583d5f367d&type=Comment HTTP/1.1" 200 61 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:10:36:14 +0000] "GET /posts/ HTTP/1.1" 200 8181 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET /posts/ [36m302[0m 56.828 ms - 70[0m
+[0mGET /users/signin [32m200[0m 22.939 ms - 3521[0m
+[0mGET /users/auth/google [36m302[0m 9.040 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk6jZRbuwGDtWBQ_brN4PGDz4Ssyh73sWRtAoHiDsWX4liikvtmFwSxySop0U3vEmA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 728.170 ms - 58[0m
+[0mGET /posts/ [32m200[0m 198.875 ms - 50029[0m
+[0mGET /posts/ [32m200[0m 125.178 ms - 46439[0m
+[0mGET /users/auth/google [36m302[0m 15.463 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk4hI41ZEaCEFrmSXZ-JO_4Z2lGjLrcwn7FrVPhPoBuguFLIiiOouCRKH1zeoGXvQg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 785.508 ms - 58[0m
+[0mGET /posts/ [32m200[0m 165.470 ms - 50029[0m
+[0mGET /users/profile?id=63fa4f867570e9a0421263c8 [32m200[0m 63.935 ms - 9173[0m
+[0mGET /posts [32m200[0m 114.772 ms - 46439[0m
+[0mGET /posts [36m304[0m 110.051 ms - -[0m
+[0mPOST /posts/create_post [32m200[0m 20.303 ms - 524[0m
+[0mPOST /likes/toggle?id=643e7d1bed5d216fb36220fa&type=Post [32m200[0m 15.550 ms - 61[0m
+[0mPOST /posts/create_comment/?id=643e7d1bed5d216fb36220fa [36m302[0m 14.197 ms - 98[0m
+[0mGET /posts [32m200[0m 52.552 ms - 50612[0m
+[0mPOST /likes/toggle?id=643e7d3aed5d216fb3622106&type=Comment [32m200[0m 11.406 ms - 61[0m
+[0mGET /posts [32m200[0m 54.044 ms - 51055[0m
+[0mPOST /likes/toggle?id=643e7d3aed5d216fb3622106&type=Comment [32m200[0m 11.593 ms - 60[0m
+[0mGET /posts [32m200[0m 57.210 ms - 50612[0m
+[0mGET /posts [36m304[0m 50.530 ms - -[0m
+[0mGET /posts [36m304[0m 48.245 ms - -[0m
+[0mGET /posts [36m304[0m 50.884 ms - -[0m
+[0mGET /posts/deletecomment?id=643e6688eaad1845d8dd1c95 [32m200[0m 23.369 ms - 72[0m
+[0mGET /posts/deletecomment?id=643e7d3aed5d216fb3622106 [32m200[0m 10.992 ms - 72[0m
+[0mGET /posts/delete-post?id=643e7d1bed5d216fb36220fa [32m200[0m 23.873 ms - 72[0m
+[0mGET /posts [32m200[0m 46.246 ms - 44316[0m
+[0mGET /posts/deletecomment?id=643e7d1bed5d216fb36220fa [0m-[0m - ms - -[0m
+[0mGET /posts [36m304[0m 52.177 ms - -[0m
+[0mGET /posts [36m304[0m 43.613 ms - -[0m
+[0mGET /users/profile?id=64270ba259d55465a264c2b1 [32m200[0m 83.869 ms - 8910[0m
+[0mGET /posts [36m304[0m 45.017 ms - -[0m
+[0mGET /users/profile?id=64270ba259d55465a264c2b1 [36m304[0m 25.972 ms - -[0m
+[0mPOST /posts/create_comment/?id=6433b04b3003d90a53ea50f1 [32m200[0m 15.256 ms - 329[0m
+[0mGET /posts/deletecomment?id=643e7f4bed5d216fb362218a [32m200[0m 13.356 ms - 72[0m
+[0mGET /users/profile?id=64270ba259d55465a264c2b1 [32m200[0m 86.152 ms - 8910[0m
+[0mGET /posts [32m200[0m 67.770 ms - 44316[0m
+[0mGET /posts/deletecomment?id=6433b0583003d90a53ea50fd [32m200[0m 24.890 ms - 72[0m
+[0mPOST /posts/create_comment/?id=6433b04b3003d90a53ea50f1 [32m200[0m 25.717 ms - 337[0m
+[0mPOST /likes/toggle?id=643e801752e4327838ba3d3f&type=Comment [32m200[0m 16.137 ms - 61[0m
+[0mGET /posts [32m200[0m 116.711 ms - 40959[0m
+[0mPOST /posts/create_comment/?id=6433b04b3003d90a53ea50f1 [32m200[0m 27.670 ms - 333[0m
+[0mPOST /likes/toggle?id=643e80ec2b550400e9b6e977&type=Comment [32m200[0m 18.383 ms - 61[0m
+[0mGET /posts/deletecomment?id=643e80ec2b550400e9b6e977 [32m200[0m 20.114 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 9.228 ms - 523[0m
+[0mPOST /likes/toggle?id=643e81492b550400e9b6e988&type=Post [32m200[0m 12.609 ms - 61[0m
+[0mGET /posts/delete-post?id=643e81492b550400e9b6e988 [32m200[0m 12.253 ms - 72[0m
+[0mPOST /posts/create_comment/?id=643563d4ebaf17fb16eb0e8c [32m200[0m 16.958 ms - 355[0m
+[0mPOST /likes/toggle?id=643e81b12b550400e9b6e99a&type=Comment [32m200[0m 15.739 ms - 61[0m
+[0mGET /posts/deletecomment?id=643e81b12b550400e9b6e99a [32m200[0m 12.040 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 9.035 ms - 507[0m
+[0mPOST /likes/toggle?id=643e82232b550400e9b6e9ac&type=Post [32m200[0m 12.623 ms - 61[0m
+[0mGET /posts/delete-post?id=643e82232b550400e9b6e9ac [32m200[0m 17.974 ms - 72[0m
+[0mPOST /posts/create_comment/?id=643563d4ebaf17fb16eb0e8c [32m200[0m 66.468 ms - 328[0m
+[0mPOST /likes/toggle?id=643e852de765f0dd5597091a&type=Comment [32m200[0m 19.064 ms - 61[0m
+[0mGET /posts [32m200[0m 148.553 ms - 43520[0m
+[0mGET /posts/deletecomment?id=643e852de765f0dd5597091a [32m200[0m 18.874 ms - 72[0m
+::1 - - [18/Apr/2023:11:56:48 +0000] "GET /posts HTTP/1.1" 302 70 "http://localhost:8000/users/profile?id=64270ba259d55465a264c2b1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:56:48 +0000] "GET /users/signin HTTP/1.1" 200 3565 "http://localhost:8000/users/profile?id=64270ba259d55465a264c2b1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:56:51 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=64270ba259d55465a264c2b1" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:56:52 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:56:56 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk7cMEHvQ8_W3qsUMKG-Qeyo_4KAvNbWfncRSw_Qmz1MbOb6CLTgeMQfCIR8Dr9tTw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:56:56 +0000] "GET /posts/ HTTP/1.1" 200 12055 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:57:05 +0000] "POST /likes/toggle?id=643e727290cf08583d5f367d&type=Comment HTTP/1.1" 200 61 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:57:08 +0000] "GET /posts/ HTTP/1.1" 200 8906 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:59:45 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:59:45 +0000] "GET /css/posts-03601006ef.css HTTP/1.1" 404 163 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:59:46 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:59:46 +0000] "GET /css/posts-03601006ef.css HTTP/1.1" 404 163 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:59:48 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:11:59:48 +0000] "GET /css/posts-03601006ef.css HTTP/1.1" 404 163 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:00:54 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:00:54 +0000] "GET /css/posts-03601006ef.css HTTP/1.1" 404 163 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:01:12 +0000] "GET /css/posts-03601006ef.css HTTP/1.1" 404 163 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:08:34 +0000] "GET /posts/ HTTP/1.1" 200 8861 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:08:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:08:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:08:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:09:48 +0000] "GET /posts/ HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:09:48 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:09:48 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:09:48 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:09:52 +0000] "GET /likes/toggle?id=643e6db2b713e80665930fb7&type=Post HTTP/1.1" 404 151 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:04 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:25 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 200 8814 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:25 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:25 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:25 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:25 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:28 +0000] "GET /users/confirm-reset HTTP/1.1" 200 3328 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:10:28 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/confirm-reset" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:15 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 304 - "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:15 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:15 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:15 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:15 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:17 +0000] "GET /likes/toggle?id=643e6db2b713e80665930fb7&type=Post HTTP/1.1" 404 151 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:23 +0000] "GET /likes/toggle?id=643e727290cf08583d5f367d&type=Comment HTTP/1.1" 404 151 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:34 +0000] "GET /posts HTTP/1.1" 200 8861 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:34 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:36 +0000] "GET /likes/toggle?id=643e6db2b713e80665930fb7&type=Post HTTP/1.1" 404 151 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:15:38 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:17:09 +0000] "GET /undefined HTTP/1.1" 404 148 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:17:53 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:17:53 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:17:53 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:17:53 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:55:12 +0000] "GET /posts HTTP/1.1" 200 8906 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:55:35 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 338 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:55:35 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:55:38 +0000] "GET /posts HTTP/1.1" 200 10966 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:56:54 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:57:55 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:57:57 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 327 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:57:58 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:58:00 +0000] "GET /posts HTTP/1.1" 200 13006 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:58:29 +0000] "GET /posts/deletecomment?id=643e93d5b9db54d0b6aeb2ff HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:58:33 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:12:58:33 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:00:21 +0000] "GET /posts HTTP/1.1" 200 13008 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:00:23 +0000] "GET /posts/deletecomment?id=643e93f9d001239429a6fd9f HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:00:26 +0000] "GET /posts/deletecomment?id=643e93478f3360d3884be403 HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:00:29 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:00:29 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:16:35 +0000] "GET /posts HTTP/1.1" 200 10948 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:17:14 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:19:53 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 329 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:19:53 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:21:04 +0000] "GET /posts HTTP/1.1" 200 12992 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:21:06 +0000] "GET /posts/deletecomment?id=643e98f9dac0a33e284fba7c HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:21:09 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:21:09 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [18/Apr/2023:13:26:35 +0000] "GET /posts HTTP/1.1" 200 2373 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:26:49 +0000] "GET /posts HTTP/1.1" 200 2390 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:36:16 +0000] "GET /posts HTTP/1.1" 200 10366 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:36:20 +0000] "GET /posts/deletecomment?id=643e9945839dc671ebe311f5 HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:38:09 +0000] "GET /posts HTTP/1.1" 200 8939 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:38:12 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:38:20 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:38:22 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:43:22 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:43:24 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:43:33 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:43:43 +0000] "GET /users/profile?id=643d324ef30c15d47fb840bc HTTP/1.1" 200 9469 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:43:44 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:44:01 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:44:17 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:44:17 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:50:06 +0000] "GET /posts/deletecomment?id=643e9eb17f5f3aa1172e7111 HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:50:11 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:50:12 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:51:18 +0000] "GET /posts HTTP/1.1" 200 10366 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:51:25 +0000] "GET /posts/deletecomment?id=643ea013750321436b743e32 HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:51:26 +0000] "GET /posts/deletecomment?id=643e946d2849b169d4e7abd2 HTTP/1.1" 200 72 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:54:04 +0000] "GET /posts HTTP/1.1" 200 7512 "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:54:06 +0000] "GET /posts HTTP/1.1" 304 - "http://localhost:8000/users/profile?id=643d324ef30c15d47fb840bc" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:54:13 +0000] "GET / HTTP/1.1" 200 7512 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:54:21 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:54:21 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:59:53 +0000] "GET / HTTP/1.1" 200 8939 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:13:59:58 +0000] "GET /posts/deletecomment?id=643ea10da5e371459fbc051d HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:00:00 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:00:00 +0000] "GET /assets/images/gamer.png HTTP/1.1" 404 162 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:00:20 +0000] "POST /posts/create_post HTTP/1.1" 200 483 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:00:46 +0000] "GET /assets/images/gamer.png HTTP/1.1" 404 162 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:01:39 +0000] "GET / HTTP/1.1" 200 10946 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:01:43 +0000] "GET /posts/delete-post?id=643ea27480123632ae3eeee1 HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:01:46 +0000] "GET /posts/deletecomment?id=643ea26080123632ae3eeedb HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:01:49 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:01:49 +0000] "GET /assets/images/gamer.png HTTP/1.1" 404 162 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:04:35 +0000] "GET /posts/deletecomment?id=643ea2cd78c3b7cf0b86aba7 HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:04:36 +0000] "GET / HTTP/1.1" 200 7512 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:04:38 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:04:38 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:14 +0000] "GET /posts/deletecomment?id=643ea376e56006f278de662c HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:15 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:15 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:42 +0000] "GET /posts/deletecomment?id=643ea39bc8d3983a1fbcd17d HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:43 +0000] "GET / HTTP/1.1" 200 7512 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:47 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 328 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:05:47 +0000] "GET /assets/images/gamer.png HTTP/1.1" 404 162 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:09:35 +0000] "GET / HTTP/1.1" 200 8894 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:09:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:09:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:09:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"

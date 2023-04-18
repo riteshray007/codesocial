@@ -1,0 +1,25 @@
+.editprofilediv {
+  width: 50vw;
+  height: 50vh;
+  border: 1px solid;
+  position: absolute;
+  background-color: #cad2c5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -50%);
+  opacity: 0;
+  pointer-events: none; }
+  .editprofilediv form {
+    display: flex;
+    flex-direction: column; }
+  .editprofilediv .previewdiv {
+    display: none;
+    height: 100px; }
+    .editprofilediv .previewdiv .previewpic {
+      height: 100%; }
+
+.active {
+  opacity: 100;
+  pointer-events: all;
+  transform: translate(-50%, -50%);
+  transition: opacity 150ms ease-in-out , 200ms ease-in-out; }
