@@ -88,7 +88,7 @@
         align-items: center;
         justify-content: center;
         .avatar{
-            height:50px ;
+            // height:50px ;
             margin-right: 10px;
             border-radius: 10px;
             width: 50px;
@@ -229,8 +229,7 @@
                     display: flex;
                     align-items: center;
                     
-                    .username{
-                        
+                    .username{ 
                         margin-right: 5px;
                     }
                 }

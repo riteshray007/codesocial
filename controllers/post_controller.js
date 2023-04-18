@@ -81,11 +81,13 @@ module.exports.create_post = async (req , res)=>{
             content : req.body.content,
             user : req.user._id
         })
+        // console.log()
         // req.flash('error' , 'post published! ')
         if(req.xhr){
             postd = await postd.populate('user');
             return res.status(200).json({
                 data : {
+                    path : req.app.locals.assetPath('images/gamer.png') ,
                     post : postd
                 },
                 message : 'post created'
@@ -124,6 +126,7 @@ module.exports.create_post = async (req , res)=>{
             } )
             return res.status(200).json({
                 data : {
+                    path : req.app.locals.assetPath('images/gamer.png'),
                     comment : datac
                 },
                 message : 'comment data',

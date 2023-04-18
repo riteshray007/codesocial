@@ -596,3 +596,69 @@
 ::1 - - [18/Apr/2023:14:10:17 +0000] "GET /posts/deletecomment?id=643ea3bba4ae6106eace0021 HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [18/Apr/2023:14:10:23 +0000] "POST /posts/create_post HTTP/1.1" 200 499 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [18/Apr/2023:14:10:23 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:44:53 +0000] "GET / HTTP/1.1" 200 9535 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:15:45:09 +0000] "GET /posts/delete-post?id=643ea4cfc9303d14c9356778 HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+[0mGET / [36m302[0m 28.404 ms - 70[0m
+[0mGET /users/signin [32m200[0m 16.771 ms - 3521[0m
+[0mGET /users/auth/google [36m302[0m 4.189 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AVHEtk5eKrN0-gXd6yVX9-XfkGXaLl4JZzAfwnYBYIuCIdJophCHuT9DC_eUfbAEP_WzPw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent [36m302[0m 979.282 ms - 58[0m
+[0mGET /posts/ [32m200[0m 87.939 ms - 37017[0m
+[0mGET /posts/ [32m200[0m 52.982 ms - 33427[0m
+[0mPOST /posts/create_comment/?id=643563d4ebaf17fb16eb0e8c [32m200[0m 28.636 ms - 328[0m
+[0mGET /posts/deletecomment?id=643ebc1dc13e61ba5300ee0f [32m200[0m 19.083 ms - 72[0m
+[0mGET /posts/ [32m200[0m 102.363 ms - 33427[0m
+[0mGET /posts/ [32m200[0m 57.754 ms - 34827[0m
+[0mPOST /posts/create_comment/?id=643563d4ebaf17fb16eb0e8c [0m-[0m - ms - -[0m
+[0mGET /posts/deletecomment?id=643ebd4b6f8912bae1ccc86a [32m200[0m 20.626 ms - 72[0m
+[0mGET /posts/ [32m200[0m 78.025 ms - 36231[0m
+[0mPOST /posts/create_comment/?id=643563d4ebaf17fb16eb0e8c [0m-[0m - ms - -[0m
+[0mGET /posts/deletecomment?id=643ebd94b8f26a3914278813 [32m200[0m 21.605 ms - 72[0m
+[0mGET /posts/deletecomment?id=643ebd5b6f8912bae1ccc87e [32m200[0m 12.568 ms - 72[0m
+[0mGET /posts/ [32m200[0m 52.874 ms - 34828[0m
+[0mPOST /posts/create_comment/?id=643563d4ebaf17fb16eb0e8c [0m-[0m - ms - -[0m
+[0mGET /posts/deletecomment?id=643ebd9eb8f26a391427882b [32m200[0m 13.458 ms - 72[0m
+[0mGET /posts/ [32m200[0m 284.163 ms - 33427[0m
+[0mPOST /posts/create_post [32m200[0m 59.843 ms - 522[0m
+[0mGET /posts/ [32m200[0m 131.312 ms - 35424[0m
+[0mGET /posts/delete-post?id=643ec4dc2b071df308fcc632 [32m200[0m 29.662 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 18.209 ms - 522[0m
+[0mGET /posts/ [32m200[0m 185.478 ms - 35424[0m
+[0mGET /posts/delete-post?id=643ec4f943a71e974140cf63 [32m200[0m 36.214 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 29.399 ms - 549[0m
+[0mGET /posts/ [32m200[0m 115.007 ms - 35424[0m
+[0mGET /posts/delete-post?id=643ec5367dda3563e53b7db7 [32m200[0m 24.137 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 25.089 ms - 549[0m
+[0mGET /posts/delete-post?id=643ec58c62c683478c8f3d0f [32m200[0m 21.958 ms - 72[0m
+[0mGET /posts/ [32m200[0m 100.917 ms - 33427[0m
+[0mPOST /posts/create_post [32m200[0m 33.518 ms - 549[0m
+[0mGET /posts/delete-post?id=643ec61eaee32d54dc5120f4 [32m200[0m 26.565 ms - 72[0m
+[0mGET /posts/ [36m304[0m 77.050 ms - -[0m
+[0mGET /posts/ [36m304[0m 139.425 ms - -[0m
+[0mPOST /posts/create_post [32m200[0m 35.771 ms - 549[0m
+[0mGET /posts/delete-post?id=643ec6ce85745fcbbc261d3d [32m200[0m 23.800 ms - 72[0m
+[0mGET /users/profile?id=64270ba259d55465a264c2b1 [32m200[0m 142.249 ms - 6428[0m
+[0mPOST /users/update_profile?id=64270ba259d55465a264c2b1 [36m302[0m 43.932 ms - 170[0m
+[0mGET /users/profile?id=64270ba259d55465a264c2b1 [32m200[0m 33.577 ms - 10052[0m
+[0mGET /users/profile?id=64270ba259d55465a264c2b1 [32m200[0m 42.233 ms - 6454[0m
+[0mGET /posts [32m200[0m 61.369 ms - 33479[0m
+[0mPOST /posts/create_post [32m200[0m 14.083 ms - 607[0m
+[0mGET /posts/delete-post?id=643ec6ed85745fcbbc261d67 [32m200[0m 16.461 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 18.689 ms - 607[0m
+[0mPOST /posts/create_comment/?id=643ec6f485745fcbbc261d71 [36m302[0m 23.547 ms - 98[0m
+[0mGET /posts [32m200[0m 84.998 ms - 36928[0m
+[0mGET /posts/deletecomment?id=643ec6f785745fcbbc261d76 [32m200[0m 27.037 ms - 72[0m
+[0mGET /posts/delete-post?id=643ec6f485745fcbbc261d71 [32m200[0m 14.041 ms - 72[0m
+[0mPOST /posts/create_post [32m200[0m 10.119 ms - 614[0m
+[0mPOST /likes/toggle?id=643ec70e85745fcbbc261d91&type=Post [32m200[0m 14.026 ms - 61[0m
+[0mGET /users/signout [36m302[0m 13.296 ms - 56[0m
+[0mGET /users [32m200[0m 9.754 ms - 6743[0m
+[0mGET /posts/deletecomment?id=643ec6f485745fcbbc261d71 [0m-[0m - ms - -[0m
+::1 - - [18/Apr/2023:16:36:48 +0000] "GET /users HTTP/1.1" 200 3102 "http://localhost:8000/posts" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:36:51 +0000] "GET /users/signin HTTP/1.1" 200 3565 "http://localhost:8000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:36:52 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:36:56 +0000] "GET /users/auth/google/callback?code=4%2F0AVHEtk5zfGILWEwt1vRNXjBAwmR6BXpDnoy0Mj717_mVC6i8FDDPJAO3BEGe9xmcwiyeHQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&prompt=consent HTTP/1.1" 302 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:36:56 +0000] "GET /posts/ HTTP/1.1" 200 11102 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:37:06 +0000] "POST /posts/create_comment/?id=643e6db2b713e80665930fb7 HTTP/1.1" 200 366 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:37:06 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:37:10 +0000] "GET /posts/ HTTP/1.1" 200 8939 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:16:37:13 +0000] "GET /posts/deletecomment?id=643ec7327ca34715d09d5e9a HTTP/1.1" 200 72 "http://localhost:8000/posts/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"

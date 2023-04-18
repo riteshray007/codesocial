@@ -30,7 +30,7 @@
                 data: newPostForm.serialize(),
                 success: function(data){
                     // console.log(data.data.post);
-                    let newPost = newPostDom(data.data.post);
+                    let newPost = newPostDom(data.data.post , data.data.path );
                     $('.allposts').prepend(newPost);
                     // console.log(newPost)
                     $('.deletepost' , newPost).click(()=>{  
@@ -53,7 +53,7 @@
     }
 
     // method to create a post in DOM
-    let newPostDom = function(post){
+    let newPostDom = function(post , path ){
         
         function getst(d) { 
             if (d > 3 && d < 21) { return 'th'   
@@ -73,7 +73,7 @@
             <div id="post-${post._id}"  class="postbox vcenter" >
                 <div class=" userinfo " >
                     <span class=" imgspan " >
-                        <img src="/images/gamer.png" class="avatar" >
+                        <img src="${ post.user.avatar ? post.user.avatar :  path}" class="avatar" >
                     </span>
                     <span>
                         <h4 class="username"  > ${post.user.name } </h4> 
@@ -106,7 +106,7 @@
         `)
     }
 
-    function commentformat(data){
+    function commentformat(data  , path ){
         
             let time = new Date(data.updatedAt);
 
@@ -114,7 +114,7 @@
                     <div class="comment" id="comment-${data._id}" >
 
                         <span class="imgspan" >
-                        <img src="/images/gamer.png" class="comm_avatar" >
+                        <img src="${ data.user.avatar ? data.user.avatar : path}" class="comm_avatar" >
                         </span>
                         
                         <span class="name_com" >
@@ -205,7 +205,7 @@
             data : $(par).serialize(),
             success : (data)=>{
                 // console.log(data.data.comment)
-                let curcomment = commentformat(data.data.comment)
+                let curcomment = commentformat(data.data.comment , data.data.path )
                 // console.log(curcomment.html());
                 $('.deletecomm' , curcomment).click((e)=>{
                     deletecomment(`${data.data.comment._id}`);
