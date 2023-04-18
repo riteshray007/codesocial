@@ -592,3 +592,7 @@
 ::1 - - [18/Apr/2023:14:09:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [18/Apr/2023:14:09:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 ::1 - - [18/Apr/2023:14:09:35 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:10:15 +0000] "GET / HTTP/1.1" 200 8939 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:10:17 +0000] "GET /posts/deletecomment?id=643ea3bba4ae6106eace0021 HTTP/1.1" 200 72 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:10:23 +0000] "POST /posts/create_post HTTP/1.1" 200 499 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+::1 - - [18/Apr/2023:14:10:23 +0000] "GET /images/gamer.png HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
