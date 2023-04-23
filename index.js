@@ -23,7 +23,7 @@ require('./config/view-helper')(app);
 const cmiddleware = require('./config/middleware')
 const chatserver = require( 'http' ).Server(app);
 const chatsocket = require('./config/chat_sockets').chatsockets(chatserver);
-chatserver.listen(4000);
+chatserver.listen(5000);
 console.log('chatserver is listening at port number 4000');
 
 
