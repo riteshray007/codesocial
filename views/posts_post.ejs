@@ -74,7 +74,7 @@
                         <img src="<%=c.user.avatar%>" class="avatar" >
                     <% }else{ %>
                         <img src="<%= assetPath('images/gamer.png') %>" class="avatar" >
-                    <% } %>
+                    <% } %> 
                 </span>
                 <% let x = c.updatedAt %>
                 <span class="name_com" >
@@ -86,7 +86,7 @@
                     <a class="liketoggle"  href="/likes/toggle?id=<%=c._id%>&type=Comment" >     
                         <%for( let l of c.likes ){ %>
                             <%if(user.id == l.user){%>
-                                <% existingc = true %>
+                                <% existingc = true; break; %>
                             <% }%>
                        <% }%>
                        <% if( existingc == true ){ %>

@@ -81,7 +81,7 @@ module.exports.forget_password = async (req, res) => {
          message : 'checking '
       })
    }
-   return res.render('resetpassword' , {id : id} );
+   return res.render('resetPassword' , {id : id} );
 }
 
 module.exports.varifysecuritycode = async (req , res )=>{
