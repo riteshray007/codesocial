@@ -8,14 +8,46 @@
     <div class=" chat-box-container" >
         <div class="chatterlist"></div>
         <div class="chatarea" id="user-chat-box" >
+
+             
             <ul class=" message-list" >
-                <li class=" self-message " >  <span class="self-span" > hy there!.. </span>  </li>
-                <li class=" Other-message " > <span class="others-span" >  hello there!.. </span> </li>
+               <% for(let c of chats){%>
+                    <% let name = c.user.name.split(' '); name = name[0]; %>                   
+                    <%if(user.id == c.user.id ){%>
+                        <li class=" li self-message " >
+                            <span class="self-span" > <%=c.message%> </span>                         
+                            <div class="avatar_name" >
+                                <%if(c.user.avatar){%>
+                                    <img src="<%=c.user.avatar%>" class="chatavatar"  >
+                                <%}else{%>
+                                    <img src="<%=assetPath('images/gamer.png')%>" class="chatavatar"  >  
+                                <%}%>
+                                <p class="msgusername" > <%= name %> </p>
+                            </div> 
+                        </li>
+                <%}else{%>
+                            
+                    <li class=" li Other-message" >   
+                        <div class="avatar_name" >
+                            <%if(c.user.avatar){%>
+                                <img src="<%=c.user.avatar%>" class="chatavatar"  >
+                            <%}else{%>
+                                <img src="<%=assetPath('images/gamer.png')%>" class="chatavatar"  >  
+                            <%}%>
+                            <p class="msgusername" > <%= name %> </p>
+                        </div>                        
+                        <span class="others-span" > <%=c.message%> </span>
+                    </li>
+
+                <%}}%>
+
             </ul>
-            <div class="send-message-container" >
+            
+            <form class="send-message-container" method="post" action="/chatbox/create"  >
                 <input type="text" name="message" class="message-form" placeholder="  Type your message here.. " cols="80" >
                 <button type="submit" class="message-sending-btn " > Send message </button>
-            </div>
+            </form>
+        
         </div>
     </div>
 <%} %>

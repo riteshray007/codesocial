@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    margin: 0cap;
+    padding: 0cap;
 }
 .chat-box-container{
     margin-top: 10px;
@@ -28,12 +30,28 @@
                 min-height: 40px;
                 display: inline-block;
                 margin: 10px 0px ;
-                // border: 1px solid red;
-                
+                // overflow:  ;
+                .avatar_name{
+                    height: 40px;
+                    position: absolute;
+                    // left: 20px;
+                    display: flex;
+                    justify-content: center;
+                    // border: 1px solid red;
+                } 
+                // border: 1px solid blue ;                
+            }
+            .Other-message .avatar_name{
+                left: 20px;
+            }
+            .self-message .avatar_name{
+                right: 20px;
             }
             .self-span , .others-span {
-                height: 100%;
+                // height: 100%;
+                min-height: 40px;
                 padding: 10px 15px  ;
+                display: inline-block;
                 border-radius: 10px;
                 background-color: aliceblue;
                 position: absolute;
@@ -41,11 +59,24 @@
                 letter-spacing: 1px;
                 max-width: 70%;
             }
+             .chatavatar{
+                width: 35px;
+                left: 20px;
+                // position: absolute;
+                border-radius: 10px;
+            }
+            .msgusername{
+                position: absolute;
+                bottom: -23px;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+            
             .self-span{
-                right: 20px;
+                right: 70px;
             }
             .others-span{
-                left: 20px;
+                left: 70px;
             }
 
         }

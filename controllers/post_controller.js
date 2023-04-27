@@ -119,7 +119,7 @@ module.exports.create_post = async (req , res)=>{
             // nodemailer.newComment(datac);
             let job =  queue.create( 'emails' , datac  ).save( (err)=>{
                 if(err){
-                    console.log('err in creating a queue');
+                    console.log('err in creating a queue' , err );
                     return ;
                 }
                 console.log(job.id);
