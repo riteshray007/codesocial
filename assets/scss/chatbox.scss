@@ -30,16 +30,58 @@
                 min-height: 40px;
                 display: inline-block;
                 margin: 10px 0px ;
-                // overflow:  ;
                 .avatar_name{
                     height: 40px;
                     position: absolute;
-                    // left: 20px;
                     display: flex;
                     justify-content: center;
                     // border: 1px solid red;
                 } 
-                // border: 1px solid blue ;                
+                .fa-ellipsis-vertical{
+                    position: absolute;
+                    top: 5px ;
+                    right: -5px;
+                    // border: 1px solid red;
+                    font-size: 18px;
+                    margin: 5px 10px ;
+                }
+                .msgoption{
+                    background-color: white;
+                    padding: 5px;
+                    width: 150px;
+                    position: absolute;
+                    right: 5px;
+                    top: 29px;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    border: 2px solid #cad2c5;
+                    z-index: 200;
+                    font-size: 18px;
+                    text-align: center;
+                    transform: translateY(30px);
+                    transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
+                    display: flex;
+                    cursor: pointer;
+                    align-items: center;
+                    flex-direction: column;
+
+
+                    .options{
+                        font-size: 17px;
+                        width: 90%;
+                        border-bottom: 1px solid #cad2c5;
+                    }
+                }
+                .active{
+                    top: 25px;
+                    opacity: 100;
+                    pointer-events: all !important;
+                    transform: translateY(2px);
+                    transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
+                }
+                // border: 1px solid blue ;       
+
             }
             .Other-message .avatar_name{
                 left: 20px;
@@ -49,6 +91,7 @@
             }
             .self-span , .others-span {
                 // height: 100%;
+                // overflow: visible ;
                 min-height: 40px;
                 padding: 10px 15px  ;
                 display: inline-block;
@@ -58,6 +101,10 @@
                 font-size: 17px;
                 letter-spacing: 1px;
                 max-width: 70%;
+                .msgtime{
+                    font-size: 14px;
+                    margin: 5px 0px ;
+                }
             }
              .chatavatar{
                 width: 35px;
@@ -74,6 +121,9 @@
             
             .self-span{
                 right: 70px;
+                .msgtime{
+                    text-align: right;
+                }
             }
             .others-span{
                 left: 70px;

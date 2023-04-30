@@ -12,10 +12,15 @@
              
             <ul class=" message-list" >
                <% for(let c of chats){%>
-                    <% let name = c.user.name.split(' '); name = name[0]; %>                   
+                    <% let name = c.user.name.split(' '); name = name[0]; %> 
+                    <% let time = c.createdAt %>                  
                     <%if(user.id == c.user.id ){%>
-                        <li class=" li self-message " >
-                            <span class="self-span" > <%=c.message%> </span>                         
+                        <li id="msg-<%=c._id%>" class=" li self-message " >
+                            <span class="self-span" > <%=c.message%> <p class="msgtime" >  <%= time.toLocaleTimeString([] , {hour:'2-digit' , minute : '2-digit'} ) %>  </p> <i class="fa-solid fa-ellipsis-vertical"></i> 
+                             <div class="msgoption  " >
+                                <p id="d-<%=c._id%>" class="options delete" > Delete Message </p>
+                             </div>
+                            </span>                         
                             <div class="avatar_name" >
                                 <%if(c.user.avatar){%>
                                     <img src="<%=c.user.avatar%>" class="chatavatar"  >
@@ -25,9 +30,8 @@
                                 <p class="msgusername" > <%= name %> </p>
                             </div> 
                         </li>
-                <%}else{%>
-                            
-                    <li class=" li Other-message" >   
+                <%}else{%>        
+                    <li id="msg-<%=c._id%>" class=" li Other-message" >   
                         <div class="avatar_name" >
                             <%if(c.user.avatar){%>
                                 <img src="<%=c.user.avatar%>" class="chatavatar"  >
@@ -36,7 +40,8 @@
                             <%}%>
                             <p class="msgusername" > <%= name %> </p>
                         </div>                        
-                        <span class="others-span" > <%=c.message%> </span>
+                        <span class="others-span" > <%=c.message%> <p class="msgtime" >  <%= time.toLocaleTimeString([] , {hour:'2-digit' , minute : '2-digit'} ) %> </p> </span>
+                        
                     </li>
 
                 <%}}%>

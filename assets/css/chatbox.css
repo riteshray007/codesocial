@@ -33,6 +33,41 @@
           position: absolute;
           display: flex;
           justify-content: center; }
+        .chat-box-container .chatarea .message-list .self-message .fa-ellipsis-vertical, .chat-box-container .chatarea .message-list .Other-message .fa-ellipsis-vertical {
+          position: absolute;
+          top: 5px;
+          right: -5px;
+          font-size: 18px;
+          margin: 5px 10px; }
+        .chat-box-container .chatarea .message-list .self-message .msgoption, .chat-box-container .chatarea .message-list .Other-message .msgoption {
+          background-color: white;
+          padding: 5px;
+          width: 150px;
+          position: absolute;
+          right: 5px;
+          top: 29px;
+          opacity: 0;
+          pointer-events: none;
+          border: 2px solid #cad2c5;
+          z-index: 200;
+          font-size: 18px;
+          text-align: center;
+          transform: translateY(30px);
+          transition: opacity 150ms ease-in-out , transform 220ms ease-in-out;
+          display: flex;
+          cursor: pointer;
+          align-items: center;
+          flex-direction: column; }
+          .chat-box-container .chatarea .message-list .self-message .msgoption .options, .chat-box-container .chatarea .message-list .Other-message .msgoption .options {
+            font-size: 17px;
+            width: 90%;
+            border-bottom: 1px solid #cad2c5; }
+        .chat-box-container .chatarea .message-list .self-message .active, .chat-box-container .chatarea .message-list .Other-message .active {
+          top: 25px;
+          opacity: 100;
+          pointer-events: all !important;
+          transform: translateY(2px);
+          transition: opacity 150ms ease-in-out , transform 220ms ease-in-out; }
       .chat-box-container .chatarea .message-list .Other-message .avatar_name {
         left: 20px; }
       .chat-box-container .chatarea .message-list .self-message .avatar_name {
@@ -47,6 +82,9 @@
         font-size: 17px;
         letter-spacing: 1px;
         max-width: 70%; }
+        .chat-box-container .chatarea .message-list .self-span .msgtime, .chat-box-container .chatarea .message-list .others-span .msgtime {
+          font-size: 14px;
+          margin: 5px 0px; }
       .chat-box-container .chatarea .message-list .chatavatar {
         width: 35px;
         left: 20px;
@@ -58,6 +96,8 @@
         letter-spacing: 1px; }
       .chat-box-container .chatarea .message-list .self-span {
         right: 70px; }
+        .chat-box-container .chatarea .message-list .self-span .msgtime {
+          text-align: right; }
       .chat-box-container .chatarea .message-list .others-span {
         left: 70px; }
     .chat-box-container .chatarea .send-message-container {

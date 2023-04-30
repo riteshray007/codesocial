@@ -50,7 +50,7 @@ module.exports.deletePost = async (req , res)=>{
         .populate({
             path : 'comments',
         })
-        console.log(data.comments);
+        // console.log(data.comments);
         
        await comments.deleteMany({post : req.query.id})
        await likes.deleteMany({ likeable : req.query.id , onModel : 'Post' });

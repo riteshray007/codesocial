@@ -36,17 +36,16 @@
       padding-left: 5px;
       padding-top: 5px; }
       .postbox .userinfo .dropdown .dropdownContents {
-        pointer-events: none;
-        position: absolute;
-        left: -150px;
-        box-shadow: 0px 1px 10px white;
-        border: 2px solid #cad2c5;
+        background-color: white;
         width: 150px;
+        position: absolute;
+        pointer-events: none;
+        left: -150px;
+        opacity: 0;
+        border: 2px solid #cad2c5;
         z-index: 200;
         font-size: 18px;
         text-align: center;
-        background-color: white;
-        opacity: 0;
         transform: translateY(20px);
         transition: opacity 150ms ease-in-out , transform 220ms ease-in-out;
         display: flex;
