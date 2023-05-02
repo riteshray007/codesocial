@@ -16,6 +16,7 @@ const googleauth = require('./config/passport-google-oauth2-strategy');
 const mongoStore = require('connect-mongo')
 const sassmiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
+// const mongoose = require( 'mongoose' );
 
 
 const app = express();
@@ -42,6 +43,8 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(cookieparser());
 
 app.use(expresslayouts);
+
+
 app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true );
 

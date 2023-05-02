@@ -6,7 +6,7 @@ const likes = require('../models/likes');
 const CommentEmailWorker = require('../workers/comment_email_worker');
 const queue = require('../config/kue');
 
-module.exports.post = async (req , res )=>{  
+module.exports.post = async ( req , res )=>{  
 
     try{
         let userdata = await user.find({})        
@@ -20,11 +20,9 @@ module.exports.post = async (req , res )=>{
             },  
             populate : {
                 path : 'likes user',
-            },
-            
-            
+            },            
         })
-
+        
         // postd.comments.populate('user');
 
         // return res.status(200).json({
@@ -77,30 +75,42 @@ module.exports.stats= (req , res)=>{
 
 module.exports.create_post = async (req , res)=>{
     try{
-        let postd = await post.create({
-            content : req.body.content,
-            user : req.user._id
-        })
+        post.uploadPostImage(req , res , async function (err){
+            if(err){
+                console.log(err);
+            }
+            console.log('content - ' , req.body.content  ); 
+            let postd = new post ({
+                content : req.body.content,
+                user : req.user._id,
+            })
+            if(req.file){
+                console.log( " filename  - " ,  req.file.filename)
+                postd.image = post.postpath + '/' + req.file.filename
+            }
+            await postd.save();
+            
         // console.log()
         // req.flash('error' , 'post published! ')
-        if(req.xhr){
-            postd = await postd.populate('user');
-            return res.status(200).json({
-                data : {
-                    path : req.app.locals.assetPath('images/gamer.png') ,
-                    post : postd
-                },
-                message : 'post created'
-            })
-        }
-        return res.redirect('/posts')
+            if(req.xhr){
+                postd = await postd.populate('user');
+                return res.status(200).json({
+                    data : {
+                        path : req.app.locals.assetPath('images/gamer.png') ,
+                        post : postd
+                    },
+                    message : 'post created'
+                })
+            }
+            return res.redirect('/posts')
+        })
     }catch(err){
         console.log(err)
         return ;
     }
 }
 
- module.exports.create_comment = async(req , res)=>{
+module.exports.create_comment = async(req , res)=>{
 
     try{
         let posts = await post.findById( req.query.id )
@@ -138,11 +148,7 @@ module.exports.create_post = async (req , res)=>{
         console.log(err);
         return ;
     }
-
-
-
-
- }
+}
 
  module.exports.deleteComment = async (req , res)=>{
     let id = req.query.id;

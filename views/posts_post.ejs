@@ -40,8 +40,14 @@
            
         </div>
         
-        <!-- <p> <%=  %> </p> -->
-        <p class="contentbox" > <%= i.content %> </p>
+        
+        
+        <div class="contentbox" > 
+            <%if(i.image){%>
+                <img  src="<%=i.image%>"  class="postimage" >
+            <%}%>
+            <p class="textcontent" ><%= i.content %></p> 
+        </div>
 
         <div class="likescomments" >
            <a class="liketoggle"  href="/likes/toggle?id=<%=i._id%>&type=Post" >     

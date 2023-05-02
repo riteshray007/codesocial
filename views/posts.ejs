@@ -12,8 +12,10 @@
          <h1 class="vcenter " style="text-align:center" > welcome to posts </h1>
         <div class="vcenter" >
 
-            <form id="create-post" method="POST" action="/posts/create_post"  >
+            <form id="create-post"  enctype="multipart/form-data" method="POST" action="/posts/create_post"  >
                 <input name="content" id="contentinput" placeholder="type here ..." type="text">
+                <input type="file" id="file" accept="image/*" class="postimage" name="image"  />
+                <label for="file" class="btn-1">upload file</label>
                 <button type="submit" > post </button>
             </form>
         </div>

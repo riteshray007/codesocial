@@ -11,6 +11,33 @@
 
 .postdiv{
     position: relative;
+
+
+    #file {
+        height: 0;
+        overflow: hidden;
+        width: 0;
+      }
+      
+      #file + label {
+        // background: #f15d22;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Rubik', sans-serif;
+        font-size: inherit;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        outline: none;
+        padding: 1rem 50px;
+        position: relative;
+        transition: all 0.3s;
+        vertical-align: middle;        
+      }
+      
+
 }
 .postbox{
     background-color: white;
@@ -80,15 +107,19 @@
                     transition:  opacity 150ms ease-in-out , transform 220ms ease-in-out  ;
                 }
 
-            }
-
+        }
     }
+
+
+
+
+
     .imgspan{
         display: flex;
         align-items: center;
         justify-content: center;
         .avatar{
-            // height:50px ;
+            height:50px ;
             margin-right: 10px;
             border-radius: 10px;
             width: 50px;
@@ -96,17 +127,30 @@
     }
 
     .contentbox{
+        display: flex;
+        flex-direction: column;
         min-width: 70%;
         min-height: 30px;
         padding: 10px 10px;
         margin: 10px 10px ;
-        display: flex;
         background-color: #cad2c5 ;
         align-items: center;
         border-radius: 10px;
         font-size: 17px ;
         font-weight: 600;
         font-family: sans-serif ;
+
+        
+           .textcontent{
+            margin: 10px 0px ;
+            text-align: left;
+           }
+            .postimage{
+                border-radius: 10px;
+                max-height: 500px;
+                max-width: 550px;
+            }
+        
 
     }
 

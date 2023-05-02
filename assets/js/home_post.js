@@ -23,11 +23,15 @@
 
         newPostForm.submit(function(e){
             e.preventDefault();
+            var data = new FormData(this);
 
             $.ajax({
                 type: 'post',
                 url: '/posts/create_post',
-                data: newPostForm.serialize(),
+                data: data ,
+                cache : false,
+                contentType : false,
+                processData : false,
                 success: function(data){
                     // console.log(data.data.post);
                     let newPost = newPostDom(data.data.post , data.data.path );
@@ -88,7 +92,10 @@
                     </span>                
                 </div>                
                 
-                <p class="contentbox" > ${ post.content }</p>
+                <div class="contentbox" > 
+                   <img src="${post.image}" class="postimage" >                
+                   <p class="textcontent" > ${ post.content }</p>
+                </div>
 
                 <div class="likescomments" >
                     <a  class="liketoggle" href="/likes/toggle?id=${post._id}&type=Post" >  <i class="fa-regular fa-heart"></i> <span class="likes" >  </span> </a>
