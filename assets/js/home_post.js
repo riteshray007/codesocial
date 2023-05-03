@@ -19,12 +19,12 @@
         })
         
  
-// trigger an artificial click event
+    // trigger an artificial click event
+
 
         newPostForm.submit(function(e){
             e.preventDefault();
             var data = new FormData(this);
-
             $.ajax({
                 type: 'post',
                 url: '/posts/create_post',
@@ -35,6 +35,7 @@
                 success: function(data){
                     // console.log(data.data.post);
                     let newPost = newPostDom(data.data.post , data.data.path );
+                    
                     $('.allposts').prepend(newPost);
                     // console.log(newPost)
                     $('.deletepost' , newPost).click(()=>{  
@@ -72,7 +73,7 @@
              date = date + st ;
         
                 
-        return $(`
+        let body =  $(`
         
             <div id="post-${post._id}"  class="postbox vcenter" >
                 <div class=" userinfo " >
@@ -92,8 +93,7 @@
                     </span>                
                 </div>                
                 
-                <div class="contentbox" > 
-                   <img src="${post.image}" class="postimage" >                
+                <div class="contentbox" >                 
                    <p class="textcontent" > ${ post.content }</p>
                 </div>
 
@@ -111,6 +111,13 @@
 
             </div>
         `)
+
+        if(post.image){
+            let tar = $('.textcontent' , body )
+            $(`<img src="${post.image}" class="postimage" >`).insertBefore(tar) ;
+        }
+
+        return body;
     }
 
     function commentformat(data  , path ){
@@ -121,7 +128,7 @@
                     <div class="comment" id="comment-${data._id}" >
 
                         <span class="imgspan" >
-                        <img src="${ data.user.avatar ? data.user.avatar : path}" class="comm_avatar" >
+                        <img src="${ data.user.avatar ? data.user.avatar : path}" class="avatar" >
                         </span>
                         
                         <span class="name_com" >

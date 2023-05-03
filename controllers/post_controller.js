@@ -5,6 +5,8 @@ const likes = require('../models/likes');
 // const nodemailer = require('../mailer/comments_mailer');
 const CommentEmailWorker = require('../workers/comment_email_worker');
 const queue = require('../config/kue');
+const path = require('path');
+const fs = require('fs');
 
 module.exports.post = async ( req , res )=>{  
 
@@ -49,7 +51,19 @@ module.exports.deletePost = async (req , res)=>{
             path : 'comments',
         })
         // console.log(data.comments);
-        
+        if(data.image){
+            console.log('yes a image found ');
+            if(fs.existsSync(path.join(__dirname , '..' , data.image ))){
+                fs.unlink(path.join( __dirname , '..' , data.image ) , (err)=>{
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        console.log('removed post image from disk storage')
+                    }
+                });
+            }
+        }
        await comments.deleteMany({post : req.query.id})
        await likes.deleteMany({ likeable : req.query.id , onModel : 'Post' });
        await likes.deleteMany({ likeable: {$in : data.comments}  })
@@ -124,7 +138,7 @@ module.exports.create_comment = async(req , res)=>{
         posts.comments.push(datac)
         posts.save();
         if(req.xhr){
-            datac = await datac.populate('user' , ' _id email name  ');
+            datac = await datac.populate('user' , ' _id email name avatar  ');
             console.log(datac);
             // nodemailer.newComment(datac);
             let job =  queue.create( 'emails' , datac  ).save( (err)=>{
@@ -155,10 +169,12 @@ module.exports.create_comment = async(req , res)=>{
     // console.log('delete id - ' , id );
     try{
         let data = await comments.findById(id)
+        // console.log(data);
 
         await likes.deleteMany({ likeable: {$in : data}  })
-        
+        // console.log(data.post);
         let postid = data.post ;
+        // console.log(postid)
         data.remove();
 
         await post.findByIdAndUpdate(postid , { $pull : {comments : id }} )

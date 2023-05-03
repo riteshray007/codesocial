@@ -9,32 +9,54 @@
 
 .postdiv {
   position: relative; }
+  .postdiv #create-post {
+    width: 600px;
+    height: 200px;
+    margin: 20px 5px;
+    background-color: white;
+    border-radius: 10px; }
+    .postdiv #create-post #contentinput {
+      box-sizing: border-box;
+      width: 100%;
+      height: 140px;
+      border-radius: 10px;
+      border: none;
+      border: 1px solid #5e548e;
+      outline: none;
+      font-size: larger;
+      padding-left: 20px; }
+      .postdiv #create-post #contentinput::placeholder {
+        font-size: xx-large; }
   .postdiv #file {
     height: 0;
     overflow: hidden;
     width: 0; }
-  .postdiv #file + label {
+  .postdiv #file + label, .postdiv button {
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: #5e548e;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Rubik', sans-serif;
     font-size: inherit;
-    font-weight: 500;
-    margin-bottom: 1rem;
+    font-weight: 700;
+    font-style: oblique;
+    font-size: xx-large;
     outline: none;
-    padding: 1rem 50px;
+    padding: 7px 40px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle; }
-    .postdiv #file + label.btn-1 {
-      background-color: #f79159;
-      box-shadow: 0 6px #f57128;
+    .postdiv #file + label.btn-1, .postdiv #file + label.submitbtn, .postdiv button.btn-1, .postdiv button.submitbtn {
+      background-color: #cad2c5;
+      box-shadow: 0 6px #e6e6e6;
       transition: none; }
-      .postdiv #file + label.btn-1:hover {
-        box-shadow: 0 4px #f57128;
+      .postdiv #file + label.btn-1:hover, .postdiv #file + label.submitbtn:hover, .postdiv button.btn-1:hover, .postdiv button.submitbtn:hover {
+        box-shadow: 0 4px #e6e6e6;
         top: 2px; }
+    .postdiv #file + label.btn-1, .postdiv button.btn-1 {
+      left: 30%; }
+    .postdiv #file + label.submitbtn, .postdiv button.submitbtn {
+      left: 50%; }
 
 .postbox {
   background-color: white;
