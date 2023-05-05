@@ -13,11 +13,24 @@
     
     #create-post{
         width: 600px;
-        height: 200px;
+        min-height: 200px;
         // border: 1px solid red;
         margin: 20px 5px ;
         background-color: white;
         border-radius: 10px ;
+        .previewimgdiv{
+            width: 90%;
+            max-height: 400px;
+            overflow: hidden;
+            padding: 5px 10px ;
+            box-sizing: border-box;
+            .pic{
+                width: 90%;
+                height: 90%;
+                border-radius: 10px;
+            }
+            
+        }
         #contentinput{
             box-sizing: border-box;
             width: 100%;
@@ -41,7 +54,7 @@
         width: 0;
       }
       
-      #file + label  , button {
+      #file + label  , .submitbtn {
 
         border: none;
         border-radius: 5px;

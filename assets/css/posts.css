@@ -11,10 +11,20 @@
   position: relative; }
   .postdiv #create-post {
     width: 600px;
-    height: 200px;
+    min-height: 200px;
     margin: 20px 5px;
     background-color: white;
     border-radius: 10px; }
+    .postdiv #create-post .previewimgdiv {
+      width: 90%;
+      max-height: 400px;
+      overflow: hidden;
+      padding: 5px 10px;
+      box-sizing: border-box; }
+      .postdiv #create-post .previewimgdiv .pic {
+        width: 90%;
+        height: 90%;
+        border-radius: 10px; }
     .postdiv #create-post #contentinput {
       box-sizing: border-box;
       width: 100%;
@@ -31,7 +41,7 @@
     height: 0;
     overflow: hidden;
     width: 0; }
-  .postdiv #file + label, .postdiv button {
+  .postdiv #file + label, .postdiv .submitbtn {
     border: none;
     border-radius: 5px;
     color: #5e548e;
@@ -46,16 +56,16 @@
     position: relative;
     transition: all 0.3s;
     vertical-align: middle; }
-    .postdiv #file + label.btn-1, .postdiv #file + label.submitbtn, .postdiv button.btn-1, .postdiv button.submitbtn {
+    .postdiv #file + label.btn-1, .postdiv #file + label.submitbtn, .postdiv .submitbtn.btn-1, .postdiv .submitbtn.submitbtn {
       background-color: #cad2c5;
       box-shadow: 0 6px #e6e6e6;
       transition: none; }
-      .postdiv #file + label.btn-1:hover, .postdiv #file + label.submitbtn:hover, .postdiv button.btn-1:hover, .postdiv button.submitbtn:hover {
+      .postdiv #file + label.btn-1:hover, .postdiv #file + label.submitbtn:hover, .postdiv .submitbtn.btn-1:hover, .postdiv .submitbtn.submitbtn:hover {
         box-shadow: 0 4px #e6e6e6;
         top: 2px; }
-    .postdiv #file + label.btn-1, .postdiv button.btn-1 {
+    .postdiv #file + label.btn-1, .postdiv .submitbtn.btn-1 {
       left: 30%; }
-    .postdiv #file + label.submitbtn, .postdiv button.submitbtn {
+    .postdiv #file + label.submitbtn, .postdiv .submitbtn.submitbtn {
       left: 50%; }
 
 .postbox {

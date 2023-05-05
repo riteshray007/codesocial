@@ -33,21 +33,21 @@
                 contentType : false,
                 processData : false,
                 success: function(data){
-                    // console.log(data.data.post);
-                    let newPost = newPostDom(data.data.post , data.data.path );
                     
+                    let newPost = newPostDom(data.data.post , data.data.path );
+                    $('.pic').remove();
                     $('.allposts').prepend(newPost);
-                    // console.log(newPost)
+                    
                     $('.deletepost' , newPost).click(()=>{  
                         deletePost('.deletepost' , newPost);
                     })
                     $('.liketoggle' , newPost).click((e)=>{
                         e.preventDefault();
                         console.log($(e.target).attr('href'));
-                        // let link = anchortag;
+                        
                         togglelikefnc( $(e.target) )
                     })
-                    // console.log($('.deletepost',newPost))
+                    
                     notysucess('Post Published!')
                 }, error: function(error){
                     console.log(error.responseText);
@@ -94,11 +94,11 @@
                 </div>                
                 
                 <div class="contentbox" >                 
-                   <p class="textcontent" > ${ post.content }</p>
+                   
                 </div>
 
                 <div class="likescomments" >
-                    <a  class="liketoggle" href="/likes/toggle?id=${post._id}&type=Post" >  <i class="fa-regular fa-heart"></i> <span class="likes" >  </span> </a>
+                    <a  class="liketoggle" href="/likes/toggle?id=${post._id}&type=Post" >  <i class="fa-regular fa-heart"></i> <span class="likes" > 0  </span> </a>
                     <span class="comments" >  <i class="fa-regular fa-comment"></i> comments  </span>
                 </div>
 
@@ -112,6 +112,11 @@
             </div>
         `)
 
+        if(post.content){
+            let tar = $('.contentbox' , body )
+            // $(`<p class="textcontent" > ${ post.content }</p>`).insertBefore(tar)
+            tar.append(`<p class="textcontent" > ${ post.content }</p>`);
+        }
         if(post.image){
             let tar = $('.textcontent' , body )
             $(`<img src="${post.image}" class="postimage" >`).insertBefore(tar) ;
@@ -136,7 +141,7 @@
                             <p class="username" > ${ data.user.name } </p>
                                 <p class="commenttime" >${ time.toLocaleTimeString([] , {  hour: '2-digit' , minute: '2-digit' }) }</p>
                             </span>
-                            <p>${ data.content } </p>
+                            <p>${data.content } </p>
                             <a class="liketoggle"  href="/likes/toggle?id=${data._id}&type=Comment" >
                     
                                 <i class="fa-regular fa-heart"></i>

@@ -46,7 +46,9 @@
             <%if(i.image){%>
                 <img  src="<%=i.image%>"  class="postimage" >
             <%}%>
-            <p class="textcontent" ><%= i.content %></p> 
+            <%if(i.content){%>
+                <p class="textcontent" ><%= i.content %></p> 
+            <%}%>
         </div>
 
         <div class="likescomments" >

@@ -6,7 +6,6 @@ const POST_PATH = path.join('/uploads/posts/postimages');
 const postSchema = new mongoose.Schema({
   content : {
     type : String ,
-    required : true
   }  ,
   user : {
     type : mongoose.Schema.Types.ObjectId,

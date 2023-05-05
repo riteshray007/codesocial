@@ -87,34 +87,35 @@ module.exports.stats= (req , res)=>{
     return res.end('<h1> welcome to posts stats </h1>')
 }
 
-module.exports.create_post = async (req , res)=>{
+module.exports.create_post =  (req , res)=>{
     try{
         post.uploadPostImage(req , res , async function (err){
             if(err){
                 console.log(err);
             }
-            console.log('content - ' , req.body.content  ); 
-            let postd = new post ({
-                content : req.body.content,
-                user : req.user._id,
-            })
-            if(req.file){
-                console.log( " filename  - " ,  req.file.filename)
-                postd.image = post.postpath + '/' + req.file.filename
-            }
-            await postd.save();
-            
-        // console.log()
-        // req.flash('error' , 'post published! ')
-            if(req.xhr){
-                postd = await postd.populate('user');
-                return res.status(200).json({
-                    data : {
-                        path : req.app.locals.assetPath('images/gamer.png') ,
-                        post : postd
-                    },
-                    message : 'post created'
+            if(req.file || req.body.content  ){
+                // console.log('content - ' , req.body.content  );
+                var postd = new post ({
+                    user : req.user._id,
                 })
+                if(req.body.content){
+                    postd.content = req.body.content;
+                }
+                if(req.file){
+                    postd.image = post.postpath + '/' + req.file.filename
+                }
+                await postd.save();
+                
+                if(req.xhr){
+                    postd = await postd.populate('user');
+                    return res.status(200).json({
+                        data : {
+                            path : req.app.locals.assetPath('images/gamer.png') ,
+                            post : postd
+                        },
+                        message : 'post created'
+                    })
+                }
             }
             return res.redirect('/posts')
         })
