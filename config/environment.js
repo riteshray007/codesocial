@@ -28,7 +28,7 @@ const development = {
     },
     google_client_id : "23546391621-7qsau9195su6s4qaigihbfq1pcf3jo8s.apps.googleusercontent.com",
     google_client_secret : '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',
-    google_call_back_url : "http://localhost:8000/users/auth/google/callback",
+    google_call_back_url : "http://3.25.113.39:8000/users/auth/google/callback",
     jwt_secret : 'codesocial',
     morgan : {
         mode : 'dev',
